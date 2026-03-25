@@ -161,6 +161,15 @@
     transition: all 0.2s;
   }
   #admin-banner button:hover { border-color: var(--red); color: var(--red); }
+  #admin-banner .export-btn {
+    border-color: rgba(0,230,118,0.4);
+    color: var(--green);
+  }
+  #admin-banner .export-btn:hover {
+    background: rgba(0,230,118,0.12);
+    border-color: var(--green);
+    color: var(--green);
+  }
 
   /* ─── NAV TABS ─── */
   .nav-wrap {
@@ -1086,6 +1095,7 @@
 <div id="admin-banner">
   <span class="admin-pill">Admin</span>
   <span>You are in admin mode — match logs are editable.</span>
+  <button class="export-btn" onclick="exportHTML()">⬇ Export HTML</button>
   <button onclick="logout()">Logout</button>
 </div>
 
@@ -2017,6 +2027,52 @@ function prefillPOTM(month) {
     document.getElementById('potm-f-note').value = award.note || '';
   }
   document.getElementById('potm-admin-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ─── EXPORT HTML ──────────────────────────────────────────────
+function exportHTML() {
+  // Grab the current page HTML
+  const html = document.documentElement.outerHTML;
+
+  // Inject current matchData and potmData as baked-in seed values
+  // by replacing the SEED_DATA and POTM_SEED constants with live data
+  const liveMatchData = JSON.stringify(matchData, null, 2);
+  const livePotmData  = JSON.stringify(potmData,  null, 2);
+
+  // Replace SEED_DATA array
+  let exported = html.replace(
+    /const SEED_DATA = \[[\s\S]*?\];/,
+    `const SEED_DATA = ${liveMatchData};`
+  );
+
+  // Replace POTM_SEED object
+  exported = exported.replace(
+    /const POTM_SEED = \{[\s\S]*?\};/,
+    `const POTM_SEED = ${livePotmData};`
+  );
+
+  // Strip any existing localStorage so viewers start fresh from seed
+  exported = exported.replace(
+    /const stored = localStorage\.getItem\('ff2026_data'\);[\s\S]*?}/,
+    `const stored = null;\n  if (stored) {\n    matchData = JSON.parse(stored);\n  } else {\n    matchData = SEED_DATA.map((e, i) => ({ ...e, id: i }));\n    saveData();\n  }`
+  );
+  exported = exported.replace(
+    /const stored = localStorage\.getItem\('ff2026_potm'\);[\s\S]*?}/,
+    `const stored = null;\n  if (stored) {\n    potmData = JSON.parse(stored);\n  } else {\n    potmData = { ...POTM_SEED };\n    savePOTMData();\n  }`
+  );
+
+  // Create and trigger download
+  const blob = new Blob([exported], { type: 'text/html' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'index.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast('✅ index.html downloaded — upload to GitHub!');
 }
 
 // ─── INIT ─────────────────────────────────────────────────────
