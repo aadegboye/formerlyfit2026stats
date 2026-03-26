@@ -178,6 +178,27 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    position: relative;
+  }
+  /* Fade indicators showing there's more to scroll */
+  .nav-wrap::before,
+  .nav-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 32px;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .nav-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--surface), transparent);
+  }
+  .nav-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--surface), transparent);
   }
   nav {
     max-width: 1200px;
@@ -187,10 +208,12 @@
     gap: 0;
     overflow-x: auto;
     scrollbar-width: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
   nav::-webkit-scrollbar { display: none; }
   .tab {
-    padding: 14px 20px;
+    padding: 14px 18px;
     font-size: 13px;
     font-weight: 500;
     color: var(--muted);
@@ -204,6 +227,7 @@
     border-left: none;
     border-right: none;
     font-family: 'DM Sans', sans-serif;
+    flex-shrink: 0;
   }
   .tab:hover { color: var(--text); }
   .tab.active {
@@ -211,7 +235,56 @@
     border-bottom-color: var(--green);
   }
 
-  /* ─── MAIN LAYOUT ─── */
+  /* ─── NAV ARROWS & DOTS ─── */
+  .nav-arrow {
+    display: none; /* hidden on desktop */
+    position: absolute;
+    top: 0;
+    bottom: 16px; /* above dots */
+    width: 32px;
+    background: var(--surface);
+    border: none;
+    color: var(--muted);
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    padding: 0;
+    line-height: 1;
+  }
+  .nav-arrow:hover { color: var(--green); }
+  .nav-arrow-left { left: 0; background: linear-gradient(to right, var(--surface) 70%, transparent); }
+  .nav-arrow-right { right: 0; background: linear-gradient(to left, var(--surface) 70%, transparent); }
+  .nav-arrow.hidden { opacity: 0; pointer-events: none; }
+
+  .nav-dots {
+    display: none; /* shown on mobile only */
+    justify-content: center;
+    gap: 5px;
+    padding: 4px 0 5px;
+  }
+  .nav-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .nav-dot.active {
+    background: var(--green);
+    width: 16px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 760px) {
+    .nav-arrow { display: flex; }
+    .nav-dots { display: flex; }
+    /* Give nav padding for the arrows */
+    nav { padding: 0 32px; }
+  }
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -665,8 +738,8 @@
     #admin-banner span { font-size: 12px; }
 
     /* Nav */
-    nav { padding: 0 8px; }
-    .tab { padding: 12px 14px; font-size: 12px; }
+    nav { padding: 0 4px; }
+    .tab { padding: 12px 12px; font-size: 12px; letter-spacing: 0; }
 
     /* Main padding */
     main { padding: 20px 14px; }
@@ -1101,14 +1174,17 @@
 
 <!-- NAV -->
 <div class="nav-wrap">
-  <nav>
-    <button class="tab active" onclick="showPage('overall')">🏆 Overall</button>
-    <button class="tab" onclick="showPage('golden-boot')">⚽ Golden Boot</button>
-    <button class="tab" onclick="showPage('playmaker')">🎯 Playmaker</button>
-    <button class="tab" onclick="showPage('cleansheet')">🧤 Clean Sheet</button>
-    <button class="tab" onclick="showPage('matchlog')">📋 Match Log</button>
-    <button class="tab" onclick="showPage('potm')">🌟 Player of the Month</button>
+  <button class="nav-arrow nav-arrow-left" id="nav-arrow-left" onclick="scrollNav(-1)" aria-label="Scroll left">&#8249;</button>
+  <nav id="main-nav">
+    <button class="tab active" onclick="showPage('overall')" data-short="🏆 Leaderboard">🏆 Leaderboard</button>
+    <button class="tab" onclick="showPage('golden-boot')" data-short="⚽ Golden Boot">⚽ Golden Boot</button>
+    <button class="tab" onclick="showPage('playmaker')" data-short="🎯 Playmaker">🎯 Playmaker</button>
+    <button class="tab" onclick="showPage('cleansheet')" data-short="🧤 Clean Sheet">🧤 Clean Sheet</button>
+    <button class="tab" onclick="showPage('matchlog')" data-short="📋 Gameday Logs">📋 Gameday Logs</button>
+    <button class="tab" onclick="showPage('potm')" data-short="🌟 POTMs">🌟 Player of the Month</button>
   </nav>
+  <button class="nav-arrow nav-arrow-right" id="nav-arrow-right" onclick="scrollNav(1)" aria-label="Scroll right">&#8250;</button>
+  <div class="nav-dots" id="nav-dots"></div>
 </div>
 
 <!-- MAIN -->
@@ -1481,6 +1557,79 @@ document.addEventListener('click', e => {
   }
 });
 
+// ─── NAV ENHANCEMENTS ─────────────────────────────────────────
+const TABS = 6; // total number of tabs
+let activeTabIndex = 0;
+
+function initNav() {
+  const nav = document.getElementById('main-nav');
+  const tabs = nav.querySelectorAll('.tab');
+  const dotsContainer = document.getElementById('nav-dots');
+
+  // Build dots
+  dotsContainer.innerHTML = '';
+  tabs.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => {
+      tabs[i].click();
+      tabs[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    };
+    dotsContainer.appendChild(dot);
+  });
+
+  // Apply short labels on mobile
+  applyNavLabels();
+
+  // Update arrows on scroll
+  nav.addEventListener('scroll', updateNavArrows);
+  updateNavArrows();
+}
+
+function applyNavLabels() {
+  const isMobile = window.innerWidth <= 760;
+  const fullLabels = {
+    '🏆 Leaderboard': '🏆 Leaderboard',
+    '⚽ Golden Boot':  '⚽ Golden Boot',
+    '🎯 Playmaker':    '🎯 Playmaker',
+    '🧤 Clean Sheet':  '🧤 Clean Sheet',
+    '📋 Gameday Logs': '📋 Gameday Logs',
+    '🌟 POTMs':        '🌟 Player of the Month'
+  };
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.textContent = isMobile
+      ? tab.dataset.short
+      : (fullLabels[tab.dataset.short] || tab.dataset.short);
+  });
+}
+
+function updateNavArrows() {
+  const nav = document.getElementById('main-nav');
+  const leftBtn  = document.getElementById('nav-arrow-left');
+  const rightBtn = document.getElementById('nav-arrow-right');
+  if (!nav || !leftBtn || !rightBtn) return;
+  const atStart = nav.scrollLeft <= 4;
+  const atEnd   = nav.scrollLeft >= nav.scrollWidth - nav.clientWidth - 4;
+  leftBtn.classList.toggle('hidden', atStart);
+  rightBtn.classList.toggle('hidden', atEnd);
+}
+
+function scrollNav(dir) {
+  const nav = document.getElementById('main-nav');
+  nav.scrollBy({ left: dir * 120, behavior: 'smooth' });
+}
+
+function updateActiveDot(index) {
+  activeTabIndex = index;
+  document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+// Listen for window resize to swap labels
+window.addEventListener('resize', applyNavLabels);
+window.addEventListener('resize', updateNavArrows);
+
 // ─── DATA STORE ───────────────────────────────────────────────
 const MONTHS = ['Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','June 2026','July 2026','Aug 2026','Sept 2026','Oct 2026','Nov 2026'];
 const ADMIN_PASS = 'formerlyfit2026';
@@ -1626,7 +1775,13 @@ function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  event.target.classList.add('active');
+  const activeTab = event.target;
+  activeTab.classList.add('active');
+  // Scroll active tab into centre of nav
+  activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  // Sync dot indicator
+  const tabs = Array.from(document.querySelectorAll('.tab'));
+  updateActiveDot(tabs.indexOf(activeTab));
 }
 
 // ─── COMPUTED STATS ───────────────────────────────────────────
@@ -2079,6 +2234,7 @@ function exportHTML() {
 loadData();
 loadPOTM();
 renderAll();
+initNav();
 </script>
 </body>
 </html>
