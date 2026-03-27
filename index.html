@@ -1816,6 +1816,21 @@ let isAdmin = false;
 let selectedMonth = 'Jan 2026';
 let editingId = null;
 
+// ─── DATA VERSION ─────────────────────────────────────────────
+// Bump this number any time seed data changes (POTM updates, corrections etc.)
+// All visitors with an older version will automatically get fresh data.
+const DATA_VERSION = 2;
+
+function checkVersion() {
+  const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
+  if (storedVersion < DATA_VERSION) {
+    // Clear old data so fresh seed is loaded
+    localStorage.removeItem('ff2026_data');
+    localStorage.removeItem('ff2026_potm');
+    localStorage.setItem('ff2026_version', DATA_VERSION);
+  }
+}
+
 function loadData() {
   const stored = localStorage.getItem('ff2026_data');
   if (stored) {
@@ -2337,27 +2352,30 @@ function prefillPOTM(month) {
 
 // ─── EXPORT HTML ──────────────────────────────────────────────
 function exportHTML() {
-  // Grab the current page HTML
   const html = document.documentElement.outerHTML;
-
-  // Inject current matchData and potmData as baked-in seed values
-  // by replacing the SEED_DATA and POTM_SEED constants with live data
   const liveMatchData = JSON.stringify(matchData, null, 2);
   const livePotmData  = JSON.stringify(potmData,  null, 2);
+  const nextVersion   = DATA_VERSION + 1;
 
-  // Replace SEED_DATA array
+  // Bake in live match data
   let exported = html.replace(
     /const SEED_DATA = \[[\s\S]*?\];/,
     `const SEED_DATA = ${liveMatchData};`
   );
 
-  // Replace POTM_SEED object
+  // Bake in live POTM data
   exported = exported.replace(
     /const POTM_SEED = \{[\s\S]*?\};/,
     `const POTM_SEED = ${livePotmData};`
   );
 
-  // Strip any existing localStorage so viewers start fresh from seed
+  // Bump the version so all returning visitors get fresh data
+  exported = exported.replace(
+    /const DATA_VERSION = \d+;/,
+    `const DATA_VERSION = ${nextVersion};`
+  );
+
+  // Strip localStorage reads so exported file always loads from seed
   exported = exported.replace(
     /const stored = localStorage\.getItem\('ff2026_data'\);[\s\S]*?}/,
     `const stored = null;\n  if (stored) {\n    matchData = JSON.parse(stored);\n  } else {\n    matchData = SEED_DATA.map((e, i) => ({ ...e, id: i }));\n    saveData();\n  }`
@@ -2367,7 +2385,6 @@ function exportHTML() {
     `const stored = null;\n  if (stored) {\n    potmData = JSON.parse(stored);\n  } else {\n    potmData = { ...POTM_SEED };\n    savePOTMData();\n  }`
   );
 
-  // Create and trigger download
   const blob = new Blob([exported], { type: 'text/html' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
@@ -2382,6 +2399,7 @@ function exportHTML() {
 }
 
 // ─── INIT ─────────────────────────────────────────────────────
+checkVersion();
 loadData();
 loadPOTM();
 renderAll();
