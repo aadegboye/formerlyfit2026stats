@@ -2240,15 +2240,17 @@ function renderPOTM() {
     const noAward   = award && award.player === null;
     const ps = hasWinner ? (monthStats[award.player] || { goals: 0, assists: 0, cs: 0 }) : null;
 
-    // Build top 2 leaderboard for months still in progress
-    const top2 = Object.entries(monthStats)
+    // Build "in the running" list: all players within 2 pts of the leader, max 3
+    const allPlayers = Object.entries(monthStats)
       .map(([name, s]) => ({ name, ...s, total: s.goals + s.assists + s.cs }))
       .filter(p => p.total > 0)
-      .sort((a, b) => b.total - a.total || b.goals - a.goals || b.assists - a.assists)
-      .slice(0, 2);
+      .sort((a, b) => b.total - a.total || b.goals - a.goals || b.assists - a.assists);
 
-    const hasData = top2.length > 0;
-    const posIcons = ['🥇', '🥈'];
+    const topTotal = allPlayers.length > 0 ? allPlayers[0].total : 0;
+    const inRunning = allPlayers.filter(p => p.total >= topTotal - 2).slice(0, 3);
+
+    const hasData = inRunning.length > 0;
+    const posIcons = ['🥇', '🥈', '🥉'];
 
     gridHtml += `<div class="potm-card ${noAward ? 'potm-card-noaward' : ''}">
       ${hasWinner ? '<div class="potm-ribbon">Winner</div>' : ''}
@@ -2281,16 +2283,28 @@ function renderPOTM() {
               <tr><th></th><th>Player</th><th>⚽</th><th>🎯</th><th>🧤</th><th>Pts</th></tr>
             </thead>
             <tbody>
-              ${top2.map((p, i) => `
-                <tr>
-                  <td class="potm-running-pos">${posIcons[i]}</td>
-                  <td>${p.name}</td>
-                  <td><span class="potm-running-sub">${p.goals || '—'}</span></td>
-                  <td><span class="potm-running-sub">${p.assists || '—'}</span></td>
-                  <td><span class="potm-running-sub">${p.cs || '—'}</span></td>
-                  <td><span class="potm-running-total">${p.total}</span></td>
-                </tr>
-              `).join('')}
+              ${(() => {
+                // Group players by total score so ties share one row
+                const groups = [];
+                inRunning.forEach(p => {
+                  const last = groups[groups.length - 1];
+                  if (last && last.total === p.total) {
+                    last.names.push(p.name);
+                  } else {
+                    groups.push({ total: p.total, goals: p.goals, assists: p.assists, cs: p.cs, names: [p.name] });
+                  }
+                });
+                return groups.map((g, i) => `
+                  <tr>
+                    <td class="potm-running-pos">${posIcons[i]}</td>
+                    <td style="font-size:${g.names.length > 1 ? '11px' : '12px'}">${g.names.join(' / ')}</td>
+                    <td><span class="potm-running-sub">${g.goals || '—'}</span></td>
+                    <td><span class="potm-running-sub">${g.assists || '—'}</span></td>
+                    <td><span class="potm-running-sub">${g.cs || '—'}</span></td>
+                    <td><span class="potm-running-total">${g.total}</span></td>
+                  </tr>
+                `).join('');
+              })()}
             </tbody>
           </table>
         </div>
