@@ -1819,7 +1819,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 3;
+const DATA_VERSION = 4;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -2240,14 +2240,20 @@ function renderPOTM() {
     const noAward   = award && award.player === null;
     const ps = hasWinner ? (monthStats[award.player] || { goals: 0, assists: 0, cs: 0 }) : null;
 
-    // Build "in the running" list: all players within 2 pts of the leader, max 3
+    // Build "in the running" list: all players within 2 pts of the leader
+    // Keep up to 3 distinct score tiers, but include ALL players tied within each tier
     const allPlayers = Object.entries(monthStats)
       .map(([name, s]) => ({ name, ...s, total: s.goals + s.assists + s.cs }))
       .filter(p => p.total > 0)
       .sort((a, b) => b.total - a.total || b.goals - a.goals || b.assists - a.assists);
 
     const topTotal = allPlayers.length > 0 ? allPlayers[0].total : 0;
-    const inRunning = allPlayers.filter(p => p.total >= topTotal - 2).slice(0, 3);
+    // Get distinct score tiers within 2 pts of leader, max 3 tiers
+    const tiers = [...new Set(allPlayers.map(p => p.total))]
+      .filter(t => t >= topTotal - 2)
+      .sort((a, b) => b - a)
+      .slice(0, 3);
+    const inRunning = allPlayers.filter(p => tiers.includes(p.total));
 
     const hasData = inRunning.length > 0;
     const posIcons = ['🥇', '🥈', '🥉'];
