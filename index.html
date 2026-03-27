@@ -1039,6 +1039,103 @@
     font-size: 13px;
     font-style: italic;
   }
+
+  /* ─── IN THE RUNNING (no winner yet) ─── */
+  .potm-running {
+    padding: 14px 16px 16px;
+  }
+  .potm-running-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .potm-running-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .potm-running-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .potm-running-table th {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 4px 6px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .potm-running-table th:first-child { text-align: left; }
+  .potm-running-table td {
+    padding: 7px 6px;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(31,45,31,0.4);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .potm-running-table tr:last-child td { border-bottom: none; }
+  .potm-running-table td:first-child { text-align: left; font-weight: 500; }
+  .potm-running-pos {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    width: 20px;
+    text-align: center;
+  }
+  .potm-running-total {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--green);
+  }
+  .potm-running-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .potm-no-data {
+    padding: 16px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── NO AWARD STATE ─── */
+  .potm-card-noaward {
+    opacity: 0.75;
+  }
+  .potm-noaward-body {
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .potm-noaward-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    filter: grayscale(1);
+  }
+  .potm-noaward-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .potm-noaward-reason {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
   .potm-ribbon {
     position: absolute;
     top: 12px; right: -22px;
@@ -1387,6 +1484,7 @@
         </div>
         <div class="form-row-actions">
           <button class="btn btn-primary" onclick="savePOTM()">Save Award</button>
+          <button class="btn btn-secondary" onclick="saveNoAward()">🚫 No Award This Month</button>
           <button class="btn btn-danger" onclick="clearPOTM()">Clear Month</button>
         </div>
       </div>
@@ -2050,6 +2148,7 @@ function renderAll() {
 
 // ─── PLAYER OF THE MONTH ──────────────────────────────────────
 const POTM_SEED = {
+  'Jan 2026': { player: null, note: 'Not enough data for an award this month.' },
   'Feb 2026': { player: 'Olorunfemi', note: '3 goals, 2 assists in February' }
 };
 
@@ -2080,6 +2179,16 @@ function savePOTM() {
   showToast(`🌟 ${player} awarded POTM for ${month}!`);
 }
 
+function saveNoAward() {
+  const month = document.getElementById('potm-f-month').value;
+  const note = document.getElementById('potm-f-note').value.trim() || 'Not enough data for an award this month.';
+  if (!confirm(`Mark ${month} as No POTM Award?`)) return;
+  potmData[month] = { player: null, note };
+  savePOTMData();
+  renderPOTM();
+  showToast(`🚫 ${month} marked as No Award`);
+}
+
 function clearPOTM() {
   const month = document.getElementById('potm-f-month').value;
   if (!potmData[month]) { showToast('No award set for this month', true); return; }
@@ -2108,20 +2217,31 @@ function renderPOTM() {
   document.getElementById('potm-datalist').innerHTML = players.map(p => `<option value="${p}">`).join('');
 
   // Cards grid
-  const awardsGiven = MONTHS.filter(m => potmData[m]);
   let gridHtml = '';
   for (const m of MONTHS) {
     const award = potmData[m];
-    const monthStats = award ? getMonthStats(m) : {};
-    const ps = award ? (monthStats[award.player] || { goals: 0, assists: 0, cs: 0 }) : null;
+    const monthStats = getMonthStats(m);
+    const hasWinner = award && award.player !== null;
+    const noAward   = award && award.player === null;
+    const ps = hasWinner ? (monthStats[award.player] || { goals: 0, assists: 0, cs: 0 }) : null;
 
-    gridHtml += `<div class="potm-card">
-      ${award ? '<div class="potm-ribbon">Winner</div>' : ''}
+    // Build top 2 leaderboard for months still in progress
+    const top2 = Object.entries(monthStats)
+      .map(([name, s]) => ({ name, ...s, total: s.goals + s.assists + s.cs }))
+      .filter(p => p.total > 0)
+      .sort((a, b) => b.total - a.total || b.goals - a.goals || b.assists - a.assists)
+      .slice(0, 2);
+
+    const hasData = top2.length > 0;
+    const posIcons = ['🥇', '🥈'];
+
+    gridHtml += `<div class="potm-card ${noAward ? 'potm-card-noaward' : ''}">
+      ${hasWinner ? '<div class="potm-ribbon">Winner</div>' : ''}
       <div class="potm-card-header">
         <span class="potm-month-label">${m}</span>
-        <span class="potm-star">${award ? '⭐' : '·'}</span>
+        <span class="potm-star">${hasWinner ? '⭐' : noAward ? '🚫' : hasData ? '🔥' : '·'}</span>
       </div>
-      ${award ? `
+      ${hasWinner ? `
         <div class="potm-body">
           <div class="potm-winner-name">${award.player}</div>
           ${award.note ? `<div class="potm-reason">${award.note}</div>` : ''}
@@ -2132,7 +2252,34 @@ function renderPOTM() {
             <div class="potm-stat"><div class="potm-stat-val">${ps.goals + ps.assists + ps.cs}</div><div class="potm-stat-label">Total</div></div>
           </div>
         </div>
-      ` : `<div class="potm-no-winner">No award yet</div>`}
+      ` : noAward ? `
+        <div class="potm-noaward-body">
+          <div class="potm-noaward-icon">🚫</div>
+          <div class="potm-noaward-text">No POTM Award</div>
+          <div class="potm-noaward-reason">${award.note || 'Not enough data for an award this month.'}</div>
+        </div>
+      ` : hasData ? `
+        <div class="potm-running">
+          <div class="potm-running-label">In The Running</div>
+          <table class="potm-running-table">
+            <thead>
+              <tr><th></th><th>Player</th><th>⚽</th><th>🎯</th><th>🧤</th><th>Pts</th></tr>
+            </thead>
+            <tbody>
+              ${top2.map((p, i) => `
+                <tr>
+                  <td class="potm-running-pos">${posIcons[i]}</td>
+                  <td>${p.name}</td>
+                  <td><span class="potm-running-sub">${p.goals || '—'}</span></td>
+                  <td><span class="potm-running-sub">${p.assists || '—'}</span></td>
+                  <td><span class="potm-running-sub">${p.cs || '—'}</span></td>
+                  <td><span class="potm-running-total">${p.total}</span></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      ` : `<div class="potm-no-data">No match data yet</div>`}
     </div>`;
   }
   document.getElementById('potm-grid').innerHTML = gridHtml;
@@ -2141,11 +2288,15 @@ function renderPOTM() {
   let tlHtml = '';
   for (const m of MONTHS) {
     const award = potmData[m];
+    const hasWinner = award && award.player !== null;
+    const noAward   = award && award.player === null;
     tlHtml += `<div class="potm-timeline-item">
       <span class="potm-tl-month">${m}</span>
-      ${award
+      ${hasWinner
         ? `<span class="potm-tl-winner"><span class="star">⭐</span>${award.player}${award.note ? `<span style="font-size:12px;color:var(--muted);font-weight:400"> · ${award.note}</span>` : ''}</span>`
-        : `<span class="potm-tl-empty">—</span>`}
+        : noAward
+          ? `<span class="potm-tl-empty" style="color:var(--muted);font-style:italic">🚫 No award — ${award.note || 'not enough data'}</span>`
+          : `<span class="potm-tl-empty">—</span>`}
       ${isAdmin ? `<button class="action-btn" onclick="prefillPOTM('${m}')">✏️</button>` : ''}
     </div>`;
   }
