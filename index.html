@@ -1302,8 +1302,8 @@
             <th>Player</th>
             <th style="text-align:center" class="hide-mobile">⚽ Goals</th>
             <th style="text-align:center" class="hide-mobile">🎯 Assists</th>
-            <th style="text-align:center" class="hide-mobile">🧤 CS</th>
-            <th>Total</th>
+            <th style="text-align:center" class="hide-mobile">🧤 Cleansheet</th>
+            <th>G/A/C</th>
           </tr>
         </thead>
         <tbody id="overall-tbody"></tbody>
@@ -1819,7 +1819,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 4;
+const DATA_VERSION = 5;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -2164,7 +2164,7 @@ function renderAll() {
 // ─── PLAYER OF THE MONTH ──────────────────────────────────────
 const POTM_SEED = {
   'Jan 2026': { player: null, note: 'Not enough data for an award this month.' },
-  'Feb 2026': { player: 'Olorunfemi', note: '3 goals, 2 assists in February' }
+  'Feb 2026': { player: 'Olorunfemi', note: '2 goals, 3 clean sheets in February' }
 };
 
 let potmData = {};
@@ -2286,7 +2286,7 @@ function renderPOTM() {
           <div class="potm-running-label">In The Running</div>
           <table class="potm-running-table">
             <thead>
-              <tr><th></th><th>Player</th><th>⚽</th><th>🎯</th><th>🧤</th><th>Pts</th></tr>
+              <tr><th></th><th>Player</th><th>G</th><th>A</th><th>CS</th><th>G/A/C</th></tr>
             </thead>
             <tbody>
               ${(() => {
