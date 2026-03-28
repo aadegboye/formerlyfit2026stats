@@ -1,9 +1,11 @@
-<html lang="en-US" style="transition-property: none; margin-right: 0px;"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formerly Fit FC · 2026 Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --green: #00E676;
@@ -1204,7 +1206,7 @@
   .potm-tl-winner .star { color: var(--gold); }
   .potm-tl-empty { color: var(--muted); font-size: 13px; font-style: italic; flex: 1; }
 </style>
-<style>.village-iframe{width:100%;height:100%;border:none;display:block;position:fixed;top:0;left:0;z-index:2147483647;background:#0000003d;color-scheme:light}.village-iframe.village-loading{display:flex;justify-content:center;align-items:center}.village-iframe>.village-spinner{width:1.5rem;height:1.5rem;border:2px solid #000;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin .45s linear infinite}.village-iframe.village-hidden{display:none}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.village-hidden{display:none}[village-paths-data=facepiles]{display:flex;align-items:center;padding-right:.5rem}[village-paths-data=facepiles] img{width:1.5rem;height:1.5rem;border-radius:50%;margin-right:-.5rem}[village-paths-data=facepiles] img.village-facepiler-avatar-not-found{filter:blur(7px)}[village-paths-data=facepiles] img:last-child{margin-right:0}[village-paths-data=count]{padding-right:.25rem}[village-paths-availability=error],[village-paths-availability=found],[village-paths-availability=not-found],[village-paths-availability=not-activated]{display:none!important}[village-paths-availability=loading]{display:inline-flex!important}</style><script id="simplify-jobs-page-script" src="chrome-extension://a171f77f-c296-4509-be83-1265cd4438a9/js/pageScript.bundle.js"></script><style id="ReanimatedPredefinedWebAnimationsStyle"></style><style id="ReanimatedCustomWebAnimationsStyle"></style><style id="ReanimatedCSSStyleTag"></style></head>
+</head>
 <body>
 
 <!-- ADMIN LOGIN MODAL -->
@@ -1212,25 +1214,25 @@
   <div class="modal">
     <h2>⚽ Admin Login</h2>
     <p>Enter your admin password to manage match logs.</p>
-    <div class="error-msg" id="loginError" style="display: none;">Incorrect password. Try again.</div>
+    <div class="error-msg" id="loginError">Incorrect password. Try again.</div>
     <input type="password" id="adminPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
     <div class="modal-actions">
-      <button class="btn btn-primary" onclick="doLogin()">Add Entry</button>
+      <button class="btn btn-primary" onclick="doLogin()">Login</button>
       <button class="btn btn-secondary" onclick="closeLogin()">Cancel</button>
     </div>
   </div>
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast" style="background: var(--green); color: var(--dark);">Admin mode active</div>
+<div class="toast" id="toast"></div>
 
 <!-- CALENDAR POPUP -->
 <div class="cal-backdrop" id="cal-backdrop" onclick="closeCalendar()"></div>
-<div class="cal-popup" id="cal-popup" style="position: absolute; top: 473.556px; left: 289.778px;">
+<div class="cal-popup" id="cal-popup">
   <div class="cal-nav">
-    <button class="cal-nav-btn" onclick="calShift(-1)">‹</button>
-    <span class="cal-month-label" id="cal-month-label">March 2026</span>
-    <button class="cal-nav-btn" onclick="calShift(1)">›</button>
+    <button class="cal-nav-btn" onclick="calShift(-1)">&#8249;</button>
+    <span class="cal-month-label" id="cal-month-label"></span>
+    <button class="cal-nav-btn" onclick="calShift(1)">&#8250;</button>
   </div>
   <div class="cal-grid" id="cal-grid">
     <div class="cal-dow">Su</div>
@@ -1240,7 +1242,7 @@
     <div class="cal-dow">Th</div>
     <div class="cal-dow">Fr</div>
     <div class="cal-dow sat">Sa</div>
-  <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day sat">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day sat">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day sat">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day sat selected">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day">31</div></div>
+  </div>
   <div class="cal-hint">Saturdays highlighted · all days selectable</div>
 </div>
 
@@ -1256,19 +1258,19 @@
     </div>
     <div class="header-stats">
       <div class="hstat">
-        <div class="hstat-val" id="h-goals">33</div>
+        <div class="hstat-val" id="h-goals">—</div>
         <div class="hstat-label">Goals</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val" id="h-assists">28</div>
+        <div class="hstat-val" id="h-assists">—</div>
         <div class="hstat-label">Assists</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val" id="h-cs">40</div>
+        <div class="hstat-val" id="h-cs">—</div>
         <div class="hstat-label">Clean Sheets</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val" id="h-players">47</div>
+        <div class="hstat-val" id="h-players">—</div>
         <div class="hstat-label">Players</div>
       </div>
     </div>
@@ -1276,7 +1278,7 @@
 </header>
 
 <!-- ADMIN BANNER -->
-<div id="admin-banner" class="active">
+<div id="admin-banner">
   <span class="admin-pill">Admin</span>
   <span>You are in admin mode — match logs are editable.</span>
   <button class="export-btn" onclick="exportHTML()">⬇ Export HTML</button>
@@ -1285,24 +1287,24 @@
 
 <!-- NAV -->
 <div class="nav-wrap">
-  <button class="nav-arrow nav-arrow-left hidden" id="nav-arrow-left" onclick="scrollNav(-1)" aria-label="Scroll left">‹</button>
+  <button class="nav-arrow nav-arrow-left" id="nav-arrow-left" onclick="scrollNav(-1)" aria-label="Scroll left">&#8249;</button>
   <nav id="main-nav">
-    <button class="tab" onclick="showPage('overall')" data-short="🏆 Leaderboard">🏆 Leaderboard</button>
+    <button class="tab active" onclick="showPage('overall')" data-short="🏆 Leaderboard">🏆 Leaderboard</button>
     <button class="tab" onclick="showPage('golden-boot')" data-short="⚽ Golden Boot">⚽ Golden Boot</button>
     <button class="tab" onclick="showPage('playmaker')" data-short="🎯 Playmaker">🎯 Playmaker</button>
     <button class="tab" onclick="showPage('cleansheet')" data-short="🧤 Clean Sheet">🧤 Clean Sheet</button>
-    <button class="tab active" onclick="showPage('matchlog')" data-short="📋 Gameday Logs">📋 Gameday Logs</button>
+    <button class="tab" onclick="showPage('matchlog')" data-short="📋 Gameday Logs">📋 Gameday Logs</button>
     <button class="tab" onclick="showPage('potm')" data-short="🌟 POTMs">🌟 Player of the Month</button>
   </nav>
-  <button class="nav-arrow nav-arrow-right hidden" id="nav-arrow-right" onclick="scrollNav(1)" aria-label="Scroll right">›</button>
-  <div class="nav-dots" id="nav-dots"><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot"></div><div class="nav-dot active"></div><div class="nav-dot"></div></div>
+  <button class="nav-arrow nav-arrow-right" id="nav-arrow-right" onclick="scrollNav(1)" aria-label="Scroll right">&#8250;</button>
+  <div class="nav-dots" id="nav-dots"></div>
 </div>
 
 <!-- MAIN -->
 <main>
 
   <!-- OVERALL RANKINGS -->
-  <div class="page" id="page-overall">
+  <div class="page active" id="page-overall">
     <div class="section-title"><span class="accent">Overall</span>&nbsp;Rankings</div>
     <div class="section-sub">Combined Goals + Assists + Clean Sheets · 2026 Season</div>
     <div class="search-bar">
@@ -1320,336 +1322,7 @@
             <th>G/A/C</th>
           </tr>
         </thead>
-        <tbody id="overall-tbody"><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Olorunfemi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
-      <td><span class="overall-gac">8</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Emma Ajayi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Akin Benzema</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Abdul GH</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td><span class="overall-gac">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Chidi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Victor</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td><span class="overall-gac">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">John</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
-      <td><span class="overall-gac">4</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Abdul</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Tdexx</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Emma Ike</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Dimeji</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Kwaku</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Dismas</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Temi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Mayowa</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">8</td>
-      <td class="player-name">Moyo</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">AB</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Bolu</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Farouk</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Chibuzor</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Sheyi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Eben</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Yaya</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Dare</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Banji</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Oluchi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">17</td>
-      <td class="player-name">Jibo</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Chris</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Dayo</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Abdou</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Zinga</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Oche</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Emma Cannavaro</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Francis</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Skully</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Sunny</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Pride</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Taiwo</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Raph</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Stanley</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Regis</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Lotanna</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Yemi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">David</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Akin Messi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Johnson</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">28</td>
-      <td class="player-name">Yustao</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr></tbody>
+        <tbody id="overall-tbody"></tbody>
       </table>
     </div>
   </div>
@@ -1665,101 +1338,13 @@
       <div class="lb-header">
         <span class="lb-icon">⚽</span>
         <span class="lb-title">Goals Leaderboard</span>
-        <span class="lb-total" id="gb-total-label">Total: 33</span>
+        <span class="lb-total" id="gb-total-label"></span>
       </div>
       <table>
         <thead>
           <tr><th>Rank</th><th>Player</th><th>Goals</th></tr>
         </thead>
-        <tbody id="gb-tbody"><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Abdul</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Tdexx</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Emma Ajayi</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">AB</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">Olorunfemi</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">Emma Ike</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">Bolu</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">Akin Benzema</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Farouk</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Chris</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Chibuzor</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Kwaku</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Sheyi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Dimeji</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Dayo</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Abdul GH</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Eben</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Abdou</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Zinga</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Yaya</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Oche</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Emma Cannavaro</td>
-      <td><span class="stat-val">1</span></td>
-    </tr></tbody>
+        <tbody id="gb-tbody"></tbody>
       </table>
     </div>
   </div>
@@ -1775,97 +1360,13 @@
       <div class="lb-header">
         <span class="lb-icon">🎯</span>
         <span class="lb-title">Assists Leaderboard</span>
-        <span class="lb-total" id="pm-total-label">Total: 28</span>
+        <span class="lb-total" id="pm-total-label"></span>
       </div>
       <table>
         <thead>
           <tr><th>Rank</th><th>Player</th><th>Assists</th></tr>
         </thead>
-        <tbody id="pm-tbody"><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Chidi</td>
-      <td><span class="stat-val">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Dare</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Dimeji</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Akin Benzema</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Banji</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Farouk</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Francis</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Chibuzor</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Olorunfemi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Emma Ike</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Sheyi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Dismas</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Temi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Skully</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Sunny</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Emma Ajayi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Pride</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Eben</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Taiwo</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Raph</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Victor</td>
-      <td><span class="stat-val">1</span></td>
-    </tr></tbody>
+        <tbody id="pm-tbody"></tbody>
       </table>
     </div>
   </div>
@@ -1873,7 +1374,7 @@
   <!-- CLEAN SHEET -->
   <div class="page" id="page-cleansheet">
     <div class="section-title"><span class="accent">Clean</span>&nbsp;Sheet Race</div>
-    <div class="section-sub">Top keepers &amp; defenders · 2026 Season</div>
+    <div class="section-sub">Top keepers & defenders · 2026 Season</div>
     <div class="search-bar">
       <input type="text" placeholder="Search player…" oninput="filterTable(this,'cs-tbody')">
     </div>
@@ -1881,104 +1382,24 @@
       <div class="lb-header">
         <span class="lb-icon">🧤</span>
         <span class="lb-title">Clean Sheet Leaderboard</span>
-        <span class="lb-total" id="cs-total-label">Total: 40</span>
+        <span class="lb-total" id="cs-total-label"></span>
       </div>
       <table>
         <thead>
           <tr><th>Rank</th><th>Player</th><th>Clean Sheets</th></tr>
         </thead>
-        <tbody id="cs-tbody"><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Olorunfemi</td>
-      <td><span class="stat-val">5</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">John</td>
-      <td><span class="stat-val">4</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-3">🥉 3</td>
-      <td class="player-name">Mayowa</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-3">🥉 3</td>
-      <td class="player-name">Abdul GH</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-3">🥉 3</td>
-      <td class="player-name">Moyo</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-3">🥉 3</td>
-      <td class="player-name">Victor</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">7</td>
-      <td class="player-name">Kwaku</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">7</td>
-      <td class="player-name">Dismas</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">7</td>
-      <td class="player-name">Temi</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">7</td>
-      <td class="player-name">Oluchi</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">7</td>
-      <td class="player-name">Jibo</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Stanley</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Regis</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Lotanna</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Yemi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Yaya</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">David</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Akin Messi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Johnson</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">12</td>
-      <td class="player-name">Yustao</td>
-      <td><span class="stat-val">1</span></td>
-    </tr></tbody>
+        <tbody id="cs-tbody"></tbody>
       </table>
     </div>
   </div>
 
   <!-- MATCH LOG -->
-  <div class="page active" id="page-matchlog">
+  <div class="page" id="page-matchlog">
     <div class="section-title"><span class="accent">Match</span>&nbsp;Log</div>
     <div class="section-sub">Weekly results by month</div>
 
     <!-- ADMIN ADD ENTRY (hidden unless admin) -->
-    <div id="admin-add-section" style="display: block;">
+    <div id="admin-add-section" style="display:none">
       <div class="admin-section">
         <div class="admin-section-header">➕ Log Match Entry</div>
         <div class="form-grid">
@@ -2004,13 +1425,13 @@
               <span id="cal-display">Pick a date…</span>
               <span class="cal-icon">📅</span>
             </div>
-            <input type="hidden" id="f-date" value="">
-            <input type="hidden" id="f-date-raw" value="">
+            <input type="hidden" id="f-date">
+            <input type="hidden" id="f-date-raw">
           </div>
           <div class="form-group">
             <label>Player Name</label>
             <input type="text" id="f-player" placeholder="e.g. Olorunfemi" list="player-datalist">
-            <datalist id="player-datalist"><option value="AB"></option><option value="Abdou"></option><option value="Abdul"></option><option value="Abdul GH"></option><option value="Akin Benzema"></option><option value="Akin Messi"></option><option value="Banji"></option><option value="Bolu"></option><option value="Chibuzor"></option><option value="Chidi"></option><option value="Chris"></option><option value="Dare"></option><option value="David"></option><option value="Dayo"></option><option value="Dimeji"></option><option value="Dismas"></option><option value="Eben"></option><option value="Emma Ajayi"></option><option value="Emma Cannavaro"></option><option value="Emma Ike"></option><option value="Farouk"></option><option value="Francis"></option><option value="Jibo"></option><option value="John"></option><option value="Johnson"></option><option value="Kwaku"></option><option value="Lotanna"></option><option value="Mayowa"></option><option value="Moyo"></option><option value="Oche"></option><option value="Olorunfemi"></option><option value="Oluchi"></option><option value="Pride"></option><option value="Raph"></option><option value="Regis"></option><option value="Sheyi"></option><option value="Skully"></option><option value="Stanley"></option><option value="Sunny"></option><option value="Taiwo"></option><option value="Tdexx"></option><option value="Temi"></option><option value="Victor"></option><option value="Yaya"></option><option value="Yemi"></option><option value="Yustao"></option><option value="Zinga"></option></datalist>
+            <datalist id="player-datalist"></datalist>
           </div>
           <div class="form-group">
             <label>Goals</label>
@@ -2035,281 +1456,9 @@
     <div class="month-grid">
       <div class="month-nav">
         <div class="month-nav-title">Month</div>
-        <div id="month-nav-btns"><button class="month-btn " onclick="selectMonth('Jan 2026')">
-      Jan 2026 <span class="month-badge">14</span>
-    </button><button class="month-btn " onclick="selectMonth('Feb 2026')">
-      Feb 2026 <span class="month-badge">41</span>
-    </button><button class="month-btn active" onclick="selectMonth('Mar 2026')">
-      Mar 2026 <span class="month-badge">27</span>
-    </button><button class="month-btn " onclick="selectMonth('Apr 2026')">
-      Apr 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('May 2026')">
-      May 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('June 2026')">
-      June 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('July 2026')">
-      July 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('Aug 2026')">
-      Aug 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('Sept 2026')">
-      Sept 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('Oct 2026')">
-      Oct 2026 <span class="month-badge">0</span>
-    </button><button class="month-btn " onclick="selectMonth('Nov 2026')">
-      Nov 2026 <span class="month-badge">0</span>
-    </button></div>
+        <div id="month-nav-btns"></div>
       </div>
-      <div id="match-sessions-container"><div class="match-session">
-        <div class="session-header">
-          <span class="session-date">⚽ Mar 14th</span>
-          <div class="session-totals">
-            <span class="stot">Goals <span>5</span></span>
-            <span class="stot">Assists <span>5</span></span>
-            <span class="stot">CS <span>9</span></span>
-          </div>
-        </div>
-        <table>
-          <thead>
-            <tr><th>Player</th><th style="text-align:center">⚽ Goals</th><th style="text-align:center">🎯 Assists</th><th style="text-align:center">🧤 CS</th><th></th></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td class="player-name">Akin Benzema</td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(55)">✏️</button><button class="action-btn del" onclick="deleteEntry(55)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Emma Ajayi</td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(56)">✏️</button><button class="action-btn del" onclick="deleteEntry(56)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Tdexx</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(57)">✏️</button><button class="action-btn del" onclick="deleteEntry(57)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Farouk</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(58)">✏️</button><button class="action-btn del" onclick="deleteEntry(58)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Raph</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(59)">✏️</button><button class="action-btn del" onclick="deleteEntry(59)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Victor</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(60)">✏️</button><button class="action-btn del" onclick="deleteEntry(60)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Oluchi</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(61)">✏️</button><button class="action-btn del" onclick="deleteEntry(61)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Jibo</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(62)">✏️</button><button class="action-btn del" onclick="deleteEntry(62)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Moyo</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(63)">✏️</button><button class="action-btn del" onclick="deleteEntry(63)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Olorunfemi</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(64)">✏️</button><button class="action-btn del" onclick="deleteEntry(64)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Mayowa</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(65)">✏️</button><button class="action-btn del" onclick="deleteEntry(65)">🗑️</button></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      </div><div class="match-session">
-        <div class="session-header">
-          <span class="session-date">⚽ Mar 28th</span>
-          <div class="session-totals">
-            <span class="stot">Goals <span>6</span></span>
-            <span class="stot">Assists <span>5</span></span>
-            <span class="stot">CS <span>6</span></span>
-          </div>
-        </div>
-        <table>
-          <thead>
-            <tr><th>Player</th><th style="text-align:center">⚽ Goals</th><th style="text-align:center">🎯 Assists</th><th style="text-align:center">🧤 CS</th><th></th></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td class="player-name">Yaya</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(66)">✏️</button><button class="action-btn del" onclick="deleteEntry(66)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Oche</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(67)">✏️</button><button class="action-btn del" onclick="deleteEntry(67)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Emma Cannavaro</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(68)">✏️</button><button class="action-btn del" onclick="deleteEntry(68)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">AB</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(69)">✏️</button><button class="action-btn del" onclick="deleteEntry(69)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Emma Ike</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(70)">✏️</button><button class="action-btn del" onclick="deleteEntry(70)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Abdul GH</td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(71)">✏️</button><button class="action-btn del" onclick="deleteEntry(71)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Chidi</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(72)">✏️</button><button class="action-btn del" onclick="deleteEntry(72)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Banji</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">2</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(73)">✏️</button><button class="action-btn del" onclick="deleteEntry(73)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Victor</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(74)">✏️</button><button class="action-btn del" onclick="deleteEntry(74)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Olorunfemi</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(75)">✏️</button><button class="action-btn del" onclick="deleteEntry(75)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Victor</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(76)">✏️</button><button class="action-btn del" onclick="deleteEntry(76)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Johnson</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(77)">✏️</button><button class="action-btn del" onclick="deleteEntry(77)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Yustao</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(78)">✏️</button><button class="action-btn del" onclick="deleteEntry(78)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Abdul GH</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(79)">✏️</button><button class="action-btn del" onclick="deleteEntry(79)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Kwaku</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(80)">✏️</button><button class="action-btn del" onclick="deleteEntry(80)">🗑️</button></td>
-              </tr>
-            
-              <tr>
-                <td class="player-name">Temi</td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
-                <td style="text-align:center"><span class="stat-val">1</span></td>
-                <td style="text-align:right"><button class="action-btn" onclick="editEntry(81)">✏️</button><button class="action-btn del" onclick="deleteEntry(81)">🗑️</button></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      </div></div>
+      <div id="match-sessions-container"></div>
     </div>
   </div>
 
@@ -2319,7 +1468,7 @@
     <div class="section-sub">Monthly award for the standout performer · 2026 Season</div>
 
     <!-- Admin POTM form -->
-    <div id="potm-admin-section" style="display: block;">
+    <div id="potm-admin-section" style="display:none">
       <div class="potm-admin">
         <div class="admin-section-header">🌟 Set Player of the Month</div>
         <div class="form-grid">
@@ -2342,7 +1491,7 @@
           <div class="form-group">
             <label>Winner</label>
             <input type="text" id="potm-f-player" placeholder="Player name" list="potm-datalist">
-            <datalist id="potm-datalist"><option value="AB"></option><option value="Abdou"></option><option value="Abdul"></option><option value="Abdul GH"></option><option value="Akin Benzema"></option><option value="Akin Messi"></option><option value="Banji"></option><option value="Bolu"></option><option value="Chibuzor"></option><option value="Chidi"></option><option value="Chris"></option><option value="Dare"></option><option value="David"></option><option value="Dayo"></option><option value="Dimeji"></option><option value="Dismas"></option><option value="Eben"></option><option value="Emma Ajayi"></option><option value="Emma Cannavaro"></option><option value="Emma Ike"></option><option value="Farouk"></option><option value="Francis"></option><option value="Jibo"></option><option value="John"></option><option value="Johnson"></option><option value="Kwaku"></option><option value="Lotanna"></option><option value="Mayowa"></option><option value="Moyo"></option><option value="Oche"></option><option value="Olorunfemi"></option><option value="Oluchi"></option><option value="Pride"></option><option value="Raph"></option><option value="Regis"></option><option value="Sheyi"></option><option value="Skully"></option><option value="Stanley"></option><option value="Sunny"></option><option value="Taiwo"></option><option value="Tdexx"></option><option value="Temi"></option><option value="Victor"></option><option value="Yaya"></option><option value="Yemi"></option><option value="Yustao"></option><option value="Zinga"></option></datalist>
+            <datalist id="potm-datalist"></datalist>
           </div>
           <div class="form-group">
             <label>Note <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
@@ -2358,140 +1507,7 @@
     </div>
 
     <!-- Awards grid -->
-    <div class="potm-grid" id="potm-grid"><div class="potm-card potm-card-noaward">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Jan 2026</span>
-        <span class="potm-star">🚫</span>
-      </div>
-      
-        <div class="potm-noaward-body">
-          <div class="potm-noaward-icon">🚫</div>
-          <div class="potm-noaward-text">No POTM Award</div>
-          <div class="potm-noaward-reason">Not enough data for an award this month.</div>
-        </div>
-      
-    </div><div class="potm-card ">
-      <div class="potm-ribbon">Winner</div>
-      <div class="potm-card-header">
-        <span class="potm-month-label">Feb 2026</span>
-        <span class="potm-star">⭐</span>
-      </div>
-      
-        <div class="potm-body">
-          <div class="potm-winner-name">Olorunfemi</div>
-          <div class="potm-reason">2 goals, 3 clean sheets in February</div>
-          <div class="potm-stats-row">
-            <div class="potm-stat"><div class="potm-stat-val">2</div><div class="potm-stat-label">Goals</div></div>
-            <div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">Assists</div></div>
-            <div class="potm-stat"><div class="potm-stat-val">3</div><div class="potm-stat-label">CS</div></div>
-            <div class="potm-stat"><div class="potm-stat-val">5</div><div class="potm-stat-label">Total</div></div>
-          </div>
-        </div>
-      
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Mar 2026</span>
-        <span class="potm-star">🔥</span>
-      </div>
-      
-        <div class="potm-running">
-          <div class="potm-running-label">In The Running</div>
-          <table class="potm-running-table">
-            <thead>
-              <tr><th></th><th>Player</th><th>G</th><th>A</th><th>CS</th><th>G/A/C</th></tr>
-            </thead>
-            <tbody>
-              
-                  <tr>
-                    <td class="potm-running-pos">🥇</td>
-                    <td style="font-size:11px">Akin Benzema / Victor</td>
-                    <td><span class="potm-running-sub">2</span></td>
-                    <td><span class="potm-running-sub">2</span></td>
-                    <td><span class="potm-running-sub">—</span></td>
-                    <td><span class="potm-running-total">4</span></td>
-                  </tr>
-                
-                  <tr>
-                    <td class="potm-running-pos">🥈</td>
-                    <td style="font-size:12px">Emma Ajayi</td>
-                    <td><span class="potm-running-sub">2</span></td>
-                    <td><span class="potm-running-sub">1</span></td>
-                    <td><span class="potm-running-sub">—</span></td>
-                    <td><span class="potm-running-total">3</span></td>
-                  </tr>
-                
-                  <tr>
-                    <td class="potm-running-pos">🥉</td>
-                    <td style="font-size:11px">Abdul GH / Banji / Olorunfemi / Oluchi / Jibo</td>
-                    <td><span class="potm-running-sub">1</span></td>
-                    <td><span class="potm-running-sub">—</span></td>
-                    <td><span class="potm-running-sub">1</span></td>
-                    <td><span class="potm-running-total">2</span></td>
-                  </tr>
-                
-            </tbody>
-          </table>
-        </div>
-      
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Apr 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">May 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">June 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">July 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Aug 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Sept 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Oct 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div><div class="potm-card ">
-      
-      <div class="potm-card-header">
-        <span class="potm-month-label">Nov 2026</span>
-        <span class="potm-star">·</span>
-      </div>
-      <div class="potm-no-data">No match data yet</div>
-    </div></div>
+    <div class="potm-grid" id="potm-grid"></div>
 
     <!-- Timeline -->
     <div class="lb-card">
@@ -2499,51 +1515,7 @@
         <span class="lb-icon">📅</span>
         <span class="lb-title">Award Timeline</span>
       </div>
-      <div class="potm-timeline" id="potm-timeline"><div class="potm-timeline-item">
-      <span class="potm-tl-month">Jan 2026</span>
-      <span class="potm-tl-empty" style="color:var(--muted);font-style:italic">🚫 No award — Not enough data for an award this month.</span>
-      <button class="action-btn" onclick="prefillPOTM('Jan 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Feb 2026</span>
-      <span class="potm-tl-winner"><span class="star">⭐</span>Olorunfemi<span style="font-size:12px;color:var(--muted);font-weight:400"> · 2 goals, 3 clean sheets in February</span></span>
-      <button class="action-btn" onclick="prefillPOTM('Feb 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Mar 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('Mar 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Apr 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('Apr 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">May 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('May 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">June 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('June 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">July 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('July 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Aug 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('Aug 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Sept 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('Sept 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Oct 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('Oct 2026')">✏️</button>
-    </div><div class="potm-timeline-item">
-      <span class="potm-tl-month">Nov 2026</span>
-      <span class="potm-tl-empty">—</span>
-      <button class="action-btn" onclick="prefillPOTM('Nov 2026')">✏️</button>
-    </div></div>
+      <div class="potm-timeline" id="potm-timeline"></div>
     </div>
 
     <!-- All-time count -->
@@ -2554,17 +1526,7 @@
       </div>
       <table>
         <thead><tr><th>Rank</th><th>Player</th><th>Awards</th></tr></thead>
-        <tbody id="potm-awards-tbody">
-    <tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">null</td>
-      <td><span class="stat-val">1</span></td>
-    </tr>
-    <tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Olorunfemi</td>
-      <td><span class="stat-val">1</span></td>
-    </tr></tbody>
+        <tbody id="potm-awards-tbody"></tbody>
       </table>
     </div>
   </div>
@@ -2573,7 +1535,7 @@
 
 <!-- ADMIN FLOAT BUTTON -->
 <div class="admin-float">
-  <button onclick="openLogin()" id="admin-login-btn">🔓 Logout</button>
+  <button onclick="openLogin()" id="admin-login-btn">🔐 Admin</button>
 </div>
 
 <script>
@@ -2788,744 +1750,81 @@ const ADMIN_PASS = 'formerlyfit2026';
 
 // Seed data extracted from the Excel
 const SEED_DATA = [
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Abdul",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 0
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "AB",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 1
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Farouk",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 2
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Chris",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 3
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Dare",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 4
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Chidi",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 5
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Francis",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 6
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Chibuzor",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 7
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Stanley",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 8
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Kwaku",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 9
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "John",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 10
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Olorunfemi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 11
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Regis",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 12
-  },
-  {
-    "month": "Jan 2026",
-    "date": "Jan 17th",
-    "player": "Mayowa",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 13
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Emma Ike",
-    "goals": 1,
-    "assists": 1,
-    "cs": 0,
-    "id": 14
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Olorunfemi",
-    "goals": 2,
-    "assists": 0,
-    "cs": 1,
-    "id": 15
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Tdexx",
-    "goals": 2,
-    "assists": 0,
-    "cs": 0,
-    "id": 16
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Chibuzor",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 17
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Bolu",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 18
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Abdul",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 19
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Sheyi",
-    "goals": 1,
-    "assists": 1,
-    "cs": 0,
-    "id": 20
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Dimeji",
-    "goals": 0,
-    "assists": 2,
-    "cs": 0,
-    "id": 21
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Dismas",
-    "goals": 0,
-    "assists": 1,
-    "cs": 1,
-    "id": 22
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Temi",
-    "goals": 0,
-    "assists": 1,
-    "cs": 1,
-    "id": 23
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Skully",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 24
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Sunny",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 25
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Lotanna",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 26
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "Mayowa",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 27
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 14th",
-    "player": "John",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 28
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Dayo",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 29
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Bolu",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 30
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Abdul",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 31
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Emma Ajayi",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 32
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Kwaku",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 33
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Dare",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 34
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Chidi",
-    "goals": 0,
-    "assists": 2,
-    "cs": 0,
-    "id": 35
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Pride",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 36
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Olorunfemi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 37
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Abdul GH",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 38
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Dismas",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 39
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Moyo",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 40
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "John",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 41
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 21st",
-    "player": "Yemi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 42
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Dimeji",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 43
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Eben",
-    "goals": 1,
-    "assists": 1,
-    "cs": 0,
-    "id": 44
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Abdou",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 45
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Zinga",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 46
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Taiwo",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 47
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Moyo",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 48
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Olorunfemi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 49
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "John",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 50
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Yaya",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 51
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Abdul GH",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 52
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "David",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 53
-  },
-  {
-    "month": "Feb 2026",
-    "date": "Feb 28th",
-    "player": "Akin Messi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 54
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Akin Benzema",
-    "goals": 2,
-    "assists": 2,
-    "cs": 0,
-    "id": 55
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Emma Ajayi",
-    "goals": 2,
-    "assists": 1,
-    "cs": 0,
-    "id": 56
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Tdexx",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0,
-    "id": 57
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Farouk",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 58
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Raph",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0,
-    "id": 59
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Victor",
-    "goals": 0,
-    "assists": 0,
-    "cs": 2,
-    "id": 60
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Oluchi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 2,
-    "id": 61
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Jibo",
-    "goals": 0,
-    "assists": 0,
-    "cs": 2,
-    "id": 62
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Moyo",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 63
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Olorunfemi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 64
-  },
-  {
-    "month": "Mar 2026",
-    "date": "Mar 14th",
-    "player": "Mayowa",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1,
-    "id": 65
-  },
-  {
-    "id": 66,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Yaya",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0
-  },
-  {
-    "id": 67,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Oche",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0
-  },
-  {
-    "id": 68,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Emma Cannavaro",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0
-  },
-  {
-    "id": 69,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "AB",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0
-  },
-  {
-    "id": 70,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Emma Ike",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0
-  },
-  {
-    "id": 71,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Abdul GH",
-    "goals": 1,
-    "assists": 0,
-    "cs": 0
-  },
-  {
-    "id": 72,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Chidi",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0
-  },
-  {
-    "id": 73,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Banji",
-    "goals": 0,
-    "assists": 2,
-    "cs": 0
-  },
-  {
-    "id": 74,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Victor",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0
-  },
-  {
-    "id": 75,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Olorunfemi",
-    "goals": 0,
-    "assists": 1,
-    "cs": 0
-  },
-  {
-    "id": 76,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Victor",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1
-  },
-  {
-    "id": 77,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Johnson",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1
-  },
-  {
-    "id": 78,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Yustao",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1
-  },
-  {
-    "id": 79,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Abdul GH",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1
-  },
-  {
-    "id": 80,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Kwaku",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1
-  },
-  {
-    "id": 81,
-    "month": "Mar 2026",
-    "date": "Mar 28th",
-    "player": "Temi",
-    "goals": 0,
-    "assists": 0,
-    "cs": 1
-  }
+  // Jan 2026 - Jan 17th
+  {month:'Jan 2026', date:'Jan 17th', player:'Abdul', goals:1, assists:0, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'AB', goals:1, assists:0, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Farouk', goals:1, assists:0, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Chris', goals:1, assists:0, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Dare', goals:0, assists:1, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Chidi', goals:0, assists:1, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Francis', goals:0, assists:1, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Chibuzor', goals:0, assists:1, cs:0},
+  {month:'Jan 2026', date:'Jan 17th', player:'Stanley', goals:0, assists:0, cs:1},
+  {month:'Jan 2026', date:'Jan 17th', player:'Kwaku', goals:0, assists:0, cs:1},
+  {month:'Jan 2026', date:'Jan 17th', player:'John', goals:0, assists:0, cs:1},
+  {month:'Jan 2026', date:'Jan 17th', player:'Olorunfemi', goals:0, assists:0, cs:1},
+  {month:'Jan 2026', date:'Jan 17th', player:'Regis', goals:0, assists:0, cs:1},
+  {month:'Jan 2026', date:'Jan 17th', player:'Mayowa', goals:0, assists:0, cs:1},
+
+  // Feb 2026 - Feb 14th
+  {month:'Feb 2026', date:'Feb 14th', player:'Emma Ike', goals:1, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Olorunfemi', goals:2, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 14th', player:'Tdexx', goals:2, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Chibuzor', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Bolu', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Abdul', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Sheyi', goals:1, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Dimeji', goals:0, assists:2, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Dismas', goals:0, assists:1, cs:1},
+  {month:'Feb 2026', date:'Feb 14th', player:'Temi', goals:0, assists:1, cs:1},
+  {month:'Feb 2026', date:'Feb 14th', player:'Skully', goals:0, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Sunny', goals:0, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 14th', player:'Lotanna', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 14th', player:'Mayowa', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 14th', player:'John', goals:0, assists:0, cs:1},
+
+  // Feb 2026 - Feb 21st
+  {month:'Feb 2026', date:'Feb 21st', player:'Dayo', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Bolu', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Abdul', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Emma Ajayi', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Kwaku', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Dare', goals:0, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Chidi', goals:0, assists:2, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Pride', goals:0, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 21st', player:'Olorunfemi', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 21st', player:'Abdul GH', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 21st', player:'Dismas', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 21st', player:'Moyo', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 21st', player:'John', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 21st', player:'Yemi', goals:0, assists:0, cs:1},
+
+  // Feb 2026 - Feb 28th
+  {month:'Feb 2026', date:'Feb 28th', player:'Dimeji', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 28th', player:'Eben', goals:1, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 28th', player:'Abdou', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 28th', player:'Zinga', goals:1, assists:0, cs:0},
+  {month:'Feb 2026', date:'Feb 28th', player:'Taiwo', goals:0, assists:1, cs:0},
+  {month:'Feb 2026', date:'Feb 28th', player:'Moyo', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 28th', player:'Olorunfemi', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 28th', player:'John', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 28th', player:'Yaya', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 28th', player:'Abdul GH', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 28th', player:'David', goals:0, assists:0, cs:1},
+  {month:'Feb 2026', date:'Feb 28th', player:'Akin Messi', goals:0, assists:0, cs:1},
+
+  // Mar 2026 - Mar 14th
+  {month:'Mar 2026', date:'Mar 14th', player:'Akin Benzema', goals:2, assists:2, cs:0},
+  {month:'Mar 2026', date:'Mar 14th', player:'Emma Ajayi', goals:2, assists:1, cs:0},
+  {month:'Mar 2026', date:'Mar 14th', player:'Tdexx', goals:1, assists:0, cs:0},
+  {month:'Mar 2026', date:'Mar 14th', player:'Farouk', goals:0, assists:1, cs:0},
+  {month:'Mar 2026', date:'Mar 14th', player:'Raph', goals:0, assists:1, cs:0},
+  {month:'Mar 2026', date:'Mar 14th', player:'Victor', goals:0, assists:0, cs:2},
+  {month:'Mar 2026', date:'Mar 14th', player:'Oluchi', goals:0, assists:0, cs:2},
+  {month:'Mar 2026', date:'Mar 14th', player:'Jibo', goals:0, assists:0, cs:2},
+  {month:'Mar 2026', date:'Mar 14th', player:'Moyo', goals:0, assists:0, cs:1},
+  {month:'Mar 2026', date:'Mar 14th', player:'Olorunfemi', goals:0, assists:0, cs:1},
+  {month:'Mar 2026', date:'Mar 14th', player:'Mayowa', goals:0, assists:0, cs:1},
 ];
 
 let matchData = [];
@@ -3536,7 +1835,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 6;
+const DATA_VERSION = 5;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -3549,12 +1848,9 @@ function checkVersion() {
 }
 
 function loadData() {
-  const stored = null;
+  const stored = localStorage.getItem('ff2026_data');
   if (stored) {
     matchData = JSON.parse(stored);
-  } else {
-    matchData = SEED_DATA.map((e, i) => ({ ...e, id: i }));
-    saveData();
   } else {
     matchData = SEED_DATA.map((e, i) => ({ ...e, id: i }));
     saveData();
@@ -3777,17 +2073,18 @@ function renderHeaderStats() {
 
 // ─── CRUD ─────────────────────────────────────────────────────
 function addEntry() {
-  const month = document.getElementById('f-month').value;
-  const date = document.getElementById('f-date').value.trim();
+  const month  = document.getElementById('f-month').value;
+  const date   = document.getElementById('f-date').value.trim();
   const player = document.getElementById('f-player').value.trim();
-  const goals = parseInt(document.getElementById('f-goals').value) || 0;
+  const goals   = parseInt(document.getElementById('f-goals').value)   || 0;
   const assists = parseInt(document.getElementById('f-assists').value) || 0;
-  const cs = parseInt(document.getElementById('f-cs').value) || 0;
+  const cs      = parseInt(document.getElementById('f-cs').value)      || 0;
 
   if (!date || !player) { showToast('Please fill in date and player name', true); return; }
   if (goals + assists + cs === 0) { showToast('At least one stat must be > 0', true); return; }
 
   if (editingId !== null) {
+    // Editing an existing entry — replace it entirely
     const idx = matchData.findIndex(e => e.id === editingId);
     if (idx !== -1) {
       matchData[idx] = { ...matchData[idx], month, date, player, goals, assists, cs };
@@ -3796,8 +2093,22 @@ function addEntry() {
     document.querySelector('.btn-primary').textContent = 'Add Entry';
     showToast('Entry updated!');
   } else {
-    matchData.push({ id: nextId(), month, date, player, goals, assists, cs });
-    showToast('Entry added!');
+    // Check if this player already has an entry for this date
+    const existing = matchData.find(e =>
+      e.player.toLowerCase() === player.toLowerCase() &&
+      e.date === date &&
+      e.month === month
+    );
+    if (existing) {
+      // Merge stats into the existing entry
+      existing.goals   += goals;
+      existing.assists += assists;
+      existing.cs      += cs;
+      showToast(`Stats merged into ${player}'s existing entry!`);
+    } else {
+      matchData.push({ id: nextId(), month, date, player, goals, assists, cs });
+      showToast('Entry added!');
+    }
   }
   saveData();
   clearForm();
@@ -3809,18 +2120,18 @@ function editEntry(id) {
   const e = matchData.find(x => x.id === id);
   if (!e) return;
   editingId = id;
-  document.getElementById('f-month').value = e.month;
-  document.getElementById('f-player').value = e.player;
-  document.getElementById('f-goals').value = e.goals;
+  document.getElementById('f-month').value   = e.month;
+  document.getElementById('f-player').value  = e.player;
+  document.getElementById('f-goals').value   = e.goals;
   document.getElementById('f-assists').value = e.assists;
-  document.getElementById('f-cs').value = e.cs;
+  document.getElementById('f-cs').value      = e.cs;
   // Restore calendar display
   document.getElementById('f-date').value = e.date;
   const display = document.getElementById('cal-display');
   if (display) { display.textContent = e.date; }
   const trigger = document.getElementById('cal-trigger');
   if (trigger) trigger.classList.add('selected');
-  // Try to restore calSelectedDate from date string e.g. "Jan 17th"
+  // Restore calSelectedDate
   const mIdx = MONTH_TO_IDX[e.month];
   const dayMatch = e.date.match(/(\d+)/);
   if (dayMatch && mIdx !== undefined) {
@@ -3833,7 +2144,38 @@ function editEntry(id) {
 }
 
 function deleteEntry(id) {
-  if (!confirm('Delete this entry?')) return;
+  const entry = matchData.find(e => e.id === id);
+  if (!entry) return;
+  showDeleteConfirm(id, entry.player, entry.date);
+}
+
+function showDeleteConfirm(id, player, date) {
+  // Remove any existing confirm toast
+  const old = document.getElementById('delete-confirm');
+  if (old) old.remove();
+
+  const div = document.createElement('div');
+  div.id = 'delete-confirm';
+  div.style.cssText = `
+    position:fixed; bottom:70px; left:50%; transform:translateX(-50%);
+    background:var(--card); border:1px solid var(--red); border-radius:10px;
+    padding:14px 18px; z-index:9999; display:flex; align-items:center;
+    gap:12px; font-size:13px; box-shadow:0 8px 24px rgba(0,0,0,0.5);
+    white-space:nowrap;
+  `;
+  div.innerHTML = `
+    <span style="color:var(--text)">Delete <strong>${player}</strong> · ${date}?</span>
+    <button onclick="confirmDelete(${id})" style="background:var(--red);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;">Delete</button>
+    <button onclick="document.getElementById('delete-confirm').remove()" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;">Cancel</button>
+  `;
+  document.body.appendChild(div);
+  // Auto-dismiss after 6 seconds
+  setTimeout(() => { if (div.parentNode) div.remove(); }, 6000);
+}
+
+function confirmDelete(id) {
+  const confirm = document.getElementById('delete-confirm');
+  if (confirm) confirm.remove();
   matchData = matchData.filter(e => e.id !== id);
   saveData();
   renderAll();
@@ -3888,25 +2230,16 @@ function renderAll() {
 
 // ─── PLAYER OF THE MONTH ──────────────────────────────────────
 const POTM_SEED = {
-  "Jan 2026": {
-    "player": null,
-    "note": "Not enough data for an award this month."
-  },
-  "Feb 2026": {
-    "player": "Olorunfemi",
-    "note": "2 goals, 3 clean sheets in February"
-  }
+  'Jan 2026': { player: null, note: 'Not enough data for an award this month.' },
+  'Feb 2026': { player: 'Olorunfemi', note: '2 goals, 3 clean sheets in February' }
 };
 
 let potmData = {};
 
 function loadPOTM() {
-  const stored = null;
+  const stored = localStorage.getItem('ff2026_potm');
   if (stored) {
     potmData = JSON.parse(stored);
-  } else {
-    potmData = { ...POTM_SEED };
-    savePOTMData();
   } else {
     potmData = { ...POTM_SEED };
     savePOTMData();
@@ -4159,6 +2492,5 @@ loadPOTM();
 renderAll();
 initNav();
 </script>
-
-
-<iframe id="rokt-controller-frame" data-core-type="controller" aria-hidden="true" tabindex="-1" sandbox="allow-scripts allow-same-origin allow-popups" src="https://apps.rokt.com/wsdk/controller/index.2.7233.0.html" name="e0e9eed3-0582-4fd2-b7dc-107208354692" style="width: 0px !important; height: 0px !important; border-width: 0px !important; overflow: hidden !important; opacity: 0 !important; pointer-events: none !important; position: absolute !important; z-index: -1 !important;"></iframe><iframe name="integration_type=preload_persistent&amp;init_timestamp=1774715123288&amp;plugin_name=dcui" src="https://apps.rokt.com/wsdk/plugins/dcui/index.html" id="dcui" style="display: none;"></iframe></body><div data-klarna-plugin-views-container=""></div></html>
+</body>
+</html>
