@@ -688,7 +688,18 @@
   /* ─── TROPHY ICON ─── */
   .medal { font-size: 16px; }
 
-  /* ─── ADMIN FLOAT ─── */
+  /* ─── MOBILE BREAKDOWN ─── */
+  .mobile-breakdown {
+    display: none;
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+  @media (max-width: 760px) {
+    .mobile-breakdown { display: block; }
+  }
   .admin-float {
     position: fixed;
     bottom: 20px;
@@ -747,14 +758,19 @@
     .section-sub { font-size: 12px; margin-bottom: 20px; }
 
     /* Tables: tighten padding */
-    th { padding: 8px 12px; font-size: 9px; }
-    td { padding: 10px 12px; font-size: 13px; }
-    .rank-cell { width: 36px; }
-    .stat-val { font-size: 18px; }
-    .overall-gac { font-size: 18px; }
+    th { padding: 8px 6px; font-size: 9px; }
+    td { padding: 10px 6px; font-size: 12px; }
+    .rank-cell { width: 28px; }
+    .stat-val { font-size: 16px; }
+    .overall-gac { font-size: 16px; }
+    .sub-stat { font-size: 11px; padding: 0 2px; }
 
-    /* Overall table: hide individual stat columns on very small screens, show totals */
-    .overall-table .hide-mobile { display: none; }
+    /* Overall table: show all columns, keep tight */
+    .overall-table .hide-mobile { display: table-cell; }
+    .overall-table td:first-child,
+    .overall-table th:first-child { width: 36px; padding-left: 10px; }
+    .overall-table td:last-child,
+    .overall-table th:last-child { text-align: right; padding-right: 10px; white-space: nowrap; }
 
     /* Match log: stack month nav on top */
     .month-grid {
@@ -1295,14 +1311,14 @@
       <input type="text" placeholder="Search player…" oninput="filterTable(this,'overall-tbody')">
     </div>
     <div class="lb-card">
-      <table>
+      <table class="overall-table">
         <thead>
           <tr>
             <th>Rank</th>
             <th>Player</th>
             <th style="text-align:center" class="hide-mobile">⚽ Goals</th>
             <th style="text-align:center" class="hide-mobile">🎯 Assists</th>
-            <th style="text-align:center" class="hide-mobile">🧤 Cleansheet</th>
+            <th style="text-align:center" class="hide-mobile">🧤 CS</th>
             <th>G/A/C</th>
           </tr>
         </thead>
@@ -1915,12 +1931,17 @@ function renderOverall() {
   const tbody = document.getElementById('overall-tbody');
   const medals = ['🥇', '🥈', '🥉'];
   let html = '';
-  let rank = 1, prev = null, prevRank = 1;
+  let rank = 1, prev = null;
   stats.forEach((p, i) => {
     if (i > 0 && p.total !== prev.total) { rank = i + 1; }
     prev = p;
     const rc = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
     const medal = rank <= 3 ? medals[rank-1] + ' ' : '';
+    const breakdown = [
+      p.goals  ? `${p.goals}G`  : null,
+      p.assists ? `${p.assists}A` : null,
+      p.cs     ? `${p.cs}CS`    : null
+    ].filter(Boolean).join(' · ');
     html += `<tr>
       <td class="rank-cell ${rc}">${medal}${rank}</td>
       <td class="player-name">${p.player}</td>
