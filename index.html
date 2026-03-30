@@ -1314,7 +1314,7 @@
 </header>
 
 <!-- ADMIN BANNER -->
-<div id="admin-banner" class="active">
+<div id="admin-banner">
   <span class="admin-pill">Admin</span>
   <span>You are in admin mode — match logs are editable.</span>
   <button class="export-btn" onclick="exportHTML()">⬇ Export HTML</button>
@@ -2016,7 +2016,7 @@
     <div class="section-sub">Weekly results by month</div>
 
     <!-- ADMIN ADD ENTRY (hidden unless admin) -->
-    <div id="admin-add-section" style="display: block;">
+    <div id="admin-add-section" style="display:none">
       <div class="admin-section">
         <div class="admin-section-header">➕ Log Match Entry</div>
         <div class="form-grid">
@@ -2341,7 +2341,7 @@
     <div class="section-sub">Monthly award for the standout performer · 2026 Season</div>
 
     <!-- Admin POTM form -->
-    <div id="potm-admin-section" style="display: block;">
+    <div id="potm-admin-section" style="display:none">
       <div class="potm-admin">
         <div class="admin-section-header">🌟 Set Player of the Month</div>
         <div class="form-grid">
@@ -2591,7 +2591,7 @@
 
 <!-- ADMIN FLOAT BUTTON -->
 <div class="admin-float">
-  <button onclick="openLogin()" id="admin-login-btn">🔓 Logout</button>
+  <button onclick="openLogin()" id="admin-login-btn">🔐 Admin</button>
 </div>
 
 <script>
@@ -4216,7 +4216,6 @@ function exportHTML() {
   );
 
   // Strip localStorage reads so exported file always loads from seed
-  // Only replace if still using localStorage (not already replaced with null)
   if (exported.includes("localStorage.getItem('ff2026_data')")) {
     exported = exported.replace(
       /const stored = localStorage\.getItem\('ff2026_data'\);[\s\S]*?}/,
@@ -4229,6 +4228,24 @@ function exportHTML() {
       `const stored = null;\n  if (stored) {\n    potmData = JSON.parse(stored);\n  } else {\n    potmData = { ...POTM_SEED };\n    savePOTMData();\n  }`
     );
   }
+
+  // ── Always export in public (logged-out) state ──
+  exported = exported.replace(
+    /id="admin-login-btn"[^>]*>🔓 Logout<\/button>/,
+    `id="admin-login-btn">🔐 Admin</button>`
+  );
+  exported = exported.replace(
+    /<div id="admin-banner"[^>]*class="active"[^>]*>/,
+    `<div id="admin-banner">`
+  );
+  exported = exported.replace(
+    /id="admin-add-section"\s*style="display:\s*block[^"]*"/,
+    `id="admin-add-section" style="display:none"`
+  );
+  exported = exported.replace(
+    /id="potm-admin-section"\s*style="display:\s*block[^"]*"/,
+    `id="potm-admin-section" style="display:none"`
+  );
 
   const blob = new Blob([exported], { type: 'text/html' });
   const url  = URL.createObjectURL(blob);
