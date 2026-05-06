@@ -1815,7 +1815,7 @@ footer{
         <span class="t2">FIT</span>&nbsp;<span class="t3">FC</span>
       </h1>
       <div class="hero-bottom">
-        <p class="hero-desc">Where old legs meet young hearts. A tight-knit Saturday soccer group built on <strong>passion, banter</strong> and the occasional miracle goal. Every week we show up. Every week we give everything.</p>
+        <p class="hero-desc">Where old legs meet young hearts. A tight-knit Saturday soccer group built on <strong>passion, banter</strong>. Every week we show up. Every week we give everything.</p>
         <div class="hero-actions">
           <button class="btn-hero-primary" onclick="showSitePage('stats')">⚽ View 2026 Stats</button>
           <button class="btn-hero-secondary" onclick="showSitePage('about')">Our Story</button>
@@ -1825,16 +1825,7 @@ footer{
   </section>
 
   <!-- Ticker -->
-  <div class="stats-ticker">
-    <div class="ticker-track">
-      <div class="ticker-item"><span>2026 Season</span><span class="ticker-sep">·</span><span id="tk-goals">33 Goals</span><span class="ticker-sep">·</span><span id="tk-assists">28 Assists</span><span class="ticker-sep">·</span><span id="tk-cs">40 Clean Sheets</span><span class="ticker-sep">·</span><span id="tk-players">47 Players</span></div>
-      <div class="ticker-item"><span>2026 Season</span><span class="ticker-sep">·</span><span>POTM: Olorunfemi</span><span class="ticker-sep">·</span><span>Top Scorer: Abdul</span><span class="ticker-sep">·</span><span>Golden Gloves: Olorunfemi</span><span class="ticker-sep">·</span><span>Playmaker: Chidi</span></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="ticker-item"><span>2026 Season</span><span class="ticker-sep">·</span><span id="tk-goals2">33 Goals</span><span class="ticker-sep">·</span><span>28 Assists</span><span class="ticker-sep">·</span><span>40 Clean Sheets</span><span class="ticker-sep">·</span><span>47 Players</span></div>
-      <div class="ticker-item"><span>2026 Season</span><span class="ticker-sep">·</span><span>POTM: Olorunfemi</span><span class="ticker-sep">·</span><span>Top Scorer: Abdul</span><span class="ticker-sep">·</span><span>Golden Gloves: Olorunfemi</span><span class="ticker-sep">·</span><span>Playmaker: Chidi</span></div>
-    </div>
-  </div>
-
+  
   <!-- Season stats panel -->
   <div class="season-panel">
     <div class="season-panel-inner">
@@ -1842,7 +1833,7 @@ footer{
         <p class="sp-label">2026 Season · Live Stats</p>
         <h2 class="sp-heading">THE NUMBERS<br>DON'T <span>LIE</span></h2>
         <p class="sp-text">Every goal, every assist, every clean sheet — tracked weekly. The full leaderboard, Golden Boot race, Playmaker standings and Player of the Month are all live.</p>
-        <button class="sp-btn" onclick="showSitePage('stats')">View Full Leaderboard →</button>
+        <button class="sp-btn" onclick="showSitePage('stats');setTimeout(function(){var t=document.querySelector('#main-nav .tab');if(t)t.click();},200)">View Full Leaderboard →</button>
       </div>
       <div class="stats-grid">
         <div class="stat-block">
@@ -2871,7 +2862,7 @@ footer{
   </div>
 
   <!-- MATCH LOG -->
-  <div class="page active" id="page-matchlog">
+  <div class="page" id="page-matchlog">
     <div class="section-title"><span class="accent">Match</span>&nbsp;Log</div>
     <div class="section-sub">Weekly results by month</div>
 
@@ -4422,7 +4413,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 9;
+const DATA_VERSION = 10;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -4828,6 +4819,10 @@ const POTM_SEED = {
   "Mar 2026": {
     "player": "Akin Benzema, Victor",
     "note": ""
+  },
+  "Apr 2026": {
+    "player": "Emma Ajayi",
+    "note": "4 goals in April"
   }
 };
 
