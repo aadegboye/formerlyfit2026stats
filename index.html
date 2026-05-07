@@ -1244,58 +1244,6 @@
 
 .village-iframe{width:100%;height:100%;border:none;display:block;position:fixed;top:0;left:0;z-index:2147483647;background:#0000003d;color-scheme:light}.village-iframe.village-loading{display:flex;justify-content:center;align-items:center}.village-iframe>.village-spinner{width:1.5rem;height:1.5rem;border:2px solid #000;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin .45s linear infinite}.village-iframe.village-hidden{display:none}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.village-hidden{display:none}[village-paths-data=facepiles]{display:flex;align-items:center;padding-right:.5rem}[village-paths-data=facepiles] img{width:1.5rem;height:1.5rem;border-radius:50%;margin-right:-.5rem}[village-paths-data=facepiles] img.village-facepiler-avatar-not-found{filter:blur(7px)}[village-paths-data=facepiles] img:last-child{margin-right:0}[village-paths-data=count]{padding-right:.25rem}[village-paths-availability=error],[village-paths-availability=found],[village-paths-availability=not-found],[village-paths-availability=not-activated]{display:none!important}[village-paths-availability=loading]{display:inline-flex!important}</style>
 <style>
-  /* ── EVENTS PAGE ── */
-  .events-page { min-height: calc(100vh - 62px); }
-  .ev-header { background: linear-gradient(160deg,#0d1e0f 0%,#060d06 100%); border-bottom: 1px solid var(--border); padding: 64px 52px 48px; position: relative; overflow: hidden; }
-  .ev-header::after { content:""; position:absolute; inset:0; background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,230,118,0.06) 0%, transparent 60%); }
-  .ev-header-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-  .ev-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:16px; }
-  .ev-eyebrow-line { width:22px; height:1px; background:var(--green); }
-  .ev-title { font-family:"Bebas Neue",sans-serif; font-size:clamp(52px,8vw,88px); letter-spacing:-1px; line-height:.9; color:var(--text); margin-bottom:14px; }
-  .ev-subtitle { font-size:15px; color:var(--muted); line-height:1.6; }
-  .ev-list { max-width:900px; margin:0 auto; padding:40px 52px 64px; display:flex; flex-direction:column; gap:16px; }
-  .ev-card { display:flex; background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:border-color .2s,transform .2s; }
-  .ev-card:hover { border-color:rgba(0,230,118,0.25); transform:translateY(-2px); }
-  .ev-confirmed { border-left:3px solid var(--green); }
-  .ev-tba { border-left:3px solid rgba(255,255,255,0.08); }
-  .ev-card-left { flex-shrink:0; width:100px; display:flex; align-items:center; justify-content:center; padding:24px 12px; background:rgba(0,0,0,0.2); border-right:1px solid var(--border); }
-  .ev-date-block { text-align:center; }
-  .ev-day { display:block; font-family:"Bebas Neue",sans-serif; font-size:36px; color:var(--green); line-height:1; }
-  .ev-date-tba .ev-day { font-size:18px; color:var(--muted); }
-  .ev-month { display:block; font-family:"DM Mono",monospace; font-size:11px; letter-spacing:2px; color:var(--muted); margin-top:2px; }
-  .ev-year { display:block; font-family:"DM Mono",monospace; font-size:10px; color:var(--muted); margin-top:1px; }
-  .ev-card-body { padding:24px 28px; flex:1; }
-  .ev-badge { display:inline-block; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:20px; margin-bottom:10px; }
-  .ev-badge-confirmed { background:rgba(0,230,118,0.12); color:var(--green); border:1px solid rgba(0,230,118,0.2); }
-  .ev-badge-tba { background:rgba(255,255,255,0.05); color:var(--muted); border:1px solid var(--border); }
-  .ev-name { font-family:"Bebas Neue",sans-serif; font-size:22px; letter-spacing:1.5px; color:var(--text); margin-bottom:4px; }
-  .ev-detail { font-size:12px; color:var(--green); font-weight:600; letter-spacing:.5px; margin-bottom:8px; }
-  .ev-desc { font-size:13px; color:var(--muted); line-height:1.65; }
-  /* ── CONTACT PAGE ── */
-  .contact-page { min-height: calc(100vh - 62px); }
-  .contact-body { max-width:640px; margin:0 auto; padding:48px 52px 64px; display:flex; flex-direction:column; gap:16px; }
-  .contact-card { display:flex; gap:24px; align-items:flex-start; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:28px; transition:border-color .2s,transform .2s; }
-  .contact-card:hover { border-color:rgba(0,230,118,0.25); transform:translateY(-2px); }
-  .contact-icon { font-size:32px; flex-shrink:0; margin-top:2px; }
-  .contact-icon svg { width:36px; height:36px; display:block; }
-  .contact-label { font-family:"DM Mono",monospace; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:6px; }
-  .contact-value { display:block; font-family:"Bebas Neue",sans-serif; font-size:24px; letter-spacing:1.5px; color:var(--text); text-decoration:none; margin-bottom:8px; transition:color .15s; }
-  .contact-value:hover { color:var(--green); }
-  .contact-note { font-size:13px; color:var(--muted); line-height:1.6; }
-  @media (max-width:700px) {
-    .ev-header { padding:48px 20px 36px; }
-    .ev-list { padding:28px 20px 48px; gap:12px; }
-    .ev-card-left { width:72px; padding:16px 8px; }
-    .ev-day { font-size:28px; }
-    .ev-card-body { padding:16px 18px; }
-    .ev-name { font-size:18px; }
-    .contact-body { padding:28px 20px 48px; }
-    .contact-card { flex-direction:column; gap:14px; padding:20px; }
-    .contact-value { font-size:20px; }
-  }
-</style>
-
-<style>
 :root {
   --green:#00E676; --green-dim:#00c853; --dark:#060a06;
   --surface:#0d140d; --card:#121c12; --border:#1a2a1a;
@@ -1357,7 +1305,7 @@ body::after{content:"";position:fixed;inset:0;background-image:url("data:image/s
   content:"";position:absolute;bottom:2px;left:16px;right:16px;
   height:2px;background:var(--green);border-radius:2px;
 }
-.nav-cta-btn{
+.nav-cta-btn{ display:none;
   margin-left:12px;
   padding:9px 20px;
   background:var(--green);color:var(--dark);
@@ -1736,7 +1684,7 @@ footer{
 /* ── MOBILE ── */
 @media(max-width:900px){
   .nav-links{display:none}
-  .nav-cta-btn{margin-left:auto}
+  .nav-cta-btn{ display:none;margin-left:auto}
   .hero-content{padding:0 20px 60px}
   .hero-title{font-size:clamp(60px,14vw,100px)}
   .hero-bottom{flex-direction:column;align-items:flex-start}
@@ -1822,10 +1770,12 @@ footer{
       <button class="nav-link" onclick="showSitePage('home')">Home</button>
       <button class="nav-link active" onclick="showSitePage('stats')">Stats ▾</button>
       <button class="nav-link" onclick="showSitePage('events')">Events</button>
+      <button class="nav-link" onclick="showSitePage('tournaments')">Tournaments</button>
       <button class="nav-link" onclick="showSitePage('gallery')">Gallery</button>
       <button class="nav-link" onclick="showSitePage('merch')">Merch</button>
       <button class="nav-link" onclick="showSitePage('about')">About Us</button>
       <button class="nav-link" onclick="showSitePage('contact')">Contact</button>
+      
     </div>
     <button class="nav-hamburger" onclick="toggleMobileMenu()">☰</button>
   </div>
@@ -1841,6 +1791,7 @@ footer{
   <button class="mobile-nav-link active" onclick="showSitePage('home');toggleMobileMenu()">Home</button>
   <button class="mobile-nav-link" onclick="showSitePage('stats');toggleMobileMenu()">Stats — 2026</button>
   <button class="mobile-nav-link" onclick="showSitePage('events');toggleMobileMenu()">Events</button>
+  <button class="mobile-nav-link" onclick="showSitePage('tournaments');toggleMobileMenu()">Tournaments</button>
   <button class="mobile-nav-link" onclick="showSitePage('gallery');toggleMobileMenu()">Gallery</button>
   <button class="mobile-nav-link" onclick="showSitePage('merch');toggleMobileMenu()">Merch</button>
   <button class="mobile-nav-link" onclick="showSitePage('about');toggleMobileMenu()">About Us</button>
@@ -1914,6 +1865,42 @@ footer{
       <p class="sc-desc">Upcoming fixtures, socials and group activities. Never miss a Saturday.</p>
       <span class="sc-arrow">↗</span>
     </div>
+    <div class="section-card" onclick="showSitePage('tournaments')">
+      <span class="sc-num">02</span>
+      <span class="sc-icon">🏆</span>
+      <div class="sc-title">Tournaments</div>
+      <p class="sc-desc">Cup competitions and knockout draws. Who wants glory?</p>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="section-card" onclick="showSitePage('gallery')">
+      <span class="sc-num">03</span>
+      <span class="sc-icon">📸</span>
+      <div class="sc-title">Gallery</div>
+      <p class="sc-desc">Photos from the pitch. The good, the ugly and the beautiful.</p>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="section-card" onclick="showSitePage('merch')">
+      <span class="sc-num">04</span>
+      <span class="sc-icon">👕</span>
+      <div class="sc-title">Merch</div>
+      <p class="sc-desc">Official gear. Rep the badge on and off the pitch.</p>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="section-card" onclick="showSitePage('about')">
+      <span class="sc-num">05</span>
+      <span class="sc-icon">⚽</span>
+      <div class="sc-title">About Us</div>
+      <p class="sc-desc">Our story since 2020. A group that refused to quit the beautiful game.</p>
+      <span class="sc-arrow">↗</span>
+    </div>
+    <div class="section-card" onclick="showSitePage('contact')">
+      <span class="sc-num">06</span>
+      <span class="sc-icon">✉️</span>
+      <div class="sc-title">Contact</div>
+      <p class="sc-desc">Want to join or get in touch? We'd love to hear from you.</p>
+      <span class="sc-arrow">↗</span>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -1935,64 +1922,31 @@ footer{
 
 
   <div class="site-page" id="page-events">
-    <div class="events-page">
-      <div class="ev-header">
-        <div class="ev-header-inner">
-          <div class="ev-eyebrow"><span class="ev-eyebrow-line"></span>2026 Season</div>
-          <h1 class="ev-title">Events</h1>
-          <p class="ev-subtitle">What's coming up for Formerly Fit FC this year.</p>
-        </div>
+    <div class="cs-page">
+      <div class="cs-l">
+        <div class="cs-eyebrow"><span class="cs-line"></span>Coming Soon</div>
+        <h2 class="cs-title">Events</h2>
+        <p class="cs-desc">Upcoming fixtures, social nights and group activities will live here. Check back soon.</p>
+        <button class="cs-back" onclick="showSitePage('home')">← Back to Home</button>
       </div>
-      <div class="ev-list">
-        <div class="ev-card ev-confirmed">
-          <div class="ev-card-left">
-            <div class="ev-date-block">
-              <span class="ev-day">06</span>
-              <span class="ev-month">JUN</span>
-              <span class="ev-year">2026</span>
-            </div>
-          </div>
-          <div class="ev-card-body">
-            <span class="ev-badge ev-badge-confirmed">⚽ Confirmed</span>
-            <h2 class="ev-name">Formerly Fit 8v8 Tournament</h2>
-            <p class="ev-detail">World Cup Edition &mdash; Summer 2026</p>
-            <p class="ev-desc">Our flagship summer tournament returns. Teams, brackets and full match day details coming soon. Mark your calendars — June 6th, 2026.</p>
-          </div>
-        </div>
-        <div class="ev-card ev-tba">
-          <div class="ev-card-left"><div class="ev-date-block ev-date-tba"><span class="ev-day">TBA</span></div></div>
-          <div class="ev-card-body">
-            <span class="ev-badge ev-badge-tba">🏓 Date TBA</span>
-            <h2 class="ev-name">Table Tennis Tournament</h2>
-            <p class="ev-desc">A competitive table tennis tournament for the group. Date and details to be announced.</p>
-          </div>
-        </div>
-        <div class="ev-card ev-tba">
-          <div class="ev-card-left"><div class="ev-date-block ev-date-tba"><span class="ev-day">TBA</span></div></div>
-          <div class="ev-card-body">
-            <span class="ev-badge ev-badge-tba">🎉 Date TBA</span>
-            <h2 class="ev-name">Formerly Fit Social</h2>
-            <p class="ev-desc">A social night for the group. Come together off the pitch — more info coming soon.</p>
-          </div>
-        </div>
-        <div class="ev-card ev-tba">
-          <div class="ev-card-left"><div class="ev-date-block ev-date-tba"><span class="ev-day">TBA</span></div></div>
-          <div class="ev-card-body">
-            <span class="ev-badge ev-badge-tba">🤝 Date TBA</span>
-            <h2 class="ev-name">Networking Event</h2>
-            <p class="ev-desc">An evening of connections beyond the game. Venue and date to be announced.</p>
-          </div>
-        </div>
-        <div class="ev-card ev-tba">
-          <div class="ev-card-left"><div class="ev-date-block ev-date-tba"><span class="ev-day">TBA</span></div></div>
-          <div class="ev-card-body">
-            <span class="ev-badge ev-badge-tba">🏆 Date TBA</span>
-            <h2 class="ev-name">Formerly Fit End of Year Banquet &amp; Award Night</h2>
-            <p class="ev-desc">The grand finale of the 2026 season. Awards, celebrations and a night to remember.</p>
-          </div>
-        </div>
+      <div class="cs-r"><span class="cs-num">02</span></div>
+    </div>
+    <div class="site-footer-mini">
+      <span class="sfm-copy">© 2026 FORMERLY FIT FC · EST. 2020</span>
+    </div>
+  </div>
+  <div class="site-page" id="page-tournaments">
+    <div class="cs-page">
+      <div class="cs-l">
+        <div class="cs-eyebrow"><span class="cs-line"></span>Coming Soon</div>
+        <h2 class="cs-title">Tournaments</h2>
+        <p class="cs-desc">Cup competitions, mini-leagues and knockout draws are on the way.</p>
+        <button class="cs-back" onclick="showSitePage('home')">← Back to Home</button>
       </div>
-      <div class="site-footer-mini"><span class="sfm-copy">© 2026 FORMERLY FIT FC · EST. 2020</span></div>
+      <div class="cs-r"><span class="cs-num">03</span></div>
+    </div>
+    <div class="site-footer-mini">
+      <span class="sfm-copy">© 2026 FORMERLY FIT FC · EST. 2020</span>
     </div>
   </div>
   <div class="site-page" id="page-gallery">
@@ -2038,33 +1992,17 @@ footer{
     </div>
   </div>
   <div class="site-page" id="page-contact">
-    <div class="contact-page">
-      <div class="ev-header">
-        <div class="ev-header-inner">
-          <div class="ev-eyebrow"><span class="ev-eyebrow-line"></span>Get In Touch</div>
-          <h1 class="ev-title">Contact</h1>
-          <p class="ev-subtitle">Reach out to us — we'd love to hear from you.</p>
-        </div>
+    <div class="cs-page">
+      <div class="cs-l">
+        <div class="cs-eyebrow"><span class="cs-line"></span>Coming Soon</div>
+        <h2 class="cs-title">Contact</h2>
+        <p class="cs-desc">Want to join or get in touch? A contact form is on its way.</p>
+        <button class="cs-back" onclick="showSitePage('home')">← Back to Home</button>
       </div>
-      <div class="contact-body">
-        <div class="contact-card">
-          <div class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f09433"/><stop offset="50%" style="stop-color:#dc2743"/><stop offset="100%" style="stop-color:#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-grad)"/><circle cx="12" cy="12" r="4" stroke="url(#ig-grad)"/><circle cx="17.5" cy="6.5" r=".8" fill="#dc2743" stroke="none"/></svg></div>
-          <div class="contact-info">
-            <div class="contact-label">Instagram</div>
-            <a class="contact-value" href="https://instagram.com/formerlyfit89" target="_blank" rel="noopener">@formerlyfit89</a>
-            <p class="contact-note">Follow us for match day updates, highlights and group news.</p>
-          </div>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon">✉️</div>
-          <div class="contact-info">
-            <div class="contact-label">Email</div>
-            <a class="contact-value" href="mailto:formerlyfit89@gmail.com">formerlyfit89@gmail.com</a>
-            <p class="contact-note">Drop us a message for enquiries, joining the group or collaborations.</p>
-          </div>
-        </div>
-      </div>
-      <div class="site-footer-mini"><span class="sfm-copy">© 2026 FORMERLY FIT FC · EST. 2020</span></div>
+      <div class="cs-r"><span class="cs-num">07</span></div>
+    </div>
+    <div class="site-footer-mini">
+      <span class="sfm-copy">© 2026 FORMERLY FIT FC · EST. 2020</span>
     </div>
   </div>
 </div><!-- end site-shell -->
@@ -2113,7 +2051,7 @@ footer{
 <header>
   <div class="header-inner">
     <div class="brand"><h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text)">2026 Stats</h1></div>
-      <div class="header-stats">
+    <div class="header-stats">
       <div class="hstat">
         <div class="hstat-val" id="h-goals">48</div>
         <div class="hstat-label">Goals</div>
@@ -2161,7 +2099,7 @@ footer{
 <main>
 
   <!-- OVERALL RANKINGS -->
-  <div class="page" id="page-overall">
+  <div class="page active" id="page-overall">
     <div class="section-title"><span class="accent">Overall</span>&nbsp;Rankings</div>
     <div class="section-sub">Combined Goals + Assists + Clean Sheets · 2026 Season</div>
     <div class="search-bar">
@@ -3214,7 +3152,7 @@ function showSitePage(id) {
   }
   document.querySelectorAll('.nav-link').forEach(function(l){ l.classList.remove('active'); });
   document.querySelectorAll('.mml').forEach(function(l){ l.classList.remove('active'); });
-  var map = {home:0,stats:1,events:2,gallery:3,merch:4,about:5,contact:6};
+  var map = {home:0,stats:1,events:2,tournaments:3,gallery:4,merch:5,about:6,contact:7};
   var idx = map[id];
   if (idx !== undefined) {
     var nl = document.querySelectorAll('.nav-link');
@@ -4473,7 +4411,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 11;
+const DATA_VERSION = 10;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
