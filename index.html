@@ -5916,7 +5916,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 20;
+const DATA_VERSION = 21;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -6420,22 +6420,32 @@ function buildCoWinnerRows(winnerNames, winnerStats) {
 }
 
 function buildInRunningRows(inRunning, posIcons) {
+  // Merge players onto one row only when their FULL breakdown matches
+  // (same goals, assists and clean sheets) - not merely the same total.
   var groups = [];
   for (var i = 0; i < inRunning.length; i++) {
     var p = inRunning[i];
     var last = groups[groups.length - 1];
-    if (last && last.total === p.total) {
+    if (last && last.total === p.total
+             && last.goals === p.goals
+             && last.assists === p.assists
+             && last.cs === p.cs) {
       last.names.push(p.name);
     } else {
       groups.push({ total: p.total, goals: p.goals, assists: p.assists, cs: p.cs, names: [p.name] });
     }
   }
+  // Medals follow the points tier, so players level on points share a medal
   var html = '';
+  var tierRank = 0;
+  var prevTotal = null;
   for (var j = 0; j < groups.length; j++) {
     var g = groups[j];
+    if (prevTotal === null || g.total !== prevTotal) { tierRank++; prevTotal = g.total; }
+    var icon = posIcons[tierRank - 1] || '';
     var fontSize = g.names.length > 1 ? '11px' : '12px';
     html += '<tr>';
-    html += '<td class="potm-running-pos">' + (posIcons[j] || '') + '</td>';
+    html += '<td class="potm-running-pos">' + icon + '</td>';
     html += '<td style="font-size:' + fontSize + '">' + g.names.join(' / ') + '</td>';
     html += '<td><span class="potm-running-sub">' + (g.goals || '—') + '</span></td>';
     html += '<td><span class="potm-running-sub">' + (g.assists || '—') + '</span></td>';
