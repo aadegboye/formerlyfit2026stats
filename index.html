@@ -6646,7 +6646,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 26;
+const DATA_VERSION = 28;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -7072,6 +7072,10 @@ const POTM_SEED = {
   "Aug 2026": {
     "player": "Festus, David, Chidi",
     "note": "Three-way tie on 5 G/A/C in August"
+  },
+  "Sept 2026": {
+    "player": "Akin Benzema",
+    "note": "5 goals, 3 assists in September"
   }
 };
 
@@ -7229,9 +7233,10 @@ function buildPOTMCard(m, award, monthStats) {
       body += '<div class="potm-winner-name">' + winnerNames[0] + '</div>';
       body += award.note ? '<div class="potm-reason">' + award.note + '</div>' : '';
       body += '<div class="potm-stats-row">';
-      body += '<div class="potm-stat"><div class="potm-stat-val">' + ps.goals + '</div><div class="potm-stat-label">Goals</div></div>';
-      body += '<div class="potm-stat"><div class="potm-stat-val">' + ps.assists + '</div><div class="potm-stat-label">Assists</div></div>';
-      body += '<div class="potm-stat"><div class="potm-stat-val">' + ps.cs + '</div><div class="potm-stat-label">CS</div></div>';
+      // only show a stat tile when the winner actually has it
+      if (ps.goals)   body += '<div class="potm-stat"><div class="potm-stat-val">' + ps.goals + '</div><div class="potm-stat-label">Goals</div></div>';
+      if (ps.assists) body += '<div class="potm-stat"><div class="potm-stat-val">' + ps.assists + '</div><div class="potm-stat-label">Assists</div></div>';
+      if (ps.cs)      body += '<div class="potm-stat"><div class="potm-stat-val">' + ps.cs + '</div><div class="potm-stat-label">CS</div></div>';
       body += '<div class="potm-stat"><div class="potm-stat-val">' + (ps.goals+ps.assists+ps.cs) + '</div><div class="potm-stat-label">Total</div></div>';
       body += '</div></div>';
     }
