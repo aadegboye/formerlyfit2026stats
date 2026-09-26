@@ -1837,19 +1837,19 @@ footer{
       </div>
       <div class="stats-grid">
         <div class="stat-block">
-          <div class="stat-num" id="home-goals">113</div>
+          <div class="stat-num" id="home-goals">137</div>
           <div class="stat-label">Goals Scored</div>
         </div>
         <div class="stat-block">
-          <div class="stat-num" id="home-assists">88</div>
+          <div class="stat-num" id="home-assists">111</div>
           <div class="stat-label">Assists</div>
         </div>
         <div class="stat-block">
-          <div class="stat-num" id="home-cs">98</div>
+          <div class="stat-num" id="home-cs">107</div>
           <div class="stat-label">Clean Sheets</div>
         </div>
         <div class="stat-block">
-          <div class="stat-num" id="home-players">72</div>
+          <div class="stat-num" id="home-players">75</div>
           <div class="stat-label">Players</div>
         </div>
       </div>
@@ -2015,7 +2015,7 @@ footer{
   <div class="modal">
     <h2>⚽ Admin Login</h2>
     <p>Enter your admin password to manage match logs.</p>
-    <div class="error-msg" id="loginError" style="display: block;">Incorrect password. Try again.</div>
+    <div class="error-msg" id="loginError" style="display: none;">Incorrect password. Try again.</div>
     <input type="password" id="adminPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
     <div class="modal-actions">
       <button class="btn btn-primary" onclick="doLogin()">Add Entry</button>
@@ -2025,7 +2025,7 @@ footer{
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast" style="background: var(--green); color: var(--dark);">Entry added!</div>
+<div class="toast" id="toast" style="background: var(--green); color: var(--dark);">Stats merged into Oluchi's existing entry!</div>
 
 <!-- CALENDAR POPUP -->
 <div class="cal-backdrop" id="cal-backdrop" onclick="closeCalendar()"></div>
@@ -2043,7 +2043,7 @@ footer{
     <div class="cal-dow">Th</div>
     <div class="cal-dow">Fr</div>
     <div class="cal-dow sat">Sa</div>
-  <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day sat">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day sat">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day sat selected">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day sat">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div></div>
+  <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day sat">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day sat">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day sat">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day sat selected">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div></div>
   <div class="cal-hint">Saturdays highlighted · all days selectable</div>
 </div>
 
@@ -2053,15 +2053,15 @@ footer{
     <div class="brand"><h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text)">2026 Stats</h1></div>
     <div class="header-stats">
       <div class="hstat">
-        <div class="hstat-val" id="h-goals">137</div>
+        <div class="hstat-val" id="h-goals">148</div>
         <div class="hstat-label">Goals</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val" id="h-assists">111</div>
+        <div class="hstat-val" id="h-assists">122</div>
         <div class="hstat-label">Assists</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val" id="h-cs">107</div>
+        <div class="hstat-val" id="h-cs">113</div>
         <div class="hstat-label">Clean Sheets</div>
       </div>
       <div class="hstat">
@@ -2119,18 +2119,32 @@ footer{
         </thead>
         <tbody id="overall-tbody"><tr>
       <td class="rank-cell rank-1">🥇 1</td>
+      <td class="player-name">Chidi</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">12</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td><span class="overall-gac">21</span></td>
+    </tr><tr>
+      <td class="rank-cell rank-1">🥇 1</td>
       <td class="player-name">Olorunfemi</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
       <td><span class="overall-gac">21</span></td>
     </tr><tr>
-      <td class="rank-cell rank-2">🥈 2</td>
-      <td class="player-name">Chidi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">7</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">12</span></td>
+      <td class="rank-cell rank-3">🥉 3</td>
+      <td class="player-name">Sheyi</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">11</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">19</span></td>
+      <td><span class="overall-gac">17</span></td>
+    </tr><tr>
+      <td class="rank-cell rank-3">🥉 3</td>
+      <td class="player-name">Akin Benzema</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">10</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">7</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td><span class="overall-gac">17</span></td>
     </tr><tr>
       <td class="rank-cell rank-3">🥉 3</td>
       <td class="player-name">Emma Ajayi</td>
@@ -2139,61 +2153,54 @@ footer{
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">17</span></td>
     </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">Akin Benzema</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">15</span></td>
-    </tr><tr>
-      <td class="rank-cell ">5</td>
-      <td class="player-name">Sheyi</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">13</span></td>
-    </tr><tr>
-      <td class="rank-cell ">5</td>
+      <td class="rank-cell ">6</td>
       <td class="player-name">Oluchi</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
-      <td><span class="overall-gac">13</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">7</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
+      <td><span class="overall-gac">15</span></td>
     </tr><tr>
       <td class="rank-cell ">7</td>
       <td class="player-name">Lotanna</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">8</span></td>
-      <td><span class="overall-gac">12</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
+      <td><span class="overall-gac">13</span></td>
     </tr><tr>
       <td class="rank-cell ">7</td>
       <td class="player-name">Victor</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">10</span></td>
-      <td><span class="overall-gac">12</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">11</span></td>
+      <td><span class="overall-gac">13</span></td>
     </tr><tr>
       <td class="rank-cell ">9</td>
       <td class="player-name">Dimeji</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">7</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">8</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">11</span></td>
+      <td><span class="overall-gac">12</span></td>
     </tr><tr>
-      <td class="rank-cell ">9</td>
+      <td class="rank-cell ">10</td>
       <td class="player-name">Festus</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">11</span></td>
     </tr><tr>
-      <td class="rank-cell ">9</td>
+      <td class="rank-cell ">10</td>
       <td class="player-name">Dismas</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">9</span></td>
       <td><span class="overall-gac">11</span></td>
+    </tr><tr>
+      <td class="rank-cell ">12</td>
+      <td class="player-name">Dayo</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">7</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td><span class="overall-gac">10</span></td>
     </tr><tr>
       <td class="rank-cell ">12</td>
       <td class="player-name">Mayowa</td>
@@ -2202,441 +2209,434 @@ footer{
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">8</span></td>
       <td><span class="overall-gac">10</span></td>
     </tr><tr>
-      <td class="rank-cell ">13</td>
+      <td class="rank-cell ">14</td>
       <td class="player-name">Sunny</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">7</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">9</span></td>
     </tr><tr>
-      <td class="rank-cell ">13</td>
+      <td class="rank-cell ">14</td>
       <td class="player-name">Abdul GH</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
       <td><span class="overall-gac">9</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">16</td>
       <td class="player-name">Tdexx</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">8</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">16</td>
       <td class="player-name">Abdul</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">8</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">16</td>
       <td class="player-name">Dare</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">8</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">16</td>
       <td class="player-name">Abas</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">8</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">16</td>
       <td class="player-name">Temi</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">6</span></td>
       <td><span class="overall-gac">8</span></td>
     </tr><tr>
-      <td class="rank-cell ">20</td>
+      <td class="rank-cell ">21</td>
       <td class="player-name">Emma Ike</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">7</span></td>
     </tr><tr>
-      <td class="rank-cell ">20</td>
+      <td class="rank-cell ">21</td>
       <td class="player-name">David</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">7</span></td>
     </tr><tr>
-      <td class="rank-cell ">20</td>
+      <td class="rank-cell ">21</td>
       <td class="player-name">Moyo</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
       <td><span class="overall-gac">7</span></td>
     </tr><tr>
-      <td class="rank-cell ">23</td>
-      <td class="player-name">Dayo</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">6</span></td>
-    </tr><tr>
       <td class="rank-cell ">24</td>
       <td class="player-name">AB</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">5</span></td>
+      <td><span class="overall-gac">6</span></td>
     </tr><tr>
       <td class="rank-cell ">24</td>
       <td class="player-name">Kwaku</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
-      <td><span class="overall-gac">5</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
+      <td><span class="overall-gac">6</span></td>
     </tr><tr>
       <td class="rank-cell ">24</td>
+      <td class="player-name">Banji</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">5</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
+      <td><span class="overall-gac">6</span></td>
+    </tr><tr>
+      <td class="rank-cell ">27</td>
+      <td class="player-name">Raph</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td><span class="overall-gac">5</span></td>
+    </tr><tr>
+      <td class="rank-cell ">27</td>
+      <td class="player-name">Tosin</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td><span class="overall-gac">5</span></td>
+    </tr><tr>
+      <td class="rank-cell ">27</td>
       <td class="player-name">Stanley</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">5</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">30</td>
       <td class="player-name">CJ</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">30</td>
       <td class="player-name">Yaradua</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td><span class="overall-gac">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">30</td>
       <td class="player-name">Yaya</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td><span class="overall-gac">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">30</td>
       <td class="player-name">Johnson</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td><span class="overall-gac">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">30</td>
       <td class="player-name">John</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td><span class="overall-gac">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">30</td>
       <td class="player-name">Yustao</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">4</span></td>
       <td><span class="overall-gac">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">33</td>
+      <td class="rank-cell ">36</td>
       <td class="player-name">Alex</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">33</td>
+      <td class="rank-cell ">36</td>
       <td class="player-name">Farouk</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">33</td>
-      <td class="player-name">Raph</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">33</td>
+      <td class="rank-cell ">36</td>
       <td class="player-name">Nakel</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">33</td>
-      <td class="player-name">Tosin</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">3</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Bolu</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Abdou</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Manny</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Chibuzor</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Eben</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
-      <td class="player-name">Banji</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td><span class="overall-gac">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">KB</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Glory</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Pride</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Standly</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Akin Messi</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Jibo</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">38</td>
+      <td class="rank-cell ">39</td>
+      <td class="player-name">Kazzy</td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
+      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
+      <td><span class="overall-gac">2</span></td>
+    </tr><tr>
+      <td class="rank-cell ">39</td>
       <td class="player-name">Victor Osimhen</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">2</span></td>
       <td><span class="overall-gac">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Chris</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Zinga</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Oche</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Emma Cannavaro</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Michael</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">BigSarge</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Manny OG</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Francis</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Skully</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Taiwo</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Nicholas</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Michael New</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Tommy</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Justice</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Regis</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Yemi</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
-      <td class="player-name">Kazzy</td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
-      <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
-      <td><span class="overall-gac">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Dipo</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Tunde</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Ope</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Ade</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Korede</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Pryde</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Kennedy</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">1</span></td>
       <td><span class="overall-gac">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">51</td>
+      <td class="rank-cell ">52</td>
       <td class="player-name">Jbabs</td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
       <td style="text-align:center" class="hide-mobile"><span class="sub-stat">—</span></td>
@@ -2658,7 +2658,7 @@ footer{
       <div class="lb-header">
         <span class="lb-icon">⚽</span>
         <span class="lb-title">Goals Leaderboard</span>
-        <span class="lb-total" id="gb-total-label">Total: 137</span>
+        <span class="lb-total" id="gb-total-label">Total: 148</span>
       </div>
       <table>
         <thead>
@@ -2666,62 +2666,62 @@ footer{
         </thead>
         <tbody id="gb-tbody"><tr>
       <td class="rank-cell rank-1">🥇 1</td>
+      <td class="player-name">Sheyi</td>
+      <td><span class="stat-val">11</span></td>
+    </tr><tr>
+      <td class="rank-cell rank-2">🥈 2</td>
+      <td class="player-name">Akin Benzema</td>
+      <td><span class="stat-val">10</span></td>
+    </tr><tr>
+      <td class="rank-cell rank-3">🥉 3</td>
+      <td class="player-name">Chidi</td>
+      <td><span class="stat-val">9</span></td>
+    </tr><tr>
+      <td class="rank-cell rank-3">🥉 3</td>
       <td class="player-name">Olorunfemi</td>
       <td><span class="stat-val">9</span></td>
     </tr><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Sheyi</td>
-      <td><span class="stat-val">9</span></td>
-    </tr><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
+      <td class="rank-cell rank-3">🥉 3</td>
       <td class="player-name">Emma Ajayi</td>
       <td><span class="stat-val">9</span></td>
     </tr><tr>
-      <td class="rank-cell rank-1">🥇 1</td>
-      <td class="player-name">Akin Benzema</td>
-      <td><span class="stat-val">9</span></td>
-    </tr><tr>
-      <td class="rank-cell ">5</td>
-      <td class="player-name">Chidi</td>
-      <td><span class="stat-val">7</span></td>
-    </tr><tr>
-      <td class="rank-cell ">5</td>
+      <td class="rank-cell ">6</td>
       <td class="player-name">Dimeji</td>
-      <td><span class="stat-val">7</span></td>
+      <td><span class="stat-val">8</span></td>
     </tr><tr>
-      <td class="rank-cell ">5</td>
+      <td class="rank-cell ">7</td>
       <td class="player-name">Sunny</td>
       <td><span class="stat-val">7</span></td>
     </tr><tr>
-      <td class="rank-cell ">8</td>
+      <td class="rank-cell ">7</td>
+      <td class="player-name">Dayo</td>
+      <td><span class="stat-val">7</span></td>
+    </tr><tr>
+      <td class="rank-cell ">9</td>
       <td class="player-name">Tdexx</td>
       <td><span class="stat-val">6</span></td>
     </tr><tr>
-      <td class="rank-cell ">8</td>
+      <td class="rank-cell ">9</td>
       <td class="player-name">Festus</td>
       <td><span class="stat-val">6</span></td>
     </tr><tr>
-      <td class="rank-cell ">10</td>
+      <td class="rank-cell ">11</td>
       <td class="player-name">Abdul</td>
       <td><span class="stat-val">5</span></td>
     </tr><tr>
-      <td class="rank-cell ">11</td>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Dare</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">11</td>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Emma Ike</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">11</td>
-      <td class="player-name">Dayo</td>
-      <td><span class="stat-val">4</span></td>
-    </tr><tr>
-      <td class="rank-cell ">11</td>
+      <td class="rank-cell ">12</td>
       <td class="player-name">David</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">11</td>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Abas</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
@@ -2738,6 +2738,10 @@ footer{
       <td><span class="stat-val">3</span></td>
     </tr><tr>
       <td class="rank-cell ">16</td>
+      <td class="player-name">Raph</td>
+      <td><span class="stat-val">3</span></td>
+    </tr><tr>
+      <td class="rank-cell ">16</td>
       <td class="player-name">Oluchi</td>
       <td><span class="stat-val">3</span></td>
     </tr><tr>
@@ -2749,27 +2753,23 @@ footer{
       <td class="player-name">CJ</td>
       <td><span class="stat-val">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">22</td>
+      <td class="rank-cell ">23</td>
       <td class="player-name">Farouk</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">22</td>
+      <td class="rank-cell ">23</td>
       <td class="player-name">Bolu</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">22</td>
+      <td class="rank-cell ">23</td>
       <td class="player-name">Abdou</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">22</td>
-      <td class="player-name">Raph</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">22</td>
+      <td class="rank-cell ">23</td>
       <td class="player-name">Nakel</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">22</td>
+      <td class="rank-cell ">23</td>
       <td class="player-name">Manny</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
@@ -2822,6 +2822,10 @@ footer{
       <td><span class="stat-val">1</span></td>
     </tr><tr>
       <td class="rank-cell ">28</td>
+      <td class="player-name">Tosin</td>
+      <td><span class="stat-val">1</span></td>
+    </tr><tr>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Manny OG</td>
       <td><span class="stat-val">1</span></td>
     </tr></tbody>
@@ -2840,7 +2844,7 @@ footer{
       <div class="lb-header">
         <span class="lb-icon">🎯</span>
         <span class="lb-title">Assists Leaderboard</span>
-        <span class="lb-total" id="pm-total-label">Total: 111</span>
+        <span class="lb-total" id="pm-total-label">Total: 122</span>
       </div>
       <table>
         <thead>
@@ -2857,173 +2861,173 @@ footer{
     </tr><tr>
       <td class="rank-cell rank-3">🥉 3</td>
       <td class="player-name">Akin Benzema</td>
-      <td><span class="stat-val">6</span></td>
+      <td><span class="stat-val">7</span></td>
     </tr><tr>
       <td class="rank-cell rank-3">🥉 3</td>
       <td class="player-name">Oluchi</td>
-      <td><span class="stat-val">6</span></td>
+      <td><span class="stat-val">7</span></td>
     </tr><tr>
       <td class="rank-cell ">5</td>
-      <td class="player-name">Festus</td>
+      <td class="player-name">Sheyi</td>
+      <td><span class="stat-val">6</span></td>
+    </tr><tr>
+      <td class="rank-cell ">6</td>
+      <td class="player-name">Banji</td>
       <td><span class="stat-val">5</span></td>
     </tr><tr>
       <td class="rank-cell ">6</td>
+      <td class="player-name">Festus</td>
+      <td><span class="stat-val">5</span></td>
+    </tr><tr>
+      <td class="rank-cell ">8</td>
       <td class="player-name">Dare</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">6</td>
+      <td class="rank-cell ">8</td>
       <td class="player-name">Stanley</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">6</td>
-      <td class="player-name">Sheyi</td>
-      <td><span class="stat-val">4</span></td>
-    </tr><tr>
-      <td class="rank-cell ">6</td>
+      <td class="rank-cell ">8</td>
       <td class="player-name">Dimeji</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">10</td>
+      <td class="rank-cell ">8</td>
+      <td class="player-name">Tosin</td>
+      <td><span class="stat-val">4</span></td>
+    </tr><tr>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Abdul</td>
       <td><span class="stat-val">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">10</td>
+      <td class="rank-cell ">12</td>
+      <td class="player-name">AB</td>
+      <td><span class="stat-val">3</span></td>
+    </tr><tr>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Olorunfemi</td>
       <td><span class="stat-val">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">10</td>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Emma Ike</td>
       <td><span class="stat-val">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">10</td>
+      <td class="rank-cell ">12</td>
+      <td class="player-name">Dayo</td>
+      <td><span class="stat-val">3</span></td>
+    </tr><tr>
+      <td class="rank-cell ">12</td>
       <td class="player-name">Abas</td>
       <td><span class="stat-val">3</span></td>
     </tr><tr>
-      <td class="rank-cell ">10</td>
-      <td class="player-name">Tosin</td>
-      <td><span class="stat-val">3</span></td>
-    </tr><tr>
-      <td class="rank-cell ">15</td>
-      <td class="player-name">AB</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Mayowa</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Tdexx</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Dismas</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Sunny</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
-      <td class="player-name">Dayo</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Moyo</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">David</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
+      <td class="player-name">Raph</td>
+      <td><span class="stat-val">2</span></td>
+    </tr><tr>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Victor</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
-      <td class="player-name">Banji</td>
-      <td><span class="stat-val">2</span></td>
-    </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">KB</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">15</td>
+      <td class="rank-cell ">18</td>
       <td class="player-name">Glory</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Farouk</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Francis</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Chibuzor</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Temi</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Skully</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Lotanna</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Pride</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Eben</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Taiwo</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
-      <td class="player-name">Raph</td>
-      <td><span class="stat-val">1</span></td>
-    </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Johnson</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Nicholas</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Michael New</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Nakel</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Standly</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Yaradua</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Tommy</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">CJ</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">27</td>
+      <td class="rank-cell ">28</td>
       <td class="player-name">Justice</td>
       <td><span class="stat-val">1</span></td>
     </tr></tbody>
@@ -3042,7 +3046,7 @@ footer{
       <div class="lb-header">
         <span class="lb-icon">🧤</span>
         <span class="lb-title">Clean Sheet Leaderboard</span>
-        <span class="lb-total" id="cs-total-label">Total: 107</span>
+        <span class="lb-total" id="cs-total-label">Total: 113</span>
       </div>
       <table>
         <thead>
@@ -3051,7 +3055,7 @@ footer{
         <tbody id="cs-tbody"><tr>
       <td class="rank-cell rank-1">🥇 1</td>
       <td class="player-name">Victor</td>
-      <td><span class="stat-val">10</span></td>
+      <td><span class="stat-val">11</span></td>
     </tr><tr>
       <td class="rank-cell rank-2">🥈 2</td>
       <td class="player-name">Olorunfemi</td>
@@ -3061,12 +3065,12 @@ footer{
       <td class="player-name">Dismas</td>
       <td><span class="stat-val">9</span></td>
     </tr><tr>
-      <td class="rank-cell ">4</td>
-      <td class="player-name">Mayowa</td>
-      <td><span class="stat-val">8</span></td>
-    </tr><tr>
-      <td class="rank-cell ">4</td>
+      <td class="rank-cell rank-2">🥈 2</td>
       <td class="player-name">Lotanna</td>
+      <td><span class="stat-val">9</span></td>
+    </tr><tr>
+      <td class="rank-cell ">5</td>
+      <td class="player-name">Mayowa</td>
       <td><span class="stat-val">8</span></td>
     </tr><tr>
       <td class="rank-cell ">6</td>
@@ -3078,22 +3082,22 @@ footer{
       <td><span class="stat-val">6</span></td>
     </tr><tr>
       <td class="rank-cell ">8</td>
+      <td class="player-name">Kwaku</td>
+      <td><span class="stat-val">5</span></td>
+    </tr><tr>
+      <td class="rank-cell ">8</td>
       <td class="player-name">Moyo</td>
       <td><span class="stat-val">5</span></td>
     </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Kwaku</td>
-      <td><span class="stat-val">4</span></td>
+      <td class="rank-cell ">8</td>
+      <td class="player-name">Oluchi</td>
+      <td><span class="stat-val">5</span></td>
     </tr><tr>
-      <td class="rank-cell ">9</td>
+      <td class="rank-cell ">11</td>
       <td class="player-name">John</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
-      <td class="rank-cell ">9</td>
-      <td class="player-name">Oluchi</td>
-      <td><span class="stat-val">4</span></td>
-    </tr><tr>
-      <td class="rank-cell ">9</td>
+      <td class="rank-cell ">11</td>
       <td class="player-name">Yustao</td>
       <td><span class="stat-val">4</span></td>
     </tr><tr>
@@ -3114,6 +3118,10 @@ footer{
       <td><span class="stat-val">2</span></td>
     </tr><tr>
       <td class="rank-cell ">15</td>
+      <td class="player-name">Kazzy</td>
+      <td><span class="stat-val">2</span></td>
+    </tr><tr>
+      <td class="rank-cell ">15</td>
       <td class="player-name">Yaradua</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
@@ -3121,67 +3129,67 @@ footer{
       <td class="player-name">Victor Osimhen</td>
       <td><span class="stat-val">2</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Stanley</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Regis</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Pride</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Yemi</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">David</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
-      <td class="player-name">Kazzy</td>
+      <td class="rank-cell ">20</td>
+      <td class="player-name">Banji</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Abas</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Dipo</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Tunde</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Ope</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Ade</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Standly</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Korede</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Pryde</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Kennedy</td>
       <td><span class="stat-val">1</span></td>
     </tr><tr>
-      <td class="rank-cell ">19</td>
+      <td class="rank-cell ">20</td>
       <td class="player-name">Jbabs</td>
       <td><span class="stat-val">1</span></td>
     </tr></tbody>
@@ -3269,7 +3277,7 @@ footer{
     </button><button class="month-btn " onclick="selectMonth('Aug 2026')">
       Aug 2026 <span class="month-badge">41</span>
     </button><button class="month-btn active" onclick="selectMonth('Sept 2026')">
-      Sept 2026 <span class="month-badge">35</span>
+      Sept 2026 <span class="month-badge">49</span>
     </button><button class="month-btn " onclick="selectMonth('Oct 2026')">
       Oct 2026 <span class="month-badge">0</span>
     </button><button class="month-btn " onclick="selectMonth('Nov 2026')">
@@ -3607,6 +3615,135 @@ footer{
             
           </tbody>
         </table>
+      </div><div class="match-session">
+        <div class="session-header">
+          <span class="session-date">⚽ Sept 26th</span>
+          <div class="session-totals">
+            <span class="stot">Goals <span>11</span></span>
+            <span class="stot">Assists <span>11</span></span>
+            <span class="stot">CS <span>6</span></span>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Player</th><th style="text-align:center">⚽ Goals</th><th style="text-align:center">🎯 Assists</th><th style="text-align:center">🧤 CS</th><th></th></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td class="player-name">Chidi</td>
+                <td style="text-align:center"><span class="stat-val">2</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(268)">✏️</button><button class="action-btn del" onclick="deleteEntry(268)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Dayo</td>
+                <td style="text-align:center"><span class="stat-val">3</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(269)">✏️</button><button class="action-btn del" onclick="deleteEntry(269)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Dimeji</td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(270)">✏️</button><button class="action-btn del" onclick="deleteEntry(270)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Tosin</td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(271)">✏️</button><button class="action-btn del" onclick="deleteEntry(271)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Sheyi</td>
+                <td style="text-align:center"><span class="stat-val">2</span></td>
+                <td style="text-align:center"><span class="stat-val">2</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(272)">✏️</button><button class="action-btn del" onclick="deleteEntry(272)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Raph</td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(273)">✏️</button><button class="action-btn del" onclick="deleteEntry(273)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Akin Benzema</td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(274)">✏️</button><button class="action-btn del" onclick="deleteEntry(274)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Banji</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">3</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(275)">✏️</button><button class="action-btn del" onclick="deleteEntry(275)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">AB</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(276)">✏️</button><button class="action-btn del" onclick="deleteEntry(276)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Oluchi</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(277)">✏️</button><button class="action-btn del" onclick="deleteEntry(277)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Lotanna</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(278)">✏️</button><button class="action-btn del" onclick="deleteEntry(278)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Victor</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(279)">✏️</button><button class="action-btn del" onclick="deleteEntry(279)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Kwaku</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(280)">✏️</button><button class="action-btn del" onclick="deleteEntry(280)">🗑️</button></td>
+              </tr>
+            
+              <tr>
+                <td class="player-name">Kazzy</td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span style="color:var(--border)">—</span></td>
+                <td style="text-align:center"><span class="stat-val">1</span></td>
+                <td style="text-align:right"><button class="action-btn" onclick="editEntry(281)">✏️</button><button class="action-btn del" onclick="deleteEntry(281)">🗑️</button></td>
+              </tr>
+            
+          </tbody>
+        </table>
       </div></div>
     </div>
   </div>
@@ -3656,7 +3793,7 @@ footer{
     </div>
 
     <!-- Awards grid -->
-    <div class="potm-grid" id="potm-grid"><div class="potm-card potm-card-noaward"><div class="potm-card-header"><span class="potm-month-label">Jan 2026</span><span class="potm-star">🚫</span></div><div class="potm-noaward-body"><div class="potm-noaward-icon">🚫</div><div class="potm-noaward-text">No POTM Award</div><div class="potm-noaward-reason">Not enough data for an award this month.</div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">Feb 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Olorunfemi</div><div class="potm-reason">2 goals, 3 clean sheets in February</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">2</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">3</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">5</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Co-Winners</div><div class="potm-card-header"><span class="potm-month-label">Mar 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-cowinner-label">🤝 Co-POTMs of the Month</div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Akin Benzema</div><div class="potm-cowinner-stats"><span>2G</span><span>2A</span><span class="potm-cowinner-total">4</span></div></div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Victor</div><div class="potm-cowinner-stats"><span>1A</span><span>3CS</span><span class="potm-cowinner-total">4</span></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">Apr 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Emma Ajayi</div><div class="potm-reason">4 goals in April</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">May 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Dare</div><div class="potm-reason">3 goals, 1 assist in May</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">3</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">1</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card potm-card-noaward"><div class="potm-card-header"><span class="potm-month-label">June 2026</span><span class="potm-star">🚫</span></div><div class="potm-noaward-body"><div class="potm-noaward-icon">🚫</div><div class="potm-noaward-text">No POTM Award</div><div class="potm-noaward-reason">Not enough data for an award this month.</div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">July 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Chidi</div><div class="potm-reason">4 goals, 2 assists in July</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">2</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">6</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Co-Winners</div><div class="potm-card-header"><span class="potm-month-label">Aug 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-cowinner-label">🤝 Co-POTMs of the Month</div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Festus</div><div class="potm-cowinner-stats"><span>4G</span><span>1A</span><span class="potm-cowinner-total">5</span></div></div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ David</div><div class="potm-cowinner-stats"><span>3G</span><span>2A</span><span class="potm-cowinner-total">5</span></div></div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Chidi</div><div class="potm-cowinner-stats"><span>1G</span><span>4A</span><span class="potm-cowinner-total">5</span></div></div><div class="potm-reason" style="margin-top:10px">Three-way tie on 5 G/A/C in August</div></div></div><div class="potm-card "><div class="potm-card-header"><span class="potm-month-label">Sept 2026</span><span class="potm-star">🔥</span></div><div class="potm-running"><div class="potm-running-label">In The Running</div><table class="potm-running-table"><thead><tr><th></th><th>Player</th><th>G</th><th>A</th><th>CS</th><th>G/A/C</th></tr></thead><tbody><tr><td class="potm-running-pos">🥇</td><td style="font-size:12px">Olorunfemi</td><td><span class="potm-running-sub">5</span></td><td><span class="potm-running-sub">1</span></td><td><span class="potm-running-sub">1</span></td><td><span class="potm-running-total">7</span></td></tr><tr><td class="potm-running-pos">🥈</td><td style="font-size:12px">Akin Benzema</td><td><span class="potm-running-sub">4</span></td><td><span class="potm-running-sub">2</span></td><td><span class="potm-running-sub">—</span></td><td><span class="potm-running-total">6</span></td></tr><tr><td class="potm-running-pos">🥈</td><td style="font-size:12px">Festus</td><td><span class="potm-running-sub">2</span></td><td><span class="potm-running-sub">4</span></td><td><span class="potm-running-sub">—</span></td><td><span class="potm-running-total">6</span></td></tr></tbody></table></div></div><div class="potm-card "><div class="potm-card-header"><span class="potm-month-label">Oct 2026</span><span class="potm-star">·</span></div><div class="potm-no-data">No match data yet</div></div><div class="potm-card "><div class="potm-card-header"><span class="potm-month-label">Nov 2026</span><span class="potm-star">·</span></div><div class="potm-no-data">No match data yet</div></div></div>
+    <div class="potm-grid" id="potm-grid"><div class="potm-card potm-card-noaward"><div class="potm-card-header"><span class="potm-month-label">Jan 2026</span><span class="potm-star">🚫</span></div><div class="potm-noaward-body"><div class="potm-noaward-icon">🚫</div><div class="potm-noaward-text">No POTM Award</div><div class="potm-noaward-reason">Not enough data for an award this month.</div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">Feb 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Olorunfemi</div><div class="potm-reason">2 goals, 3 clean sheets in February</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">2</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">3</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">5</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Co-Winners</div><div class="potm-card-header"><span class="potm-month-label">Mar 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-cowinner-label">🤝 Co-POTMs of the Month</div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Akin Benzema</div><div class="potm-cowinner-stats"><span>2G</span><span>2A</span><span class="potm-cowinner-total">4</span></div></div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Victor</div><div class="potm-cowinner-stats"><span>1A</span><span>3CS</span><span class="potm-cowinner-total">4</span></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">Apr 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Emma Ajayi</div><div class="potm-reason">4 goals in April</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">May 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Dare</div><div class="potm-reason">3 goals, 1 assist in May</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">3</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">1</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card potm-card-noaward"><div class="potm-card-header"><span class="potm-month-label">June 2026</span><span class="potm-star">🚫</span></div><div class="potm-noaward-body"><div class="potm-noaward-icon">🚫</div><div class="potm-noaward-text">No POTM Award</div><div class="potm-noaward-reason">Not enough data for an award this month.</div></div></div><div class="potm-card "><div class="potm-ribbon">Winner</div><div class="potm-card-header"><span class="potm-month-label">July 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-winner-name">Chidi</div><div class="potm-reason">4 goals, 2 assists in July</div><div class="potm-stats-row"><div class="potm-stat"><div class="potm-stat-val">4</div><div class="potm-stat-label">Goals</div></div><div class="potm-stat"><div class="potm-stat-val">2</div><div class="potm-stat-label">Assists</div></div><div class="potm-stat"><div class="potm-stat-val">0</div><div class="potm-stat-label">CS</div></div><div class="potm-stat"><div class="potm-stat-val">6</div><div class="potm-stat-label">Total</div></div></div></div></div><div class="potm-card "><div class="potm-ribbon">Co-Winners</div><div class="potm-card-header"><span class="potm-month-label">Aug 2026</span><span class="potm-star">⭐</span></div><div class="potm-body"><div class="potm-cowinner-label">🤝 Co-POTMs of the Month</div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Festus</div><div class="potm-cowinner-stats"><span>4G</span><span>1A</span><span class="potm-cowinner-total">5</span></div></div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ David</div><div class="potm-cowinner-stats"><span>3G</span><span>2A</span><span class="potm-cowinner-total">5</span></div></div><div class="potm-cowinner-row"><div class="potm-cowinner-name">⭐ Chidi</div><div class="potm-cowinner-stats"><span>1G</span><span>4A</span><span class="potm-cowinner-total">5</span></div></div><div class="potm-reason" style="margin-top:10px">Three-way tie on 5 G/A/C in August</div></div></div><div class="potm-card "><div class="potm-card-header"><span class="potm-month-label">Sept 2026</span><span class="potm-star">🔥</span></div><div class="potm-running"><div class="potm-running-label">In The Running</div><table class="potm-running-table"><thead><tr><th></th><th>Player</th><th>G</th><th>A</th><th>CS</th><th>G/A/C</th></tr></thead><tbody><tr><td class="potm-running-pos">🥇</td><td style="font-size:12px">Akin Benzema</td><td><span class="potm-running-sub">5</span></td><td><span class="potm-running-sub">3</span></td><td><span class="potm-running-sub">—</span></td><td><span class="potm-running-total">8</span></td></tr><tr><td class="potm-running-pos">🥈</td><td style="font-size:12px">Olorunfemi</td><td><span class="potm-running-sub">5</span></td><td><span class="potm-running-sub">1</span></td><td><span class="potm-running-sub">1</span></td><td><span class="potm-running-total">7</span></td></tr><tr><td class="potm-running-pos">🥉</td><td style="font-size:12px">Sheyi</td><td><span class="potm-running-sub">3</span></td><td><span class="potm-running-sub">3</span></td><td><span class="potm-running-sub">—</span></td><td><span class="potm-running-total">6</span></td></tr><tr><td class="potm-running-pos">🥉</td><td style="font-size:12px">Festus</td><td><span class="potm-running-sub">2</span></td><td><span class="potm-running-sub">4</span></td><td><span class="potm-running-sub">—</span></td><td><span class="potm-running-total">6</span></td></tr></tbody></table></div></div><div class="potm-card "><div class="potm-card-header"><span class="potm-month-label">Oct 2026</span><span class="potm-star">·</span></div><div class="potm-no-data">No match data yet</div></div><div class="potm-card "><div class="potm-card-header"><span class="potm-month-label">Nov 2026</span><span class="potm-star">·</span></div><div class="potm-no-data">No match data yet</div></div></div>
 
     <!-- Timeline -->
     <div class="lb-card">
@@ -6372,6 +6509,132 @@ const SEED_DATA = [
     "goals": 0,
     "assists": 0,
     "cs": 1
+  },
+  {
+    "id": 268,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Chidi",
+    "goals": 2,
+    "assists": 0,
+    "cs": 0
+  },
+  {
+    "id": 269,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Dayo",
+    "goals": 3,
+    "assists": 1,
+    "cs": 0
+  },
+  {
+    "id": 270,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Dimeji",
+    "goals": 1,
+    "assists": 0,
+    "cs": 0
+  },
+  {
+    "id": 271,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Tosin",
+    "goals": 1,
+    "assists": 1,
+    "cs": 0
+  },
+  {
+    "id": 272,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Sheyi",
+    "goals": 2,
+    "assists": 2,
+    "cs": 0
+  },
+  {
+    "id": 273,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Raph",
+    "goals": 1,
+    "assists": 1,
+    "cs": 0
+  },
+  {
+    "id": 274,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Akin Benzema",
+    "goals": 1,
+    "assists": 1,
+    "cs": 0
+  },
+  {
+    "id": 275,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Banji",
+    "goals": 0,
+    "assists": 3,
+    "cs": 1
+  },
+  {
+    "id": 276,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "AB",
+    "goals": 0,
+    "assists": 1,
+    "cs": 0
+  },
+  {
+    "id": 277,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Oluchi",
+    "goals": 0,
+    "assists": 1,
+    "cs": 1
+  },
+  {
+    "id": 278,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Lotanna",
+    "goals": 0,
+    "assists": 0,
+    "cs": 1
+  },
+  {
+    "id": 279,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Victor",
+    "goals": 0,
+    "assists": 0,
+    "cs": 1
+  },
+  {
+    "id": 280,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Kwaku",
+    "goals": 0,
+    "assists": 0,
+    "cs": 1
+  },
+  {
+    "id": 281,
+    "month": "Sept 2026",
+    "date": "Sept 26th",
+    "player": "Kazzy",
+    "goals": 0,
+    "assists": 0,
+    "cs": 1
   }
 ];
 
@@ -6383,7 +6646,7 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 25;
+const DATA_VERSION = 26;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
@@ -7162,4 +7425,5 @@ setTimeout(syncHomeStats,400);
 <iframe src="https://apps.rokt.com/wsdk/reporter/index.2.7233.0.html?error_id=6701228&amp;use_sandbox=false&amp;partner_origin=https%3A%2F%2Fformerlyfit89.com&amp;rokt_tag_id=&amp;severity=ERROR&amp;reporter=frame&amp;code=CONTROLLER_ALREADY_EXISTS&amp;stack=Error%3A+CONTROLLER_ALREADY_EXISTS%0A++++at+chrome-extension%3A%2F%2Fhfapbcheiepjppjbnkphkmegjlipojba%2Fjs%2F59680.js%3A1%3A56330&amp;additional_information=%7B%22name%22%3A%22Error%22%2C%22message%22%3A%22CONTROLLER_ALREADY_EXISTS%22%2C%22controllerFrameName%22%3A%22ec6cdbb7-7c58-43ad-a79e-d60f1a8feb77%22%2C%22VERSION%22%3A%22IL-2.7233.0%22%7D" style="display: none;"></iframe><div data-klarna-plugin-views-container=""></div>
 <iframe src="https://apps.rokt.com/wsdk/reporter/index.2.7233.0.html?error_id=6818274&amp;use_sandbox=false&amp;partner_origin=https%3A%2F%2Fformerlyfit89.com&amp;rokt_tag_id=&amp;severity=ERROR&amp;reporter=frame&amp;code=CONTROLLER_ALREADY_EXISTS&amp;stack=Error%3A+CONTROLLER_ALREADY_EXISTS%0A++++at+chrome-extension%3A%2F%2Fhfapbcheiepjppjbnkphkmegjlipojba%2Fjs%2F59680.js%3A1%3A56330&amp;additional_information=%7B%22name%22%3A%22Error%22%2C%22message%22%3A%22CONTROLLER_ALREADY_EXISTS%22%2C%22controllerFrameName%22%3A%22176b9cf7-bd28-4b62-8889-e1ade717ee9f%22%2C%22VERSION%22%3A%22IL-2.7233.0%22%7D" style="display: none;"></iframe><div data-klarna-plugin-views-container=""></div>
 <iframe src="https://apps.rokt.com/wsdk/reporter/index.2.7233.0.html?error_id=2278041&amp;use_sandbox=false&amp;partner_origin=https%3A%2F%2Fformerlyfit89.com&amp;rokt_tag_id=&amp;severity=ERROR&amp;reporter=frame&amp;code=CONTROLLER_ALREADY_EXISTS&amp;stack=Error%3A+CONTROLLER_ALREADY_EXISTS%0A++++at+chrome-extension%3A%2F%2Fhfapbcheiepjppjbnkphkmegjlipojba%2Fjs%2F59680.js%3A1%3A56330&amp;additional_information=%7B%22name%22%3A%22Error%22%2C%22message%22%3A%22CONTROLLER_ALREADY_EXISTS%22%2C%22controllerFrameName%22%3A%22673cd2e4-9c50-4d97-b5d9-23cf54a62f84%22%2C%22VERSION%22%3A%22IL-2.7233.0%22%7D" style="display: none;"></iframe><div data-klarna-plugin-views-container=""></div>
-<iframe src="https://apps.rokt.com/wsdk/reporter/index.2.7233.0.html?error_id=6921437&amp;use_sandbox=false&amp;partner_origin=https%3A%2F%2Fformerlyfit89.com&amp;rokt_tag_id=&amp;severity=ERROR&amp;reporter=frame&amp;code=CONTROLLER_ALREADY_EXISTS&amp;stack=Error%3A+CONTROLLER_ALREADY_EXISTS%0A++++at+chrome-extension%3A%2F%2Fhfapbcheiepjppjbnkphkmegjlipojba%2Fjs%2F59680.js%3A1%3A56330&amp;additional_information=%7B%22name%22%3A%22Error%22%2C%22message%22%3A%22CONTROLLER_ALREADY_EXISTS%22%2C%22controllerFrameName%22%3A%2246049faf-0625-4156-8aee-6221110acc18%22%2C%22VERSION%22%3A%22IL-2.7233.0%22%7D" style="display: none;"></iframe></body><div data-klarna-plugin-views-container=""></div></html>
+<iframe src="https://apps.rokt.com/wsdk/reporter/index.2.7233.0.html?error_id=6921437&amp;use_sandbox=false&amp;partner_origin=https%3A%2F%2Fformerlyfit89.com&amp;rokt_tag_id=&amp;severity=ERROR&amp;reporter=frame&amp;code=CONTROLLER_ALREADY_EXISTS&amp;stack=Error%3A+CONTROLLER_ALREADY_EXISTS%0A++++at+chrome-extension%3A%2F%2Fhfapbcheiepjppjbnkphkmegjlipojba%2Fjs%2F59680.js%3A1%3A56330&amp;additional_information=%7B%22name%22%3A%22Error%22%2C%22message%22%3A%22CONTROLLER_ALREADY_EXISTS%22%2C%22controllerFrameName%22%3A%2246049faf-0625-4156-8aee-6221110acc18%22%2C%22VERSION%22%3A%22IL-2.7233.0%22%7D" style="display: none;"></iframe><div data-klarna-plugin-views-container=""></div>
+<iframe src="https://apps.rokt.com/wsdk/reporter/index.2.7233.0.html?error_id=9738066&amp;use_sandbox=false&amp;partner_origin=https%3A%2F%2Fformerlyfit89.com&amp;rokt_tag_id=&amp;severity=ERROR&amp;reporter=frame&amp;code=CONTROLLER_ALREADY_EXISTS&amp;stack=Error%3A+CONTROLLER_ALREADY_EXISTS%0A++++at+chrome-extension%3A%2F%2Fhfapbcheiepjppjbnkphkmegjlipojba%2Fjs%2F59680.js%3A1%3A56330&amp;additional_information=%7B%22name%22%3A%22Error%22%2C%22message%22%3A%22CONTROLLER_ALREADY_EXISTS%22%2C%22controllerFrameName%22%3A%22a5eac1b2-0ce6-49a1-8051-252a4f087207%22%2C%22VERSION%22%3A%22IL-2.7233.0%22%7D" style="display: none;"></iframe></body><div data-klarna-plugin-views-container=""></div></html>
