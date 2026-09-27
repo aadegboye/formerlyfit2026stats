@@ -1242,7 +1242,48 @@
   .potm-tl-winner .star { color: var(--gold); }
   .potm-tl-empty { color: var(--muted); font-size: 13px; font-style: italic; flex: 1; }
 
-.village-iframe{width:100%;height:100%;border:none;display:block;position:fixed;top:0;left:0;z-index:2147483647;background:#0000003d;color-scheme:light}.village-iframe.village-loading{display:flex;justify-content:center;align-items:center}.village-iframe>.village-spinner{width:1.5rem;height:1.5rem;border:2px solid #000;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin .45s linear infinite}.village-iframe.village-hidden{display:none}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.village-hidden{display:none}[village-paths-data=facepiles]{display:flex;align-items:center;padding-right:.5rem}[village-paths-data=facepiles] img{width:1.5rem;height:1.5rem;border-radius:50%;margin-right:-.5rem}[village-paths-data=facepiles] img.village-facepiler-avatar-not-found{filter:blur(7px)}[village-paths-data=facepiles] img:last-child{margin-right:0}[village-paths-data=count]{padding-right:.25rem}[village-paths-availability=error],[village-paths-availability=found],[village-paths-availability=not-found],[village-paths-availability=not-activated]{display:none!important}[village-paths-availability=loading]{display:inline-flex!important}</style>
+.village-iframe{width:100%;height:100%;border:none;display:block;position:fixed;top:0;left:0;z-index:2147483647;background:#0000003d;color-scheme:light}.village-iframe.village-loading{display:flex;justify-content:center;align-items:center}.village-iframe>.village-spinner{width:1.5rem;height:1.5rem;border:2px solid #000;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin .45s linear infinite}.village-iframe.village-hidden{display:none}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.village-hidden{display:none}[village-paths-data=facepiles]{display:flex;align-items:center;padding-right:.5rem}[village-paths-data=facepiles] img{width:1.5rem;height:1.5rem;border-radius:50%;margin-right:-.5rem}[village-paths-data=facepiles] img.village-facepiler-avatar-not-found{filter:blur(7px)}[village-paths-data=facepiles] img:last-child{margin-right:0}[village-paths-data=count]{padding-right:.25rem}[village-paths-availability=error],[village-paths-availability=found],[village-paths-availability=not-found],[village-paths-availability=not-activated]{display:none!important}[village-paths-availability=loading]{display:inline-flex!important}
+  /* ── SEASON SELECTOR (stats page) ── */
+  .season-subnav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .season-subnav-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .season-subnav-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--muted);
+    margin-right: 6px;
+  }
+  .season-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: 2px;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 6px 16px; border-radius: 20px;
+    cursor: pointer; transition: all .15s;
+  }
+  .season-btn:hover { color: var(--text); border-color: var(--muted); }
+  .season-btn.active {
+    background: var(--green); color: var(--dark);
+    border-color: var(--green); font-weight: 600;
+  }
+  .btn-hero-2025 {
+    background: transparent !important;
+    color: var(--green) !important;
+    border: 2px solid var(--green) !important;
+  }
+  .btn-hero-2025:hover { background: rgba(0,230,118,0.12) !important; }
+  @media (max-width: 600px) {
+    .season-subnav-inner { padding: 9px 16px; }
+    .season-btn { padding: 5px 14px; font-size: 11px; }
+  }
+</style>
 <style>
 :root {
   --green:#00E676; --green-dim:#00c853; --dark:#060a06;
@@ -1800,7 +1841,7 @@ footer{
 
 
 <!-- HOME -->
-<div id="site-shell" style="display: none;">
+<div id="site-shell" style="display:block;">
 <div class="site-page" id="page-home">
   <section class="hero">
     <div class="hero-pitch"></div>
@@ -1817,7 +1858,8 @@ footer{
       <div class="hero-bottom">
         <p class="hero-desc">Where old legs meet young hearts. A tight-knit Saturday soccer group built on <strong>passion, banter</strong>. Every week we show up. Every week we give everything.</p>
         <div class="hero-actions">
-          <button class="btn-hero-primary" onclick="showSitePage('stats')">⚽ View 2026 Stats</button>
+          <button class="btn-hero-primary" onclick="showSitePage('stats');switchSeason('2026')">⚽ View 2026 Stats</button>
+          <button class="btn-hero-primary btn-hero-2025" onclick="showSitePage('stats');switchSeason('2025')">📅 View 2025 Stats</button>
           <button class="btn-hero-secondary" onclick="showSitePage('about')">Our Story</button>
         </div>
       </div>
@@ -2007,7 +2049,7 @@ footer{
   </div>
 </div><!-- end site-shell -->
 
-<div id="stats-shell" style="display: block;">
+<div id="stats-shell" style="display:none;">
 
 
 <!-- ADMIN LOGIN MODAL -->
@@ -2050,7 +2092,7 @@ footer{
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <div class="brand"><h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text)">2026 Stats</h1></div>
+    <div class="brand"><h1 style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text)" id="stats-title">2026 Stats</h1></div>
     <div class="header-stats">
       <div class="hstat">
         <div class="hstat-val" id="h-goals">150</div>
@@ -2071,6 +2113,15 @@ footer{
     </div>
   </div>
 </header>
+<!-- SEASON SELECTOR -->
+<div class="season-subnav">
+  <div class="season-subnav-inner">
+    <span class="season-subnav-label">Season</span>
+    <button class="season-btn" data-year="2025" onclick="switchSeason('2025')">2025</button>
+    <button class="season-btn active" data-year="2026" onclick="switchSeason('2026')">2026</button>
+  </div>
+</div>
+
 
 <!-- ADMIN BANNER -->
 <div id="admin-banner">
@@ -2101,7 +2152,7 @@ footer{
   <!-- OVERALL RANKINGS -->
   <div class="page" id="page-overall">
     <div class="section-title"><span class="accent">Overall</span>&nbsp;Rankings</div>
-    <div class="section-sub">Combined Goals + Assists + Clean Sheets · 2026 Season</div>
+    <div class="section-sub">Combined Goals + Assists + Clean Sheets · <span class="season-label">2026 Season</span></div>
     <div class="search-bar">
       <input type="text" placeholder="Search player…" oninput="filterTable(this,'overall-tbody')">
     </div>
@@ -2657,7 +2708,7 @@ footer{
   <!-- GOLDEN BOOT -->
   <div class="page" id="page-golden-boot">
     <div class="section-title"><span class="accent">Golden</span>&nbsp;Boot</div>
-    <div class="section-sub">Top scorers · 2026 Season</div>
+    <div class="section-sub">Top scorers · <span class="season-label">2026 Season</span></div>
     <div class="search-bar">
       <input type="text" placeholder="Search player…" oninput="filterTable(this,'gb-tbody')">
     </div>
@@ -2847,7 +2898,7 @@ footer{
   <!-- PLAYMAKER -->
   <div class="page" id="page-playmaker">
     <div class="section-title"><span class="accent">Play</span>maker&nbsp;Race</div>
-    <div class="section-sub">Top assist providers · 2026 Season</div>
+    <div class="section-sub">Top assist providers · <span class="season-label">2026 Season</span></div>
     <div class="search-bar">
       <input type="text" placeholder="Search player…" oninput="filterTable(this,'pm-tbody')">
     </div>
@@ -3049,7 +3100,7 @@ footer{
   <!-- CLEAN SHEET -->
   <div class="page" id="page-cleansheet">
     <div class="section-title"><span class="accent">Clean</span>&nbsp;Sheet Race</div>
-    <div class="section-sub">Top keepers &amp; defenders · 2026 Season</div>
+    <div class="section-sub">Top keepers &amp; defenders · <span class="season-label">2026 Season</span></div>
     <div class="search-bar">
       <input type="text" placeholder="Search player…" oninput="filterTable(this,'cs-tbody')">
     </div>
@@ -3770,7 +3821,7 @@ footer{
   <!-- PLAYER OF THE MONTH -->
   <div class="page" id="page-potm">
     <div class="section-title"><span class="accent">Player</span>&nbsp;of the Month</div>
-    <div class="section-sub">Monthly award for the standout performer · 2026 Season</div>
+    <div class="section-sub">Monthly award for the standout performer · <span class="season-label">2026 Season</span></div>
 
     <!-- Admin POTM form -->
     <div id="potm-admin-section" style="display:none">
@@ -3922,6 +3973,7 @@ const MONTH_TO_IDX = {
 };
 
 let calYear = 2026, calMonth = 0, calSelectedDate = null;
+function monthToIdx(s) { var i = MONTHS.indexOf(s); return i < 0 ? 0 : i; }
 
 function toggleCalendar() {
   const popup = document.getElementById('cal-popup');
@@ -3947,8 +3999,8 @@ function toggleCalendar() {
 
   // Set calendar to current form month
   const selMonth = document.getElementById('f-month').value;
-  calMonth = MONTH_TO_IDX[selMonth] ?? 0;
-  calYear = 2026;
+  calMonth = monthToIdx(selMonth);
+  calYear = parseInt(SEASON, 10);
 
   popup.classList.add('open');
   trigger.classList.add('open');
@@ -3970,7 +4022,7 @@ function calShift(dir) {
 }
 
 function renderCalendar() {
-  document.getElementById('cal-month-label').textContent = MONTH_NAMES[calMonth] + ' 2026';
+  document.getElementById('cal-month-label').textContent = MONTH_NAMES[calMonth] + ' ' + SEASON;
 
   const grid = document.getElementById('cal-grid');
   // Remove day cells (keep the 7 dow headers)
@@ -4012,7 +4064,7 @@ function selectCalDate(month, day) {
   const label = shortMonth + ' ' + ORDINAL(day);
 
   // Map JS month index back to form month string
-  const monthStr = Object.keys(MONTH_TO_IDX).find(k => MONTH_TO_IDX[k] === month) || 'Jan 2026';
+  const monthStr = MONTHS[month] || MONTHS[0];
 
   // Update form fields
   document.getElementById('f-date').value = label;
@@ -4112,7 +4164,10 @@ window.addEventListener('resize', applyNavLabels);
 window.addEventListener('resize', updateNavArrows);
 
 // ─── DATA STORE ───────────────────────────────────────────────
-const MONTHS = ['Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','June 2026','July 2026','Aug 2026','Sept 2026','Oct 2026','Nov 2026'];
+const MONTHS_2026 = ['Jan 2026','Feb 2026','Mar 2026','Apr 2026','May 2026','June 2026','July 2026','Aug 2026','Sept 2026','Oct 2026','Nov 2026'];
+const MONTHS_2025 = ['Jan 2025','Feb 2025','Mar 2025','Apr 2025','May 2025','June 2025','July 2025','Aug 2025','Sept 2025','Oct 2025','Nov 2025'];
+let MONTHS = MONTHS_2026;
+let SEASON = '2026';
 const ADMIN_PASS = 'formerlyfit2026';
 
 // Seed data extracted from the Excel
@@ -6666,6 +6721,54 @@ const SEED_DATA = [
   }
 ];
 
+const SEED_2025 = [{"month":"Jan 2025","date":"Jan 1st","player":"Eisen","goals":1,"assists":1,"cs":0,"id":0},{"month":"Jan 2025","date":"Jan 1st","player":"Olorunfemi","goals":1,"assists":0,"cs":0,"id":1},{"month":"Jan 2025","date":"Jan 1st","player":"Kenny","goals":1,"assists":0,"cs":0,"id":2},{"month":"Jan 2025","date":"Jan 1st","player":"Farouk","goals":1,"assists":0,"cs":0,"id":3},{"month":"Jan 2025","date":"Jan 1st","player":"Leye","goals":0,"assists":1,"cs":0,"id":4},{"month":"Jan 2025","date":"Jan 1st","player":"Ife","goals":1,"assists":0,"cs":0,"id":5},{"month":"Jan 2025","date":"Jan 4th","player":"Chibuzor","goals":2,"assists":0,"cs":0,"id":6},{"month":"Jan 2025","date":"Jan 4th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":7},{"month":"Jan 2025","date":"Jan 4th","player":"Kola","goals":1,"assists":0,"cs":0,"id":8},{"month":"Jan 2025","date":"Jan 4th","player":"Peter N","goals":1,"assists":1,"cs":0,"id":9},{"month":"Jan 2025","date":"Jan 4th","player":"Nuel","goals":1,"assists":0,"cs":0,"id":10},{"month":"Jan 2025","date":"Jan 4th","player":"Dare","goals":0,"assists":1,"cs":0,"id":11},{"month":"Jan 2025","date":"Jan 4th","player":"Imo","goals":0,"assists":1,"cs":0,"id":12},{"month":"Jan 2025","date":"Jan 18th","player":"Farouk","goals":1,"assists":1,"cs":0,"id":13},{"month":"Jan 2025","date":"Jan 18th","player":"George","goals":1,"assists":0,"cs":0,"id":14},{"month":"Jan 2025","date":"Jan 18th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":15},{"month":"Jan 2025","date":"Jan 18th","player":"Kazzy","goals":1,"assists":0,"cs":0,"id":16},{"month":"Jan 2025","date":"Jan 18th","player":"Chisom Ike","goals":1,"assists":0,"cs":0,"id":17},{"month":"Jan 2025","date":"Jan 18th","player":"Chibuzor","goals":2,"assists":0,"cs":0,"id":18},{"month":"Jan 2025","date":"Jan 18th","player":"Dare","goals":1,"assists":1,"cs":0,"id":19},{"month":"Jan 2025","date":"Jan 18th","player":"Dami Kante","goals":1,"assists":0,"cs":0,"id":20},{"month":"Jan 2025","date":"Jan 18th","player":"Lotanna","goals":0,"assists":1,"cs":0,"id":21},{"month":"Jan 2025","date":"Jan 18th","player":"Eisen","goals":0,"assists":1,"cs":0,"id":22},{"month":"Jan 2025","date":"Jan 18th","player":"Okechukwu","goals":0,"assists":1,"cs":0,"id":23},{"month":"Jan 2025","date":"Jan 25th","player":"Dayo","goals":1,"assists":0,"cs":0,"id":24},{"month":"Jan 2025","date":"Jan 25th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":25},{"month":"Jan 2025","date":"Jan 25th","player":"Akin Benzema","goals":2,"assists":0,"cs":0,"id":26},{"month":"Jan 2025","date":"Jan 25th","player":"Victor GH","goals":1,"assists":0,"cs":0,"id":27},{"month":"Jan 2025","date":"Jan 25th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":28},{"month":"Jan 2025","date":"Jan 25th","player":"Chibuzor","goals":1,"assists":0,"cs":0,"id":29},{"month":"Jan 2025","date":"Jan 25th","player":"Pryde","goals":0,"assists":1,"cs":0,"id":30},{"month":"Jan 2025","date":"Jan 25th","player":"Kinzo","goals":0,"assists":1,"cs":0,"id":31},{"month":"Jan 2025","date":"Jan 25th","player":"Ade","goals":0,"assists":1,"cs":0,"id":32},{"month":"Jan 2025","date":"Jan 25th","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":33},{"month":"Jan 2025","date":"Jan 25th","player":"Dare","goals":0,"assists":1,"cs":0,"id":34},{"month":"Jan 2025","date":"Jan 25th","player":"Olorunfemi","goals":0,"assists":1,"cs":0,"id":35},{"month":"Feb 2025","date":"Feb 1st","player":"Sheyi","goals":2,"assists":0,"cs":0,"id":36},{"month":"Feb 2025","date":"Feb 1st","player":"Kinzo","goals":2,"assists":0,"cs":0,"id":37},{"month":"Feb 2025","date":"Feb 1st","player":"Abdul","goals":1,"assists":0,"cs":0,"id":38},{"month":"Feb 2025","date":"Feb 1st","player":"Sam","goals":1,"assists":0,"cs":0,"id":39},{"month":"Feb 2025","date":"Feb 1st","player":"Dare","goals":1,"assists":0,"cs":0,"id":40},{"month":"Feb 2025","date":"Feb 1st","player":"Victor GH","goals":0,"assists":2,"cs":0,"id":41},{"month":"Feb 2025","date":"Feb 1st","player":"Akin Benzema","goals":0,"assists":1,"cs":0,"id":42},{"month":"Feb 2025","date":"Feb 1st","player":"AB","goals":0,"assists":1,"cs":0,"id":43},{"month":"Feb 2025","date":"Feb 1st","player":"KB","goals":0,"assists":1,"cs":0,"id":44},{"month":"Feb 2025","date":"Feb 1st","player":"Bolu","goals":0,"assists":1,"cs":0,"id":45},{"month":"Feb 2025","date":"Feb 15th","player":"Emma Ajayi","goals":2,"assists":1,"cs":0,"id":46},{"month":"Feb 2025","date":"Feb 15th","player":"Chaves","goals":1,"assists":0,"cs":0,"id":47},{"month":"Feb 2025","date":"Feb 15th","player":"Kola","goals":3,"assists":0,"cs":0,"id":48},{"month":"Feb 2025","date":"Feb 15th","player":"Dami Kante","goals":1,"assists":2,"cs":0,"id":49},{"month":"Feb 2025","date":"Feb 15th","player":"Dare","goals":1,"assists":1,"cs":0,"id":50},{"month":"Feb 2025","date":"Feb 15th","player":"Eisen","goals":1,"assists":0,"cs":0,"id":51},{"month":"Feb 2025","date":"Feb 15th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":52},{"month":"Feb 2025","date":"Feb 15th","player":"Emma Ike","goals":1,"assists":2,"cs":0,"id":53},{"month":"Feb 2025","date":"Feb 22nd","player":"Sheyi","goals":2,"assists":0,"cs":0,"id":54},{"month":"Feb 2025","date":"Feb 22nd","player":"Dumkene","goals":1,"assists":0,"cs":0,"id":55},{"month":"Feb 2025","date":"Feb 22nd","player":"Dare","goals":1,"assists":0,"cs":0,"id":56},{"month":"Feb 2025","date":"Feb 22nd","player":"Dayo","goals":1,"assists":0,"cs":0,"id":57},{"month":"Feb 2025","date":"Feb 22nd","player":"Sinmi","goals":1,"assists":0,"cs":0,"id":58},{"month":"Feb 2025","date":"Feb 22nd","player":"Emma Ajayi","goals":0,"assists":2,"cs":0,"id":59},{"month":"Feb 2025","date":"Feb 22nd","player":"Ife","goals":0,"assists":1,"cs":0,"id":60},{"month":"Feb 2025","date":"Feb 22nd","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":61},{"month":"Feb 2025","date":"Feb 22nd","player":"Johnson","goals":0,"assists":1,"cs":0,"id":62},{"month":"Feb 2025","date":"Feb 22nd","player":"Dayo","goals":0,"assists":1,"cs":0,"id":63},{"month":"Mar 2025","date":"Mar 1st","player":"Abdul","goals":2,"assists":1,"cs":0,"id":64},{"month":"Mar 2025","date":"Mar 1st","player":"Olorunfemi","goals":1,"assists":1,"cs":0,"id":65},{"month":"Mar 2025","date":"Mar 1st","player":"Emma Ike","goals":1,"assists":0,"cs":0,"id":66},{"month":"Mar 2025","date":"Mar 1st","player":"AB","goals":1,"assists":0,"cs":0,"id":67},{"month":"Mar 2025","date":"Mar 1st","player":"Akin Messi","goals":0,"assists":2,"cs":1,"id":68},{"month":"Mar 2025","date":"Mar 1st","player":"Dumkene","goals":0,"assists":0,"cs":1,"id":69},{"month":"Mar 2025","date":"Mar 1st","player":"Burna","goals":0,"assists":0,"cs":1,"id":70},{"month":"Mar 2025","date":"Mar 8th","player":"Dayo","goals":1,"assists":0,"cs":0,"id":71},{"month":"Mar 2025","date":"Mar 8th","player":"Dumkene","goals":1,"assists":0,"cs":0,"id":72},{"month":"Mar 2025","date":"Mar 8th","player":"Emma Ajayi","goals":2,"assists":0,"cs":0,"id":73},{"month":"Mar 2025","date":"Mar 8th","player":"Kola","goals":0,"assists":1,"cs":0,"id":74},{"month":"Mar 2025","date":"Mar 8th","player":"Abdul","goals":0,"assists":1,"cs":0,"id":75},{"month":"Mar 2025","date":"Mar 15th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":76},{"month":"Mar 2025","date":"Mar 15th","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":77},{"month":"Mar 2025","date":"Mar 15th","player":"Olorunfemi","goals":1,"assists":0,"cs":0,"id":78},{"month":"Mar 2025","date":"Mar 15th","player":"Peter I","goals":1,"assists":0,"cs":0,"id":79},{"month":"Mar 2025","date":"Mar 15th","player":"Chibuzor","goals":0,"assists":1,"cs":0,"id":80},{"month":"Mar 2025","date":"Mar 15th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":81},{"month":"Mar 2025","date":"Mar 15th","player":"Kola","goals":0,"assists":1,"cs":0,"id":82},{"month":"Mar 2025","date":"Mar 15th","player":"Abdul","goals":0,"assists":1,"cs":0,"id":83},{"month":"Mar 2025","date":"Mar 15th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":84},{"month":"Mar 2025","date":"Mar 15th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":85},{"month":"Mar 2025","date":"Mar 15th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":86},{"month":"Mar 2025","date":"Mar 15th","player":"Young John","goals":0,"assists":0,"cs":1,"id":87},{"month":"Mar 2025","date":"Mar 22nd","player":"Sheyi","goals":2,"assists":0,"cs":0,"id":88},{"month":"Mar 2025","date":"Mar 22nd","player":"Tos","goals":1,"assists":0,"cs":0,"id":89},{"month":"Mar 2025","date":"Mar 22nd","player":"Eisen","goals":1,"assists":0,"cs":0,"id":90},{"month":"Mar 2025","date":"Mar 22nd","player":"Bolu","goals":0,"assists":1,"cs":0,"id":91},{"month":"Mar 2025","date":"Mar 22nd","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":92},{"month":"Mar 2025","date":"Mar 22nd","player":"Kinzo","goals":0,"assists":1,"cs":0,"id":93},{"month":"Mar 2025","date":"Mar 29th","player":"Daniel","goals":2,"assists":0,"cs":0,"id":94},{"month":"Mar 2025","date":"Mar 29th","player":"Olorunfemi","goals":1,"assists":1,"cs":0,"id":95},{"month":"Mar 2025","date":"Mar 29th","player":"Chris","goals":1,"assists":0,"cs":0,"id":96},{"month":"Mar 2025","date":"Mar 29th","player":"Kamz","goals":1,"assists":0,"cs":0,"id":97},{"month":"Mar 2025","date":"Mar 29th","player":"Giles","goals":1,"assists":0,"cs":0,"id":98},{"month":"Mar 2025","date":"Mar 29th","player":"Abdul","goals":2,"assists":1,"cs":0,"id":99},{"month":"Mar 2025","date":"Mar 29th","player":"Akin Messi","goals":1,"assists":0,"cs":0,"id":100},{"month":"Mar 2025","date":"Mar 29th","player":"Bolu","goals":1,"assists":0,"cs":0,"id":101},{"month":"Mar 2025","date":"Mar 29th","player":"Abdul GH","goals":1,"assists":0,"cs":0,"id":102},{"month":"Mar 2025","date":"Mar 29th","player":"AB","goals":0,"assists":2,"cs":0,"id":103},{"month":"Mar 2025","date":"Mar 29th","player":"Kwaku","goals":0,"assists":1,"cs":0,"id":104},{"month":"Mar 2025","date":"Mar 29th","player":"Peter N","goals":0,"assists":1,"cs":0,"id":105},{"month":"Mar 2025","date":"Mar 29th","player":"Sinmi","goals":0,"assists":1,"cs":0,"id":106},{"month":"Mar 2025","date":"Mar 29th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":107},{"month":"Apr 2025","date":"Apr 5th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":108},{"month":"Apr 2025","date":"Apr 5th","player":"Akin Benzema","goals":2,"assists":0,"cs":0,"id":109},{"month":"Apr 2025","date":"Apr 5th","player":"Chibuzor","goals":2,"assists":0,"cs":0,"id":110},{"month":"Apr 2025","date":"Apr 5th","player":"Peter I","goals":1,"assists":0,"cs":1,"id":111},{"month":"Apr 2025","date":"Apr 5th","player":"Tos","goals":1,"assists":3,"cs":0,"id":112},{"month":"Apr 2025","date":"Apr 5th","player":"Dimeji","goals":2,"assists":0,"cs":0,"id":113},{"month":"Apr 2025","date":"Apr 5th","player":"Kola","goals":1,"assists":0,"cs":0,"id":114},{"month":"Apr 2025","date":"Apr 5th","player":"Abdul","goals":0,"assists":1,"cs":0,"id":115},{"month":"Apr 2025","date":"Apr 5th","player":"Eisen","goals":0,"assists":2,"cs":0,"id":116},{"month":"Apr 2025","date":"Apr 5th","player":"Abas","goals":0,"assists":1,"cs":0,"id":117},{"month":"Apr 2025","date":"Apr 5th","player":"Dayo","goals":0,"assists":1,"cs":0,"id":118},{"month":"Apr 2025","date":"Apr 5th","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":119},{"month":"Apr 2025","date":"Apr 5th","player":"Ade","goals":0,"assists":1,"cs":1,"id":120},{"month":"Apr 2025","date":"Apr 5th","player":"Johnson","goals":0,"assists":0,"cs":1,"id":121},{"month":"Apr 2025","date":"Apr 12th","player":"Akin Benzema","goals":1,"assists":0,"cs":0,"id":122},{"month":"Apr 2025","date":"Apr 12th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":123},{"month":"Apr 2025","date":"Apr 12th","player":"Chuks C","goals":0,"assists":0,"cs":1,"id":124},{"month":"Apr 2025","date":"Apr 12th","player":"Kazzy","goals":0,"assists":0,"cs":1,"id":125},{"month":"Apr 2025","date":"Apr 12th","player":"Dozie","goals":0,"assists":0,"cs":1,"id":126},{"month":"Apr 2025","date":"Apr 12th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":127},{"month":"Apr 2025","date":"Apr 12th","player":"Johnson","goals":0,"assists":0,"cs":1,"id":128},{"month":"Apr 2025","date":"Apr 12th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":129},{"month":"Apr 2025","date":"Apr 12th","player":"Kwaku","goals":0,"assists":0,"cs":1,"id":130},{"month":"Apr 2025","date":"Apr 19th","player":"Kap","goals":1,"assists":1,"cs":0,"id":131},{"month":"Apr 2025","date":"Apr 19th","player":"Mo","goals":1,"assists":0,"cs":0,"id":132},{"month":"Apr 2025","date":"Apr 19th","player":"Chidi","goals":1,"assists":0,"cs":0,"id":133},{"month":"Apr 2025","date":"Apr 19th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":134},{"month":"Apr 2025","date":"Apr 19th","player":"Eisen","goals":1,"assists":2,"cs":0,"id":135},{"month":"Apr 2025","date":"Apr 19th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":136},{"month":"Apr 2025","date":"Apr 19th","player":"Akin Benzema","goals":1,"assists":0,"cs":0,"id":137},{"month":"Apr 2025","date":"Apr 19th","player":"Sunny","goals":0,"assists":1,"cs":0,"id":138},{"month":"Apr 2025","date":"Apr 19th","player":"Victor M","goals":0,"assists":1,"cs":0,"id":139},{"month":"Apr 2025","date":"Apr 19th","player":"Peter I","goals":0,"assists":0,"cs":1,"id":140},{"month":"Apr 2025","date":"Apr 19th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":141},{"month":"Apr 2025","date":"Apr 19th","player":"Kosi","goals":0,"assists":0,"cs":1,"id":142},{"month":"Apr 2025","date":"Apr 26th","player":"Emma Ajayi","goals":2,"assists":1,"cs":0,"id":143},{"month":"Apr 2025","date":"Apr 26th","player":"Ife","goals":1,"assists":0,"cs":0,"id":144},{"month":"Apr 2025","date":"Apr 26th","player":"Manny S","goals":1,"assists":1,"cs":0,"id":145},{"month":"Apr 2025","date":"Apr 26th","player":"Eben","goals":1,"assists":0,"cs":0,"id":146},{"month":"Apr 2025","date":"Apr 26th","player":"Abdul","goals":0,"assists":1,"cs":0,"id":147},{"month":"Apr 2025","date":"Apr 26th","player":"Eisen","goals":0,"assists":1,"cs":0,"id":148},{"month":"Apr 2025","date":"Apr 26th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":149},{"month":"Apr 2025","date":"Apr 26th","player":"Ade","goals":0,"assists":0,"cs":1,"id":150},{"month":"Apr 2025","date":"Apr 26th","player":"Fred","goals":0,"assists":0,"cs":1,"id":151},{"month":"May 2025","date":"May 3rd","player":"Chibuzor","goals":3,"assists":0,"cs":0,"id":152},{"month":"May 2025","date":"May 3rd","player":"Yahya","goals":1,"assists":0,"cs":1,"id":153},{"month":"May 2025","date":"May 3rd","player":"Abdul","goals":1,"assists":0,"cs":0,"id":154},{"month":"May 2025","date":"May 3rd","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":155},{"month":"May 2025","date":"May 3rd","player":"Eben","goals":0,"assists":2,"cs":0,"id":156},{"month":"May 2025","date":"May 3rd","player":"Dismas","goals":0,"assists":1,"cs":1,"id":157},{"month":"May 2025","date":"May 3rd","player":"Akin Benzema","goals":0,"assists":1,"cs":0,"id":158},{"month":"May 2025","date":"May 3rd","player":"Eisen","goals":0,"assists":1,"cs":0,"id":159},{"month":"May 2025","date":"May 3rd","player":"Olorunfemi","goals":0,"assists":1,"cs":0,"id":160},{"month":"May 2025","date":"May 3rd","player":"Moyo","goals":0,"assists":0,"cs":1,"id":161},{"month":"May 2025","date":"May 3rd","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":162},{"month":"May 2025","date":"May 3rd","player":"Dalton","goals":0,"assists":0,"cs":1,"id":163},{"month":"May 2025","date":"May 3rd","player":"Adam","goals":0,"assists":0,"cs":1,"id":164},{"month":"May 2025","date":"May 10th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":165},{"month":"May 2025","date":"May 10th","player":"Sunny","goals":1,"assists":0,"cs":0,"id":166},{"month":"May 2025","date":"May 10th","player":"McAusten","goals":1,"assists":0,"cs":0,"id":167},{"month":"May 2025","date":"May 10th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":168},{"month":"May 2025","date":"May 10th","player":"Sinmi","goals":0,"assists":1,"cs":0,"id":169},{"month":"May 2025","date":"May 10th","player":"Eisen","goals":0,"assists":1,"cs":0,"id":170},{"month":"May 2025","date":"May 10th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":171},{"month":"May 2025","date":"May 10th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":172},{"month":"May 2025","date":"May 10th","player":"Johnson","goals":0,"assists":0,"cs":1,"id":173},{"month":"May 2025","date":"May 10th","player":"Pryde","goals":0,"assists":0,"cs":1,"id":174},{"month":"May 2025","date":"May 17th","player":"Ife","goals":1,"assists":0,"cs":0,"id":175},{"month":"May 2025","date":"May 17th","player":"Dami Kante","goals":1,"assists":0,"cs":0,"id":176},{"month":"May 2025","date":"May 17th","player":"Emma Ike","goals":1,"assists":0,"cs":0,"id":177},{"month":"May 2025","date":"May 17th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":178},{"month":"May 2025","date":"May 17th","player":"Eben","goals":1,"assists":0,"cs":0,"id":179},{"month":"May 2025","date":"May 17th","player":"Forley","goals":0,"assists":1,"cs":0,"id":180},{"month":"May 2025","date":"May 17th","player":"Kinzo","goals":0,"assists":2,"cs":0,"id":181},{"month":"May 2025","date":"May 17th","player":"Chidi","goals":0,"assists":1,"cs":0,"id":182},{"month":"May 2025","date":"May 17th","player":"Farouk","goals":0,"assists":2,"cs":0,"id":183},{"month":"May 2025","date":"May 24th","player":"Kinzo","goals":1,"assists":0,"cs":0,"id":184},{"month":"May 2025","date":"May 24th","player":"Eben","goals":1,"assists":0,"cs":0,"id":185},{"month":"May 2025","date":"May 24th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":186},{"month":"May 2025","date":"May 24th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":187},{"month":"May 2025","date":"May 24th","player":"Farouk","goals":0,"assists":1,"cs":0,"id":188},{"month":"May 2025","date":"May 24th","player":"Kola","goals":0,"assists":1,"cs":0,"id":189},{"month":"May 2025","date":"May 24th","player":"Kazzy","goals":0,"assists":1,"cs":0,"id":190},{"month":"May 2025","date":"May 24th","player":"Dumkene","goals":0,"assists":1,"cs":0,"id":191},{"month":"May 2025","date":"May 24th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":192},{"month":"May 2025","date":"May 24th","player":"Stanley","goals":0,"assists":0,"cs":1,"id":193},{"month":"May 2025","date":"May 24th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":194},{"month":"May 2025","date":"May 26th","player":"Emma Ike","goals":1,"assists":0,"cs":0,"id":195},{"month":"May 2025","date":"May 26th","player":"Kola","goals":3,"assists":0,"cs":0,"id":196},{"month":"May 2025","date":"May 26th","player":"Eisen","goals":1,"assists":0,"cs":0,"id":197},{"month":"May 2025","date":"May 26th","player":"Imo","goals":1,"assists":0,"cs":0,"id":198},{"month":"May 2025","date":"May 26th","player":"Ife","goals":0,"assists":1,"cs":0,"id":199},{"month":"May 2025","date":"May 26th","player":"Kwaku","goals":0,"assists":1,"cs":0,"id":200},{"month":"May 2025","date":"May 26th","player":"Yahya","goals":0,"assists":1,"cs":1,"id":201},{"month":"May 2025","date":"May 26th","player":"Farouk","goals":0,"assists":3,"cs":0,"id":202},{"month":"May 2025","date":"May 26th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":203},{"month":"May 2025","date":"May 26th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":204},{"month":"May 2025","date":"May 31st","player":"Kola","goals":1,"assists":0,"cs":0,"id":205},{"month":"May 2025","date":"May 31st","player":"Farouk","goals":1,"assists":0,"cs":0,"id":206},{"month":"May 2025","date":"May 31st","player":"Olorunfemi","goals":1,"assists":0,"cs":0,"id":207},{"month":"May 2025","date":"May 31st","player":"Ozzy","goals":1,"assists":0,"cs":0,"id":208},{"month":"May 2025","date":"May 31st","player":"Akin Benzema","goals":0,"assists":1,"cs":0,"id":209},{"month":"May 2025","date":"May 31st","player":"Ife","goals":0,"assists":1,"cs":0,"id":210},{"month":"May 2025","date":"May 31st","player":"Eisen","goals":0,"assists":1,"cs":0,"id":211},{"month":"May 2025","date":"May 31st","player":"Johnson","goals":0,"assists":0,"cs":1,"id":212},{"month":"May 2025","date":"May 31st","player":"Standly","goals":0,"assists":0,"cs":1,"id":213},{"month":"May 2025","date":"May 31st","player":"Dami","goals":0,"assists":0,"cs":1,"id":214},{"month":"June 2025","date":"June 7th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":215},{"month":"June 2025","date":"June 7th","player":"Chisom Ike","goals":1,"assists":0,"cs":0,"id":216},{"month":"June 2025","date":"June 7th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":217},{"month":"June 2025","date":"June 7th","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":218},{"month":"June 2025","date":"June 7th","player":"Simi","goals":0,"assists":1,"cs":0,"id":219},{"month":"June 2025","date":"June 7th","player":"Dayo","goals":0,"assists":1,"cs":0,"id":220},{"month":"June 2025","date":"June 7th","player":"Farouk","goals":0,"assists":1,"cs":0,"id":221},{"month":"June 2025","date":"June 7th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":222},{"month":"June 2025","date":"June 7th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":223},{"month":"June 2025","date":"June 7th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":224},{"month":"June 2025","date":"June 7th","player":"Valentine","goals":0,"assists":0,"cs":1,"id":225},{"month":"June 2025","date":"June 7th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":226},{"month":"June 2025","date":"June 7th","player":"KB","goals":0,"assists":0,"cs":1,"id":227},{"month":"June 2025","date":"June 7th","player":"John","goals":0,"assists":0,"cs":1,"id":228},{"month":"June 2025","date":"June 7th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":229},{"month":"June 2025","date":"June 7th","player":"Sunny","goals":0,"assists":0,"cs":1,"id":230},{"month":"June 2025","date":"June 21st","player":"Sheyi","goals":1,"assists":1,"cs":0,"id":231},{"month":"June 2025","date":"June 21st","player":"Kola","goals":1,"assists":1,"cs":0,"id":232},{"month":"June 2025","date":"June 21st","player":"Forley","goals":1,"assists":0,"cs":0,"id":233},{"month":"June 2025","date":"June 21st","player":"Abdul","goals":2,"assists":1,"cs":0,"id":234},{"month":"June 2025","date":"June 21st","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":235},{"month":"June 2025","date":"June 21st","player":"Umar","goals":1,"assists":0,"cs":0,"id":236},{"month":"June 2025","date":"June 21st","player":"Okechukwu","goals":0,"assists":1,"cs":0,"id":237},{"month":"June 2025","date":"June 21st","player":"Kamz","goals":0,"assists":1,"cs":0,"id":238},{"month":"June 2025","date":"June 21st","player":"Dare","goals":0,"assists":1,"cs":0,"id":239},{"month":"June 2025","date":"June 21st","player":"Akin Benzema","goals":0,"assists":1,"cs":0,"id":240},{"month":"June 2025","date":"June 21st","player":"Dami","goals":0,"assists":0,"cs":1,"id":241},{"month":"June 2025","date":"June 21st","player":"Regis","goals":0,"assists":0,"cs":1,"id":242},{"month":"June 2025","date":"June 21st","player":"Chisom Ike","goals":0,"assists":0,"cs":1,"id":243},{"month":"June 2025","date":"June 21st","player":"Ayo","goals":0,"assists":0,"cs":1,"id":244},{"month":"June 2025","date":"June 21st","player":"Moyo","goals":0,"assists":0,"cs":1,"id":245},{"month":"June 2025","date":"June 21st","player":"Dumkene","goals":0,"assists":0,"cs":1,"id":246},{"month":"June 2025","date":"June 28th","player":"Chibuzor","goals":2,"assists":0,"cs":0,"id":247},{"month":"June 2025","date":"June 28th","player":"Emma Ike","goals":1,"assists":0,"cs":0,"id":248},{"month":"June 2025","date":"June 28th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":249},{"month":"June 2025","date":"June 28th","player":"Dayo","goals":1,"assists":0,"cs":0,"id":250},{"month":"June 2025","date":"June 28th","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":251},{"month":"June 2025","date":"June 28th","player":"Peter N","goals":0,"assists":1,"cs":0,"id":252},{"month":"June 2025","date":"June 28th","player":"Kola","goals":0,"assists":1,"cs":0,"id":253},{"month":"June 2025","date":"June 28th","player":"Andy","goals":0,"assists":1,"cs":0,"id":254},{"month":"June 2025","date":"June 28th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":255},{"month":"June 2025","date":"June 28th","player":"Standly","goals":0,"assists":0,"cs":1,"id":256},{"month":"June 2025","date":"June 28th","player":"Timi","goals":0,"assists":0,"cs":1,"id":257},{"month":"June 2025","date":"June 28th","player":"AB","goals":0,"assists":0,"cs":1,"id":258},{"month":"June 2025","date":"June 28th","player":"Kazzy","goals":0,"assists":0,"cs":1,"id":259},{"month":"June 2025","date":"June 28th","player":"Tos","goals":0,"assists":0,"cs":1,"id":260},{"month":"July 2025","date":"July 4th","player":"Stanley","goals":0,"assists":0,"cs":1,"id":261},{"month":"July 2025","date":"July 4th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":262},{"month":"July 2025","date":"July 4th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":263},{"month":"July 2025","date":"July 4th","player":"Standly","goals":0,"assists":0,"cs":1,"id":264},{"month":"July 2025","date":"July 4th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":265},{"month":"July 2025","date":"July 4th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":266},{"month":"July 2025","date":"July 4th","player":"Regis","goals":0,"assists":0,"cs":1,"id":267},{"month":"July 2025","date":"July 4th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":268},{"month":"July 2025","date":"July 4th","player":"Sodiq","goals":0,"assists":0,"cs":1,"id":269},{"month":"July 2025","date":"July 4th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":270},{"month":"July 2025","date":"July 4th","player":"Zicora","goals":0,"assists":0,"cs":1,"id":271},{"month":"July 2025","date":"July 5th","player":"Dapo","goals":1,"assists":0,"cs":0,"id":272},{"month":"July 2025","date":"July 5th","player":"Dare","goals":1,"assists":0,"cs":0,"id":273},{"month":"July 2025","date":"July 5th","player":"Chidi","goals":1,"assists":0,"cs":0,"id":274},{"month":"July 2025","date":"July 5th","player":"McAusten","goals":1,"assists":0,"cs":0,"id":275},{"month":"July 2025","date":"July 5th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":276},{"month":"July 2025","date":"July 5th","player":"Stanley","goals":0,"assists":1,"cs":0,"id":277},{"month":"July 2025","date":"July 5th","player":"Farouk","goals":0,"assists":1,"cs":0,"id":278},{"month":"July 2025","date":"July 5th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":279},{"month":"July 2025","date":"July 5th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":280},{"month":"July 2025","date":"July 5th","player":"Joseph","goals":0,"assists":1,"cs":1,"id":281},{"month":"July 2025","date":"July 5th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":282},{"month":"July 2025","date":"July 5th","player":"Yustao","goals":0,"assists":0,"cs":1,"id":283},{"month":"July 2025","date":"July 5th","player":"Kazzy","goals":0,"assists":0,"cs":1,"id":284},{"month":"July 2025","date":"July 12th","player":"Kola","goals":1,"assists":0,"cs":0,"id":285},{"month":"July 2025","date":"July 12th","player":"Dare","goals":1,"assists":0,"cs":0,"id":286},{"month":"July 2025","date":"July 12th","player":"AB","goals":0,"assists":1,"cs":0,"id":287},{"month":"July 2025","date":"July 12th","player":"Dumkene","goals":0,"assists":1,"cs":0,"id":288},{"month":"July 2025","date":"July 12th","player":"Justice","goals":0,"assists":0,"cs":1,"id":289},{"month":"July 2025","date":"July 12th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":290},{"month":"July 2025","date":"July 12th","player":"Stanley","goals":0,"assists":0,"cs":1,"id":291},{"month":"July 2025","date":"July 12th","player":"Kamz","goals":0,"assists":0,"cs":1,"id":292},{"month":"July 2025","date":"July 12th","player":"Lotanna","goals":0,"assists":0,"cs":1,"id":293},{"month":"July 2025","date":"July 12th","player":"Standly","goals":0,"assists":0,"cs":1,"id":294},{"month":"July 2025","date":"July 12th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":295},{"month":"July 2025","date":"July 12th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":296},{"month":"July 2025","date":"July 12th","player":"Oluchi","goals":0,"assists":0,"cs":1,"id":297},{"month":"July 2025","date":"July 19th","player":"Sunny","goals":1,"assists":0,"cs":0,"id":298},{"month":"July 2025","date":"July 19th","player":"Peter N","goals":2,"assists":0,"cs":0,"id":299},{"month":"July 2025","date":"July 19th","player":"Dare","goals":0,"assists":1,"cs":0,"id":300},{"month":"July 2025","date":"July 19th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":301},{"month":"July 2025","date":"July 19th","player":"Standly","goals":0,"assists":0,"cs":1,"id":302},{"month":"July 2025","date":"July 19th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":303},{"month":"July 2025","date":"July 26th","player":"Farouk","goals":1,"assists":0,"cs":0,"id":304},{"month":"July 2025","date":"July 26th","player":"Tdexx","goals":1,"assists":0,"cs":0,"id":305},{"month":"July 2025","date":"July 26th","player":"Dare","goals":0,"assists":1,"cs":0,"id":306},{"month":"July 2025","date":"July 26th","player":"Sheyi","goals":0,"assists":1,"cs":0,"id":307},{"month":"July 2025","date":"July 26th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":308},{"month":"July 2025","date":"July 26th","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":309},{"month":"July 2025","date":"July 26th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":310},{"month":"July 2025","date":"July 26th","player":"Ade","goals":0,"assists":0,"cs":1,"id":311},{"month":"July 2025","date":"July 26th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":312},{"month":"July 2025","date":"July 26th","player":"Emma","goals":0,"assists":0,"cs":1,"id":313},{"month":"Aug 2025","date":"Aug 2nd","player":"Peter N","goals":1,"assists":0,"cs":0,"id":314},{"month":"Aug 2025","date":"Aug 2nd","player":"Sunny","goals":1,"assists":0,"cs":0,"id":315},{"month":"Aug 2025","date":"Aug 2nd","player":"Isaac","goals":1,"assists":0,"cs":0,"id":316},{"month":"Aug 2025","date":"Aug 2nd","player":"Dare","goals":1,"assists":0,"cs":0,"id":317},{"month":"Aug 2025","date":"Aug 2nd","player":"Yemi","goals":1,"assists":0,"cs":0,"id":318},{"month":"Aug 2025","date":"Aug 2nd","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":319},{"month":"Aug 2025","date":"Aug 2nd","player":"Dayo","goals":0,"assists":1,"cs":0,"id":320},{"month":"Aug 2025","date":"Aug 2nd","player":"Kenny","goals":0,"assists":1,"cs":0,"id":321},{"month":"Aug 2025","date":"Aug 2nd","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":322},{"month":"Aug 2025","date":"Aug 2nd","player":"Leye","goals":0,"assists":1,"cs":0,"id":323},{"month":"Aug 2025","date":"Aug 2nd","player":"Bolu","goals":0,"assists":1,"cs":0,"id":324},{"month":"Aug 2025","date":"Aug 2nd","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":325},{"month":"Aug 2025","date":"Aug 2nd","player":"Ife","goals":0,"assists":0,"cs":1,"id":326},{"month":"Aug 2025","date":"Aug 2nd","player":"Olorunfemi","goals":0,"assists":1,"cs":1,"id":327},{"month":"Aug 2025","date":"Aug 2nd","player":"Stanley","goals":0,"assists":0,"cs":1,"id":328},{"month":"Aug 2025","date":"Aug 2nd","player":"Akin Messi","goals":0,"assists":0,"cs":1,"id":329},{"month":"Aug 2025","date":"Aug 2nd","player":"Kamsi","goals":0,"assists":0,"cs":1,"id":330},{"month":"Aug 2025","date":"Aug 9th","player":"Abdul","goals":1,"assists":1,"cs":0,"id":331},{"month":"Aug 2025","date":"Aug 9th","player":"Kola","goals":1,"assists":0,"cs":0,"id":332},{"month":"Aug 2025","date":"Aug 9th","player":"Kazzy","goals":1,"assists":0,"cs":0,"id":333},{"month":"Aug 2025","date":"Aug 9th","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":334},{"month":"Aug 2025","date":"Aug 9th","player":"Chidi","goals":1,"assists":0,"cs":0,"id":335},{"month":"Aug 2025","date":"Aug 9th","player":"AJ","goals":0,"assists":1,"cs":0,"id":336},{"month":"Aug 2025","date":"Aug 9th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":337},{"month":"Aug 2025","date":"Aug 9th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":338},{"month":"Aug 2025","date":"Aug 9th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":339},{"month":"Aug 2025","date":"Aug 9th","player":"John","goals":0,"assists":0,"cs":1,"id":340},{"month":"Aug 2025","date":"Aug 16th","player":"Sunny","goals":1,"assists":1,"cs":0,"id":341},{"month":"Aug 2025","date":"Aug 16th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":342},{"month":"Aug 2025","date":"Aug 16th","player":"Dayo","goals":0,"assists":1,"cs":0,"id":343},{"month":"Aug 2025","date":"Aug 16th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":344},{"month":"Aug 2025","date":"Aug 16th","player":"Manny","goals":0,"assists":0,"cs":1,"id":345},{"month":"Aug 2025","date":"Aug 16th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":346},{"month":"Aug 2025","date":"Aug 16th","player":"Stanley","goals":0,"assists":0,"cs":1,"id":347},{"month":"Aug 2025","date":"Aug 16th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":348},{"month":"Aug 2025","date":"Aug 16th","player":"Victor","goals":0,"assists":0,"cs":1,"id":349},{"month":"Aug 2025","date":"Aug 23rd","player":"Peter N","goals":2,"assists":1,"cs":0,"id":350},{"month":"Aug 2025","date":"Aug 23rd","player":"Jibo","goals":1,"assists":1,"cs":0,"id":351},{"month":"Aug 2025","date":"Aug 23rd","player":"Dayo","goals":1,"assists":0,"cs":0,"id":352},{"month":"Aug 2025","date":"Aug 23rd","player":"Chidi","goals":0,"assists":1,"cs":0,"id":353},{"month":"Aug 2025","date":"Aug 23rd","player":"Moyo","goals":0,"assists":1,"cs":0,"id":354},{"month":"Aug 2025","date":"Aug 23rd","player":"Ayo","goals":0,"assists":0,"cs":1,"id":355},{"month":"Aug 2025","date":"Aug 23rd","player":"Regis","goals":0,"assists":0,"cs":1,"id":356},{"month":"Aug 2025","date":"Aug 23rd","player":"Brandon","goals":0,"assists":0,"cs":1,"id":357},{"month":"Aug 2025","date":"Aug 30th","player":"Sunny","goals":1,"assists":0,"cs":0,"id":358},{"month":"Aug 2025","date":"Aug 30th","player":"Stanley","goals":1,"assists":1,"cs":1,"id":359},{"month":"Aug 2025","date":"Aug 30th","player":"Zinga","goals":1,"assists":0,"cs":0,"id":360},{"month":"Aug 2025","date":"Aug 30th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":361},{"month":"Aug 2025","date":"Aug 30th","player":"Bolu","goals":1,"assists":1,"cs":0,"id":362},{"month":"Aug 2025","date":"Aug 30th","player":"Ife","goals":0,"assists":0,"cs":1,"id":363},{"month":"Aug 2025","date":"Aug 30th","player":"Leo","goals":0,"assists":0,"cs":1,"id":364},{"month":"Aug 2025","date":"Aug 30th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":365},{"month":"Aug 2025","date":"Aug 30th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":366},{"month":"Aug 2025","date":"Aug 30th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":367},{"month":"Sept 2025","date":"Sept 1st","player":"Kola","goals":2,"assists":0,"cs":0,"id":368},{"month":"Sept 2025","date":"Sept 1st","player":"Dare","goals":1,"assists":0,"cs":0,"id":369},{"month":"Sept 2025","date":"Sept 1st","player":"Emma Ajayi","goals":2,"assists":0,"cs":0,"id":370},{"month":"Sept 2025","date":"Sept 1st","player":"Olorunfemi","goals":1,"assists":1,"cs":0,"id":371},{"month":"Sept 2025","date":"Sept 1st","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":372},{"month":"Sept 2025","date":"Sept 1st","player":"Emma Ike","goals":1,"assists":1,"cs":0,"id":373},{"month":"Sept 2025","date":"Sept 1st","player":"Standly","goals":0,"assists":1,"cs":0,"id":374},{"month":"Sept 2025","date":"Sept 1st","player":"AB","goals":0,"assists":1,"cs":0,"id":375},{"month":"Sept 2025","date":"Sept 1st","player":"Eisen","goals":0,"assists":2,"cs":0,"id":376},{"month":"Sept 2025","date":"Sept 1st","player":"Ife","goals":0,"assists":1,"cs":0,"id":377},{"month":"Sept 2025","date":"Sept 1st","player":"Yahya","goals":0,"assists":0,"cs":1,"id":378},{"month":"Sept 2025","date":"Sept 1st","player":"Akin Benzema","goals":0,"assists":0,"cs":1,"id":379},{"month":"Sept 2025","date":"Sept 1st","player":"Sunny","goals":0,"assists":0,"cs":1,"id":380},{"month":"Sept 2025","date":"Sept 6th","player":"Kazzy","goals":1,"assists":0,"cs":1,"id":381},{"month":"Sept 2025","date":"Sept 6th","player":"Kola","goals":1,"assists":0,"cs":0,"id":382},{"month":"Sept 2025","date":"Sept 6th","player":"Farouk","goals":0,"assists":1,"cs":0,"id":383},{"month":"Sept 2025","date":"Sept 6th","player":"Olorunfemi","goals":0,"assists":1,"cs":1,"id":384},{"month":"Sept 2025","date":"Sept 6th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":385},{"month":"Sept 2025","date":"Sept 6th","player":"Ade","goals":0,"assists":0,"cs":1,"id":386},{"month":"Sept 2025","date":"Sept 6th","player":"Ife","goals":0,"assists":0,"cs":1,"id":387},{"month":"Sept 2025","date":"Sept 6th","player":"Peter I","goals":0,"assists":0,"cs":1,"id":388},{"month":"Sept 2025","date":"Sept 6th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":389},{"month":"Sept 2025","date":"Sept 6th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":390},{"month":"Sept 2025","date":"Sept 6th","player":"Kwaku","goals":0,"assists":0,"cs":1,"id":391},{"month":"Sept 2025","date":"Sept 13th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":392},{"month":"Sept 2025","date":"Sept 13th","player":"Chidi","goals":1,"assists":0,"cs":0,"id":393},{"month":"Sept 2025","date":"Sept 13th","player":"Peter N","goals":2,"assists":0,"cs":0,"id":394},{"month":"Sept 2025","date":"Sept 13th","player":"Ife","goals":0,"assists":1,"cs":0,"id":395},{"month":"Sept 2025","date":"Sept 13th","player":"Chibuzor","goals":0,"assists":1,"cs":0,"id":396},{"month":"Sept 2025","date":"Sept 13th","player":"Abdul","goals":0,"assists":2,"cs":0,"id":397},{"month":"Sept 2025","date":"Sept 13th","player":"Ismail","goals":0,"assists":0,"cs":1,"id":398},{"month":"Sept 2025","date":"Sept 13th","player":"Victor","goals":0,"assists":0,"cs":1,"id":399},{"month":"Sept 2025","date":"Sept 13th","player":"Kazzy","goals":0,"assists":0,"cs":1,"id":400},{"month":"Sept 2025","date":"Sept 13th","player":"Standly","goals":0,"assists":0,"cs":1,"id":401},{"month":"Sept 2025","date":"Sept 13th","player":"Burna","goals":0,"assists":0,"cs":1,"id":402},{"month":"Sept 2025","date":"Sept 13th","player":"Kosi","goals":0,"assists":0,"cs":1,"id":403},{"month":"Sept 2025","date":"Sept 20th","player":"Dare","goals":2,"assists":0,"cs":0,"id":404},{"month":"Sept 2025","date":"Sept 20th","player":"Abdul","goals":1,"assists":1,"cs":0,"id":405},{"month":"Sept 2025","date":"Sept 20th","player":"Farouk","goals":1,"assists":0,"cs":0,"id":406},{"month":"Sept 2025","date":"Sept 20th","player":"Kinzo","goals":2,"assists":0,"cs":0,"id":407},{"month":"Sept 2025","date":"Sept 20th","player":"Zinga","goals":0,"assists":1,"cs":0,"id":408},{"month":"Sept 2025","date":"Sept 20th","player":"Chibuzor","goals":0,"assists":1,"cs":0,"id":409},{"month":"Sept 2025","date":"Sept 20th","player":"Sodiq","goals":0,"assists":1,"cs":0,"id":410},{"month":"Sept 2025","date":"Sept 20th","player":"Sheyi","goals":0,"assists":1,"cs":0,"id":411},{"month":"Sept 2025","date":"Sept 20th","player":"Ismail","goals":0,"assists":1,"cs":0,"id":412},{"month":"Sept 2025","date":"Sept 20th","player":"Olorunfemi","goals":0,"assists":0,"cs":1,"id":413},{"month":"Sept 2025","date":"Sept 20th","player":"Ife","goals":0,"assists":0,"cs":1,"id":414},{"month":"Sept 2025","date":"Sept 20th","player":"Taiwo","goals":0,"assists":0,"cs":1,"id":415},{"month":"Oct 2025","date":"Oct 4th","player":"Tdexx","goals":1,"assists":3,"cs":0,"id":416},{"month":"Oct 2025","date":"Oct 4th","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":417},{"month":"Oct 2025","date":"Oct 4th","player":"Farouk","goals":2,"assists":0,"cs":0,"id":418},{"month":"Oct 2025","date":"Oct 4th","player":"Standly","goals":1,"assists":0,"cs":0,"id":419},{"month":"Oct 2025","date":"Oct 4th","player":"Sheyi","goals":1,"assists":0,"cs":0,"id":420},{"month":"Oct 2025","date":"Oct 4th","player":"Michael","goals":0,"assists":1,"cs":0,"id":421},{"month":"Oct 2025","date":"Oct 4th","player":"Kola","goals":0,"assists":1,"cs":0,"id":422},{"month":"Oct 2025","date":"Oct 4th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":423},{"month":"Oct 2025","date":"Oct 4th","player":"Farouk","goals":0,"assists":0,"cs":1,"id":424},{"month":"Oct 2025","date":"Oct 4th","player":"Ultimate Abd","goals":0,"assists":0,"cs":1,"id":425},{"month":"Oct 2025","date":"Oct 4th","player":"Dami Kante","goals":0,"assists":0,"cs":1,"id":426},{"month":"Oct 2025","date":"Oct 11th","player":"Peter N","goals":2,"assists":0,"cs":0,"id":427},{"month":"Oct 2025","date":"Oct 11th","player":"Sunny","goals":1,"assists":0,"cs":0,"id":428},{"month":"Oct 2025","date":"Oct 11th","player":"Dumkene","goals":0,"assists":1,"cs":0,"id":429},{"month":"Oct 2025","date":"Oct 11th","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":430},{"month":"Oct 2025","date":"Oct 11th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":431},{"month":"Oct 2025","date":"Oct 11th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":432},{"month":"Oct 2025","date":"Oct 11th","player":"Augustus","goals":0,"assists":0,"cs":1,"id":433},{"month":"Oct 2025","date":"Oct 18th","player":"Moyo","goals":1,"assists":0,"cs":0,"id":434},{"month":"Oct 2025","date":"Oct 18th","player":"Sheyi","goals":2,"assists":1,"cs":0,"id":435},{"month":"Oct 2025","date":"Oct 18th","player":"Dare","goals":1,"assists":0,"cs":0,"id":436},{"month":"Oct 2025","date":"Oct 18th","player":"Dayo","goals":1,"assists":0,"cs":0,"id":437},{"month":"Oct 2025","date":"Oct 18th","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":438},{"month":"Oct 2025","date":"Oct 18th","player":"Prof","goals":1,"assists":0,"cs":0,"id":439},{"month":"Oct 2025","date":"Oct 18th","player":"Kwaku","goals":1,"assists":0,"cs":0,"id":440},{"month":"Oct 2025","date":"Oct 18th","player":"Chidi","goals":0,"assists":2,"cs":0,"id":441},{"month":"Oct 2025","date":"Oct 18th","player":"Akin Benzema","goals":0,"assists":1,"cs":0,"id":442},{"month":"Oct 2025","date":"Oct 18th","player":"Abdul","goals":0,"assists":1,"cs":0,"id":443},{"month":"Oct 2025","date":"Oct 18th","player":"Dimeji","goals":0,"assists":1,"cs":0,"id":444},{"month":"Oct 2025","date":"Oct 18th","player":"Charles","goals":0,"assists":0,"cs":1,"id":445},{"month":"Oct 2025","date":"Oct 18th","player":"Johnson","goals":0,"assists":0,"cs":1,"id":446},{"month":"Oct 2025","date":"Oct 18th","player":"Stanley","goals":0,"assists":0,"cs":1,"id":447},{"month":"Oct 2025","date":"Oct 25th","player":"Tdexx","goals":1,"assists":0,"cs":0,"id":448},{"month":"Oct 2025","date":"Oct 25th","player":"Sheyi","goals":4,"assists":0,"cs":0,"id":449},{"month":"Oct 2025","date":"Oct 25th","player":"Peter N","goals":1,"assists":0,"cs":0,"id":450},{"month":"Oct 2025","date":"Oct 25th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":451},{"month":"Oct 2025","date":"Oct 25th","player":"AB","goals":0,"assists":1,"cs":0,"id":452},{"month":"Oct 2025","date":"Oct 25th","player":"Dimeji","goals":0,"assists":1,"cs":0,"id":453},{"month":"Oct 2025","date":"Oct 25th","player":"Akin Benzema","goals":0,"assists":1,"cs":0,"id":454},{"month":"Oct 2025","date":"Oct 25th","player":"Johnson","goals":0,"assists":0,"cs":1,"id":455},{"month":"Oct 2025","date":"Oct 25th","player":"Olorunfemi","goals":0,"assists":0,"cs":1,"id":456},{"month":"Oct 2025","date":"Oct 25th","player":"Victor","goals":0,"assists":0,"cs":1,"id":457},{"month":"Oct 2025","date":"Oct 25th","player":"Ayo","goals":0,"assists":0,"cs":1,"id":458},{"month":"Oct 2025","date":"Oct 25th","player":"Standly","goals":0,"assists":0,"cs":1,"id":459},{"month":"Oct 2025","date":"Oct 25th","player":"Dayo Bellingham","goals":0,"assists":0,"cs":1,"id":460},{"month":"Nov 2025","date":"Nov 1st","player":"Peter N","goals":1,"assists":0,"cs":0,"id":461},{"month":"Nov 2025","date":"Nov 1st","player":"Abdul","goals":2,"assists":0,"cs":0,"id":462},{"month":"Nov 2025","date":"Nov 1st","player":"Olorunfemi","goals":0,"assists":1,"cs":1,"id":463},{"month":"Nov 2025","date":"Nov 1st","player":"Dare","goals":0,"assists":2,"cs":0,"id":464},{"month":"Nov 2025","date":"Nov 1st","player":"John","goals":0,"assists":0,"cs":1,"id":465},{"month":"Nov 2025","date":"Nov 1st","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":466},{"month":"Nov 2025","date":"Nov 1st","player":"Victor","goals":0,"assists":0,"cs":1,"id":467},{"month":"Nov 2025","date":"Nov 1st","player":"Johnson","goals":0,"assists":0,"cs":1,"id":468},{"month":"Nov 2025","date":"Nov 1st","player":"Ayo","goals":0,"assists":0,"cs":1,"id":469},{"month":"Nov 2025","date":"Nov 8th","player":"Chibuzor","goals":1,"assists":0,"cs":0,"id":470},{"month":"Nov 2025","date":"Nov 8th","player":"Alex C","goals":1,"assists":0,"cs":0,"id":471},{"month":"Nov 2025","date":"Nov 8th","player":"Sunny","goals":2,"assists":0,"cs":0,"id":472},{"month":"Nov 2025","date":"Nov 8th","player":"AB","goals":1,"assists":0,"cs":0,"id":473},{"month":"Nov 2025","date":"Nov 8th","player":"CY","goals":0,"assists":1,"cs":0,"id":474},{"month":"Nov 2025","date":"Nov 8th","player":"Peter N","goals":0,"assists":1,"cs":0,"id":475},{"month":"Nov 2025","date":"Nov 8th","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":476},{"month":"Nov 2025","date":"Nov 8th","player":"Olorunfemi","goals":0,"assists":0,"cs":1,"id":477},{"month":"Nov 2025","date":"Nov 8th","player":"Eben","goals":0,"assists":0,"cs":1,"id":478},{"month":"Nov 2025","date":"Nov 8th","player":"Anish","goals":0,"assists":0,"cs":1,"id":479},{"month":"Nov 2025","date":"Nov 8th","player":"Abdul GH","goals":0,"assists":0,"cs":1,"id":480},{"month":"Nov 2025","date":"Nov 8th","player":"Yahya","goals":0,"assists":0,"cs":1,"id":481},{"month":"Nov 2025","date":"Nov 8th","player":"John C","goals":0,"assists":0,"cs":1,"id":482},{"month":"Nov 2025","date":"Nov 15th","player":"Dimeji","goals":1,"assists":0,"cs":0,"id":483},{"month":"Nov 2025","date":"Nov 15th","player":"Emma Ajayi","goals":1,"assists":0,"cs":0,"id":484},{"month":"Nov 2025","date":"Nov 15th","player":"Eisen","goals":1,"assists":0,"cs":0,"id":485},{"month":"Nov 2025","date":"Nov 15th","player":"Akin Benzema","goals":1,"assists":0,"cs":0,"id":486},{"month":"Nov 2025","date":"Nov 15th","player":"Dare","goals":0,"assists":1,"cs":0,"id":487},{"month":"Nov 2025","date":"Nov 15th","player":"Dami Kante","goals":0,"assists":1,"cs":0,"id":488},{"month":"Nov 2025","date":"Nov 15th","player":"Sheyi","goals":0,"assists":1,"cs":0,"id":489},{"month":"Nov 2025","date":"Nov 15th","player":"CY","goals":0,"assists":1,"cs":0,"id":490},{"month":"Nov 2025","date":"Nov 15th","player":"Dismas","goals":0,"assists":0,"cs":1,"id":491},{"month":"Nov 2025","date":"Nov 15th","player":"Olorunfemi","goals":0,"assists":0,"cs":1,"id":492},{"month":"Nov 2025","date":"Nov 15th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":493},{"month":"Nov 2025","date":"Nov 15th","player":"Stanley","goals":0,"assists":0,"cs":1,"id":494},{"month":"Nov 2025","date":"Nov 15th","player":"Johnson","goals":0,"assists":0,"cs":1,"id":495},{"month":"Nov 2025","date":"Nov 15th","player":"Oluchi","goals":0,"assists":0,"cs":1,"id":496},{"month":"Nov 2025","date":"Nov 22nd","player":"Tdexx","goals":2,"assists":0,"cs":0,"id":497},{"month":"Nov 2025","date":"Nov 22nd","player":"Peter N","goals":1,"assists":0,"cs":0,"id":498},{"month":"Nov 2025","date":"Nov 22nd","player":"Chris","goals":1,"assists":1,"cs":0,"id":499},{"month":"Nov 2025","date":"Nov 22nd","player":"Abdul","goals":1,"assists":0,"cs":0,"id":500},{"month":"Nov 2025","date":"Nov 22nd","player":"Dayo","goals":1,"assists":0,"cs":0,"id":501},{"month":"Nov 2025","date":"Nov 22nd","player":"Moses","goals":0,"assists":1,"cs":0,"id":502},{"month":"Nov 2025","date":"Nov 22nd","player":"Tos","goals":0,"assists":1,"cs":0,"id":503},{"month":"Nov 2025","date":"Nov 22nd","player":"CY","goals":0,"assists":1,"cs":0,"id":504},{"month":"Nov 2025","date":"Nov 22nd","player":"Sunny","goals":0,"assists":1,"cs":0,"id":505},{"month":"Nov 2025","date":"Nov 22nd","player":"Mayowa","goals":0,"assists":0,"cs":1,"id":506},{"month":"Nov 2025","date":"Nov 22nd","player":"Eben","goals":0,"assists":0,"cs":1,"id":507},{"month":"Nov 2025","date":"Nov 22nd","player":"Olorunfemi","goals":0,"assists":0,"cs":1,"id":508},{"month":"Nov 2025","date":"Nov 22nd","player":"Moyo","goals":0,"assists":0,"cs":1,"id":509},{"month":"Nov 2025","date":"Nov 22nd","player":"John","goals":0,"assists":0,"cs":1,"id":510},{"month":"Nov 2025","date":"Nov 22nd","player":"Stanley","goals":0,"assists":0,"cs":1,"id":511},{"month":"Nov 2025","date":"Nov 27th","player":"AJ","goals":1,"assists":0,"cs":0,"id":512},{"month":"Nov 2025","date":"Nov 27th","player":"Oche","goals":1,"assists":0,"cs":0,"id":513},{"month":"Nov 2025","date":"Nov 27th","player":"Eisen","goals":2,"assists":0,"cs":0,"id":514},{"month":"Nov 2025","date":"Nov 27th","player":"Moses","goals":2,"assists":0,"cs":0,"id":515},{"month":"Nov 2025","date":"Nov 27th","player":"Abdul","goals":1,"assists":0,"cs":0,"id":516},{"month":"Nov 2025","date":"Nov 27th","player":"CY","goals":1,"assists":0,"cs":0,"id":517},{"month":"Nov 2025","date":"Nov 27th","player":"Sheyi","goals":1,"assists":2,"cs":0,"id":518},{"month":"Nov 2025","date":"Nov 27th","player":"Emma Ajayi","goals":0,"assists":1,"cs":0,"id":519},{"month":"Nov 2025","date":"Nov 27th","player":"Chidi","goals":0,"assists":1,"cs":1,"id":520},{"month":"Nov 2025","date":"Nov 27th","player":"Peter N","goals":0,"assists":1,"cs":0,"id":521},{"month":"Nov 2025","date":"Nov 27th","player":"Kwaku","goals":0,"assists":1,"cs":0,"id":522},{"month":"Nov 2025","date":"Nov 27th","player":"Emma Ike","goals":0,"assists":1,"cs":0,"id":523},{"month":"Nov 2025","date":"Nov 27th","player":"Tos","goals":0,"assists":0,"cs":1,"id":524},{"month":"Nov 2025","date":"Nov 27th","player":"Toye","goals":0,"assists":0,"cs":1,"id":525},{"month":"Nov 2025","date":"Nov 27th","player":"Farouk","goals":0,"assists":0,"cs":1,"id":526},{"month":"Nov 2025","date":"Nov 27th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":527},{"month":"Nov 2025","date":"Nov 27th","player":"Standly","goals":0,"assists":0,"cs":1,"id":528},{"month":"Nov 2025","date":"Nov 29th","player":"Jomi","goals":1,"assists":0,"cs":0,"id":529},{"month":"Nov 2025","date":"Nov 29th","player":"Sami","goals":1,"assists":0,"cs":0,"id":530},{"month":"Nov 2025","date":"Nov 29th","player":"Emma Ajayi","goals":2,"assists":0,"cs":0,"id":531},{"month":"Nov 2025","date":"Nov 29th","player":"Alex","goals":1,"assists":0,"cs":0,"id":532},{"month":"Nov 2025","date":"Nov 29th","player":"Dapo","goals":0,"assists":1,"cs":0,"id":533},{"month":"Nov 2025","date":"Nov 29th","player":"Dare","goals":0,"assists":1,"cs":0,"id":534},{"month":"Nov 2025","date":"Nov 29th","player":"Alex","goals":0,"assists":1,"cs":0,"id":535},{"month":"Nov 2025","date":"Nov 29th","player":"John Terminator","goals":0,"assists":1,"cs":0,"id":536},{"month":"Nov 2025","date":"Nov 29th","player":"Dayo","goals":0,"assists":1,"cs":0,"id":537},{"month":"Nov 2025","date":"Nov 29th","player":"Moyo","goals":0,"assists":0,"cs":1,"id":538},{"month":"Nov 2025","date":"Nov 29th","player":"Farouk","goals":0,"assists":0,"cs":1,"id":539},{"month":"Nov 2025","date":"Nov 29th","player":"John","goals":0,"assists":0,"cs":1,"id":540}];
+const POTM_2025 = {
+  "Jan 2025": {
+    "player": "Chibuzor",
+    "note": "5 goals in January"
+  },
+  "Feb 2025": {
+    "player": "Sheyi",
+    "note": "5 goals in February"
+  },
+  "Mar 2025": {
+    "player": "Abdul",
+    "note": "4 goals, 4 assists in March"
+  },
+  "Apr 2025": {
+    "player": "Eisen",
+    "note": "1 goal, 5 assists in April"
+  },
+  "May 2025": {
+    "player": "Farouk",
+    "note": "1 goal, 6 assists in May"
+  },
+  "June 2025": {
+    "player": "Abdul",
+    "note": "3 goals, 1 assist in June"
+  },
+  "July 2025": {
+    "player": "Abdul GH, Akin Messi, Yahya, Dare",
+    "note": "A clean-sheet wall from Abdul GH, Akin Messi and Yahya, with Dare on 2 goals and 2 assists"
+  },
+  "Aug 2025": {
+    "player": "Peter N, Stanley",
+    "note": "Level on 5 \u2014 Peter N's 4 goals against Stanley's goal, assist and 3 clean sheets"
+  },
+  "Sept 2025": {
+    "player": "Olorunfemi",
+    "note": "1 goal, 2 assists, 2 clean sheets in September"
+  },
+  "Oct 2025": {
+    "player": "Sheyi",
+    "note": "7 goals, 1 assist in October"
+  },
+  "Nov 2025": {
+    "player": "Emma Ajayi",
+    "note": "3 goals, 2 assists in November"
+  }
+};
+
 let matchData = [];
 let isAdmin = false;
 let selectedMonth = 'Jan 2026';
@@ -6674,30 +6777,76 @@ let editingId = null;
 // ─── DATA VERSION ─────────────────────────────────────────────
 // Bump this number any time seed data changes (POTM updates, corrections etc.)
 // All visitors with an older version will automatically get fresh data.
-const DATA_VERSION = 29;
+const DATA_VERSION = 42;
 
 function checkVersion() {
   const storedVersion = parseInt(localStorage.getItem('ff2026_version') || '0');
   if (storedVersion < DATA_VERSION) {
     // Clear old data so fresh seed is loaded
+    ['2025','2026'].forEach(function (y) {
+      localStorage.removeItem('ff_' + y + '_data');
+      localStorage.removeItem('ff_' + y + '_potm');
+    });
     localStorage.removeItem('ff2026_data');
     localStorage.removeItem('ff2026_potm');
     localStorage.setItem('ff2026_version', DATA_VERSION);
   }
 }
 
+const MONTHS_BY_SEASON = { '2025': MONTHS_2025, '2026': MONTHS_2026 };
+// resolved lazily: POTM_SEED is declared further down the file
+function seedFor(y)     { return y === '2025' ? SEED_2025 : SEED_DATA; }
+function potmSeedFor(y) { return y === '2025' ? POTM_2025 : POTM_SEED; }
+let store = { '2025': { data: [], potm: {} }, '2026': { data: [], potm: {} } };
+
 function loadData() {
-  const stored = null;
-  if (stored) {
-    matchData = JSON.parse(stored);
-  } else {
-    matchData = SEED_DATA.map((e, i) => ({ ...e, id: i }));
-    saveData();
-  }
+  ['2025','2026'].forEach(function (y) {
+    store[y].data = seedFor(y).map(function (e, i) { return Object.assign({}, e, { id: i }); });
+    store[y].potm = Object.assign({}, potmSeedFor(y));
+  });
+  applySeason();
+}
+
+// point the live globals at the selected season
+function applySeason() {
+  matchData = store[SEASON].data;
+  potmData  = store[SEASON].potm;
+  MONTHS    = MONTHS_BY_SEASON[SEASON];
+  var withData = MONTHS.filter(function (m) {
+    return matchData.some(function (e) { return e.month === m; });
+  });
+  selectedMonth = withData.length ? withData[withData.length - 1] : MONTHS[0];
+  ['f-month','potm-f-month'].forEach(function (id) {
+    var sel = document.getElementById(id);
+    if (sel) sel.innerHTML = MONTHS.map(function (m) {
+      return '<option value="' + m + '">' + m + '</option>';
+    }).join('');
+  });
+}
+
+function switchSeason(y) {
+  if (!MONTHS_BY_SEASON[y]) return;
+  SEASON = y;
+  applySeason();
+  updateSeasonChrome();
+  renderAll();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateSeasonChrome() {
+  document.querySelectorAll('.season-btn').forEach(function (b) {
+    b.classList.toggle('active', b.getAttribute('data-year') === SEASON);
+  });
+  var t = document.getElementById('stats-title');
+  if (t) t.textContent = SEASON + ' Stats';
+  document.querySelectorAll('.season-label').forEach(function (s) {
+    s.textContent = SEASON + ' Season';
+  });
 }
 
 function saveData() {
-  localStorage.setItem('ff2026_data', JSON.stringify(matchData));
+  store[SEASON].data = matchData;
+  localStorage.setItem('ff_' + SEASON + '_data', JSON.stringify(matchData));
 }
 
 function nextId() {
@@ -6971,7 +7120,7 @@ function editEntry(id) {
   const trigger = document.getElementById('cal-trigger');
   if (trigger) trigger.classList.add('selected');
   // Restore calSelectedDate
-  const mIdx = MONTH_TO_IDX[e.month];
+  const mIdx = monthToIdx(e.month);
   const dayMatch = e.date.match(/(\d+)/);
   if (dayMatch && mIdx !== undefined) {
     calSelectedDate = { month: mIdx, day: parseInt(dayMatch[1]) };
@@ -7109,18 +7258,11 @@ const POTM_SEED = {
 
 let potmData = {};
 
-function loadPOTM() {
-  const stored = null;
-  if (stored) {
-    potmData = JSON.parse(stored);
-  } else {
-    potmData = { ...POTM_SEED };
-    savePOTMData();
-  }
-}
+function loadPOTM() { /* seasons loaded in loadData() */ }
 
 function savePOTMData() {
-  localStorage.setItem('ff2026_potm', JSON.stringify(potmData));
+  store[SEASON].potm = potmData;
+  localStorage.setItem('ff_' + SEASON + '_potm', JSON.stringify(potmData));
 }
 
 function savePOTM() {
@@ -7367,8 +7509,13 @@ function prefillPOTM(month) {
 // ─── EXPORT HTML ──────────────────────────────────────────────
 function exportHTML() {
   const html = document.documentElement.outerHTML;
-  const liveMatchData = JSON.stringify(matchData, null, 2);
-  const livePotmData  = JSON.stringify(potmData,  null, 2);
+  // make sure the in-memory store reflects the season currently being edited
+  store[SEASON].data = matchData;
+  store[SEASON].potm = potmData;
+  const liveMatchData = JSON.stringify(store['2026'].data, null, 2);
+  const livePotmData  = JSON.stringify(store['2026'].potm, null, 2);
+  const live2025Data  = JSON.stringify(store['2025'].data);
+  const live2025Potm  = JSON.stringify(store['2025'].potm, null, 2);
   const nextVersion   = DATA_VERSION + 1;
 
   // Bake in live match data
@@ -7382,6 +7529,23 @@ function exportHTML() {
     /const POTM_SEED = \{[\s\S]*?\};/,
     `const POTM_SEED = ${livePotmData};`
   );
+
+  // Bake in the 2025 season as well
+  exported = exported.replace(
+    /const SEED_2025 = \[[\s\S]*?\];/,
+    `const SEED_2025 = ${live2025Data};`
+  );
+  exported = exported.replace(
+    /const POTM_2025 = \{[\s\S]*?\};/,
+    `const POTM_2025 = ${live2025Potm};`
+  );
+
+  // Always export sitting on the 2026 season
+  exported = exported.replace(/id="stats-title">\d{4} Stats</, 'id="stats-title">2026 Stats<');
+  exported = exported.replace(/<span class="season-label">\d{4} Season<\/span>/g,
+                              '<span class="season-label">2026 Season</span>');
+  exported = exported.replace(/class="season-btn active" data-year="2025"/, 'class="season-btn" data-year="2025"');
+  exported = exported.replace(/class="season-btn" data-year="2026"/, 'class="season-btn active" data-year="2026"');
 
   // Bump the version so all returning visitors get fresh data
   exported = exported.replace(
@@ -7438,6 +7602,7 @@ function exportHTML() {
 checkVersion();
 loadData();
 loadPOTM();
+updateSeasonChrome();
 renderAll();
 initNav();
 setTimeout(syncHomeStats,400);
